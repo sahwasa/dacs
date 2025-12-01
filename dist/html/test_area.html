@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+  <link rel="icon" href="../images/logo.png" type="image/x-icon" />
+  <title>재난예경보장치제어시스템</title>
+  <link rel="stylesheet" href="../font/fontello/css/fontello.css">
+  <link rel="stylesheet" href="../font/Pretendard-1.3.9/pretendard.css">
+  <link rel="stylesheet" href="../css/cmmn.css">
+  <link rel="stylesheet" href="../css/pop.css">
+</head>
+<body>
+
+<div id="wrap" class="wrap">
+  <header class="header">
+  <div class="top_wrap">
+    <h1 class="main_logo">
+      <a href="../html/connect_stat.html?index=1,1">재난 예경보장치 제어시스템</a>
+    </h1> 
+    <div class="util">
+      <div class="top_stat">
+        <b>예 · 경보 통합플랫폼 연결상태</b>
+        <!-- <i class="ico_connection">연결됨</i> -->
+        <button type="button" class="ico_disconnection" popovertarget="warning_platform_info">연결안됨</button>
+      </div>
+      <div class="account">
+        <button type="button" class="btn_account" popovertarget="p_userInfo">홍길동</button>
+        <button type="button" class="btn_logout" onclick="location.href='login.html'">로그아웃</button>
+      </div>
+    </div>
+  </div>
+</header>
+<nav class="nav">
+  <ul class="nav_lst">
+    <li><a href="../html/connect_stat.html" class="on">연계현황</a></li>
+    <li><a href="../html/history.html">발령이력</a></li>
+    <li><a href="../html/test_area.html">시험발령</a>
+      <ul class="sub">
+        <li><a href="../html/test_area.html">지역단위 발령</a></li>
+        <li><a href="../html/test_device.html">개별단말 발령</a></li>
+      </ul>
+    </li>
+    <li><a href="../html/admin_device.html">단말 장치관리</a></li>
+    <li><a href="../html/admin_user.html">시스템관리</a>
+      <ul class="sub">
+        <li><a href="../html/admin_user.html">사용자관리</a></li>
+        <li><a href="../html/admin_set.html">시스템설정</a></li>
+        <li><a href="../html/admin_code.html">공통코드 관리</a></li>
+        <li><a href="../html/admin_log.html">로그관리</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+<!-- 내정보 팝업 -->
+<dialog id="p_userInfo" class="pop_wrap" popover="manual">
+  <header class="pop_tit">
+    <h1>내정보</h1>
+    <div class="tool_wrap">
+      <button type="button" class="btn_cross" popovertarget="p_userInfo" popvertargetaction="hide">닫기</button>
+    </div>
+  </header>
+  <section class="pop_body">
+    <table class="tbl_ipt full_ipt">
+      <caption>예경보 종합 플랫폼 연결정보</caption>
+      <tbody>
+      <tr>
+        <th scope="row"><label for="" class="required">사용자ID</label></th>
+        <td>Admin</td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="" class="required">사용자명</label></th>
+        <td><input type="text"></td>
+      </tr>
+      <!-- 수정 시
+      <tr>
+        <th scope="row"><label for="" class="required">비밀번호</label></th>
+        <td><input type="password"></td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="" class="required">비밀번호 확인</label></th>
+        <td><input type="password">
+          <p class="invalid">비밀번호가 일치하지 않습니다.</p>
+        </td>
+      </tr> -->
+      <tr>
+        <th scope="row"><label for="">소속기관</label></th>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="">부서</label></th>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="">직급</label></th>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="" class="required">핸드폰</label></th>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="">이메일</label></th>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="">권한</label></th>
+        <td>사용자</td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="pop_foot">
+    <button type="submit" class="btn_default">저장</button>
+    <button type="submit" class="btn_gray">수정</button>
+    <button type="button" class="btn_cancel" popovertarget="p_userInfo" popvertargetaction="hide">닫기</button>
+  </section>
+</dialog>
+<!-- 내정보 팝업__e -->
+<!-- 예경보 종합 플랫폼 연결정보 -->
+<dialog id="warning_platform_info" class="pop_wrap" popover="manual">
+  <header class="pop_tit">
+    <h1>예경보 종합 플랫폼 연결정보</h1>
+    <div class="tool_wrap">
+      <button type="button" class="btn_cross" popovertarget="warning_platform_info" popvertargetaction="hide">닫기</button>
+    </div>
+  </header>
+  <section class="pop_body"> 
+    <table class="tbl_ipt full_ipt">
+      <caption>예경보 종합 플랫폼 연결정보</caption>
+      <tr>
+        <th scope="row"><label for="" class="required">IP</label></th>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="" class="required">Port</label></th>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="" class="required">ID</label></th>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="" class="required">비밀번호</label></th>
+        <td><input type="text"></td>
+      </tr>
+    </table>
+    <div class="connect_test">
+      <button type="button" class="btn_test">테스트</button>
+      <span class="success">연결성공</span>
+      <span class="error">연결실패시 사유</span>
+    </div>
+  </section>
+  <section class="pop_foot">
+    <button type="submit" class="btn_default">저장</button>
+    <button type="submit" class="btn_gray">수정</button>
+    <button type="button" class="btn_cancel" popovertarget="warning_platform_info" popvertargetaction="hide">닫기</button>
+  </section>
+</dialog>
+<!-- 예경보 종합 플랫폼 연결정보 팝업__e -->
+    
+  <main id="content" class="main_container">
+    <nav class="lnb">
+  <h1>시험발령</h1>
+  <ul class="lnb_lst">
+    <li class="on"><a href="../html/test_area.html">지역단위 발령</a></li>
+    <li><a href="../html/test_device.html">개별단말 발령</a></li>
+  </ul>
+</nav>
+    <div class="cont_body">
+      <section class="bredcrumb">
+        <ul>
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>시험발령</li>
+          <li>지역단위 발령</li>
+        </ul>
+      </section>
+      <header class="tit">
+        <h1>지역단위 발령<span>시험발령</span></h1>        
+      </header>
+      <div>
+        <ul class="ipt_lst">
+          <li>
+            <label for="">재난유형(event):</label>
+            <input type="text">
+          </li>
+          <li>
+            <label for="">근거(source):</label>
+            <input type="text">
+          </li>
+          <li>
+            <label for="">세부유형(eventCode)</label>
+            <input type="text">
+          </li>
+          <li>
+            <label for="">제목(headline.ko-KR):</label>
+            <input type="text">
+          </li>
+          <li>
+            <label for="">처리코드(code)</label>
+            <input type="text">
+          </li>
+          <li>
+            <label for="">메시지ID(identifier):</label>
+            <input type="text">
+          </li>      
+          <li class="full inline">
+            <span class="label">장치구분(멀티)</span>
+            <ul class="device_type">
+              <li><label for=""><input type="checkbox">전체</label></li>
+              <li><label for=""><input type="checkbox">자동음성통보</label></li>
+              <li><label for=""><input type="checkbox">재해문자전광판</label></li>
+            </ul>
+          </li>
+          <li class="full">
+            <span class="label">지역</span>
+            <ul class="ipt_group">
+              <li><select name="" id="" title="시군구 선택"><option value="">시군구</option></select></li>
+              <li><select name="" id="" title="읍면동 선택"><option value="">읍면동</option></select></li>
+              <li><select name="" id="" title="리 선택"><option value="">리</option></select></li>
+            </ul>
+            <div class="selected">
+              <ul class="tag_lst">
+                <li>부천시<button type="button" class="btn_cross">삭제</button></li>
+                <li>안양시 만안구<button type="button" class="btn_cross">삭제</button></li>
+              </ul>
+            </div>            
+          </li>
+        </ul>
+        <ul class="ipt_lst">
+          <li class="full">
+            <label for="">재해문자전광판 40(Text40.ko-KR)</label>
+            <textarea name="" id="" wrap="hard" cols="90" rows="1"></textarea>
+          </li>
+          <li class="full">
+            <label for="">재해문자전광판 80(Text80.ko-KR)</label>
+            <textarea name="" id="" wrap="hard" cols="90" rows="1"></textarea>
+          </li>
+          <li class="full">
+            <label for="">마을방송(VoiceText.ko-KR)</label>
+            <textarea name="" id="" wrap="hard" cols="90" rows="1"></textarea>
+          </li>
+        </ul>
+        <div class="section_bot">
+          <div class="tool">
+            <button type="button" class="btn_gray_line">초기화</button>
+            <button type="button" class="btn_default">시험발령</button>
+          </div>
+        </div>
+      </div>
+    </div>  
+  </main>
+  <footer class="footer">
+Copyright © 기상청 기상통신소. All Rights RESERVED
+</footer>
+</div>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/ui_cmmn.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
+<script>
+  function displayCurrentTime() {
+    var timeView = document.querySelector('#cur_tm');
+    if (timeView == undefined) return;
+    var currentTime = new Date();
+    var year = currentTime.getFullYear();
+    var month = (currentTime.getMonth() + 1).toString().padStart(2, '0');
+    var day = currentTime.getDate().toString().padStart(2, '0');
+    var daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
+    var dayOfWeek = daysOfWeek[currentTime.getDay()];
+    var hours = currentTime.getHours();
+    var minutes = currentTime.getMinutes();
+    var seconds = currentTime.getSeconds();
+    hours = (hours < 10) ? "0" + hours : hours;
+    minutes = (minutes < 10) ? "0" + minutes : minutes;
+    seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+    var dateString = `${year}-${month}-${day} `;
+    var timeString = `${hours}:${minutes}:${seconds}`;
+
+    // document.querySelector('#today').innerHTML = dateString;
+    
+    timeView.innerHTML = dateString + timeString;
+  };
+  displayCurrentTime();
+  setInterval(displayCurrentTime, 1000);
+  commonInit();
+</script>
+
+</body>
+</html>

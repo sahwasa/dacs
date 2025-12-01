@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+  <link rel="icon" href="../images/logo.png" type="image/x-icon" />
+  <title>재난예경보장치제어시스템</title>
+  <link rel="stylesheet" href="../font/fontello/css/fontello.css">
+  <link rel="stylesheet" href="../font/Pretendard-1.3.9/pretendard.css">
+  <link rel="stylesheet" href="../css/cmmn.css">
+  <link rel="stylesheet" href="../css/pop.css">
+</head>
+<body>
+
+<div id="wrap" class="wrap">
+  <header class="header">
+  <div class="top_wrap">
+    <h1 class="main_logo">
+      <a href="../html/voc_motr.html?index=1,1">
+        <img src="../images/logo_voice_weather.png" alt="기상청 기상통신소-음성기상방송시스템">
+        <img src="../images/logo_voice_weather_f.png" alt="기상청 기상통신소-음성기상방송시스템" loading="lazy" class="abnormal_logo">
+      </a>
+    </h1>
+    <!-- <h1 class="main_logo">
+      <a href="../html/wrls_fax_motr.html?index=1,1">
+        <img src="../images/logo_wireless_fax.png" alt="기상청 기상통신소-무선FAX기상방송시스템">
+        <img src="../images/logo_wireless_fax_f.png" alt="기상청 기상통신소-무선FAX기상방송시스템" loading="lazy" class="abnormal_logo">
+      </a>
+    </h1> -->
+    <!-- <div id="cur_tm" class="time_banner">2025-01-01 08:47:30</div> -->
+    <!-- 비정상상태 -->
+    <div id="cur_tm" class="time_banner">2025-01-01 08:47:30</div>
+    <div class="util">
+      <div class="profile">
+        <!-- <button type="button" class="icobtn_login">로그인</button> -->
+        <em class="account">
+          <b>홍길동</b>님
+          <button type="button" class="btn_logout">로그아웃</button>
+        </em>
+      </div>
+    </div>
+  </div>
+</header>
+<nav class="nav">
+  <ul class="nav_lst">
+    <li><a href="../html/voc_motr.html" class="on">모니터링</a></li>
+    <li><a href="../html/bc_stt.html">현황조회</a>
+      <ul class="sub">
+        <li><a href="../html/bc_stt.html">방송현황</a></li>
+        <li><a href="../html/msg_rcv_stt.html">전문수신현황</a></li>
+      </ul>
+    </li>     
+    <li><a href="../html/day_bc_jrnl.html">보고서</a>
+      <ul class="sub">
+        <li><a href="../html/day_bc_jrnl.html">일별 방송일지</a></li>
+        <li><a href="../html/prd_bc_agg.html">기간별 방송집계</a></li>
+        <li><a href="../html/bc_err_log.html">방송 오류일지</a></li>
+      </ul>
+    </li>
+    <li><a href="../html/scrpt_mng.html">시스템관리</a>
+      <ul class="sub">
+        <li><a href="../html/scrpt_mng.html">방송원고관리</a></li>
+        <li><a href="../html/voc_scrpt_mng.html">원고관리</a></li>
+        <li><a href="../html/schdl_mng.html">시간표관리</a></li>
+        <li><a href="../html/sys_set.html">시스템설정</a></li>
+        <li><a href="../html/user_mng.html">사용자관리</a></li>
+        <li><a href="../html/tmpl_mng.html">탬플릿관리</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>    
+  <main id="content" class="main_container">
+    <div class="cont_body">
+      <div class="flex_wrap">
+        <section class="left_section bc_stt">
+          <header class="tit">
+            <h1>방송 현황</h1>
+            <div class="tool">              
+              <div class="switch_toggle">                
+                <label for="on_air" data-labelon="방송중" data-labeloff="방송중지"><input type="checkbox" id="on_air" checked>방송상태</label>
+              </div>
+            </div>
+          </header>
+          <div class="flex_wrap">
+            <div class="bc_stt_item done">
+              <strong>이전 방송<span>07:32</span></strong>
+              <div class="desc">
+                <p class="txt">동아시아지상일기도</p>
+                <em class="stt done">방송완료</em>
+              </div>
+            </div>
+            <div class="bc_stt_item prgrs">
+              <strong>현재 방송<span>07:32</span></strong>
+              <div class="desc">
+                <p class="txt">전구해상풍파고예상도</p>
+                <em class="stt doc_crt">TEXT원고생성</em>
+              </div>
+            </div>
+            <div class="bc_stt_item">
+              <strong>대기 방송<span>07:32</span></strong>
+              <div class="desc">
+                <p class="txt">파랑실황도</p>
+                <em class="stt doc_rcv">전문수신(08:50)</em>
+              </div>
+            </div>
+          </div>
+          <section class="bc_stt_desc">
+            <figure>
+              <figcaption class="section_tit">전구해상풍파고예상도</figcaption>
+              <img src="https://picsum.photos/seed/1/711/435" alt="">
+            </figure>
+          </section>
+        </section>
+        <section class="right_section bc_schdl_fax">
+          <header class="tit">
+            <h1>방송 시간표</h1>
+            <div class="tool">
+              <button type="button" class="icobtn_reset">리셋</button>
+              <div class="switch_ico">                
+                <label for="mute" class="icobtn_mute"><input type="checkbox" id="mute">음소거</label>
+              </div>
+            </div>
+          </header>
+          <div class="tbl_wrap">
+            <!-- //done:방송완료,doc_crt:원고생성,doc_delay,:전문지연,doc_rcv:전문수신,unbc:미방송,bc_cncl:방송취소,delay:지연,normal:정상 -->
+            <table class="tbl_default">
+              <caption>방송 시간표</caption>
+              <colgroup>
+                <col style="width:40px;"/>
+                <col style="width:65px;" span="2"/>
+                <col />
+                <col style="width:140px;"/>
+                <col style="width:50px;"/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">번호</th>
+                  <th scope="col">원고생성</th>
+                  <th scope="col">방송시간</th>
+                  <th scope="col">방송내용</th>
+                  <th scope="col">상태</th>
+                  <th scope="col">보기</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>07:37</td>
+                  <td>07:37</td>
+                  <td>중기해상예보</td>
+                  <td><i class="stt done">방송완료</i></td>
+                  <td><button type="button" class="btn_steelblue_line">보기</button></td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>07:37</td>
+                  <td>07:37</td>
+                  <td>해상예보</td>
+                  <td><i class="stt doc_rcv">전문수신(08:50)</i></td>
+                  <td><button type="button" class="btn_steelblue_line">보기</button></td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>07:37</td>
+                  <td>07:37</td>
+                  <td>해상예보</td>
+                  <td><i class="stt doc_delay">전문지연</i></td>
+                  <td><button type="button" class="btn_steelblue_line">보기</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>      
+    </div>  
+  </main>
+  <footer class="footer">
+Copyright © 기상청 기상통신소. All Rights RESERVED
+</footer>
+</div>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/ui_cmmn.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
+<script>
+  function displayCurrentTime() {
+    var timeView = document.querySelector('#cur_tm');
+    if (timeView == undefined) return;
+    var currentTime = new Date();
+    var year = currentTime.getFullYear();
+    var month = (currentTime.getMonth() + 1).toString().padStart(2, '0');
+    var day = currentTime.getDate().toString().padStart(2, '0');
+    var daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
+    var dayOfWeek = daysOfWeek[currentTime.getDay()];
+    var hours = currentTime.getHours();
+    var minutes = currentTime.getMinutes();
+    var seconds = currentTime.getSeconds();
+    hours = (hours < 10) ? "0" + hours : hours;
+    minutes = (minutes < 10) ? "0" + minutes : minutes;
+    seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+    var dateString = `${year}-${month}-${day} `;
+    var timeString = `${hours}:${minutes}:${seconds}`;
+
+    // document.querySelector('#today').innerHTML = dateString;
+    
+    timeView.innerHTML = dateString + timeString;
+  };
+  displayCurrentTime();
+  setInterval(displayCurrentTime, 1000);
+  commonInit();
+</script>
+
+</body>
+</html>

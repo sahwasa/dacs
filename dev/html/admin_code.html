@@ -1,0 +1,170 @@
+@@include('../inc/top.html')
+<div id="wrap" class="wrap">
+  @@include('../inc/header.html')    
+  <main id="content" class="main_container">
+    @@include('../inc/lnb_admin.html')
+    <div class="cont_body">
+      <section class="bredcrumb">
+        <ul>
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>시스템관리</li>
+          <li>공통코드 관리</li>
+        </ul>
+      </section>
+      <header class="tit">
+        <h1>공통코드 관리<span>시스템관리</span></h1>        
+      </header>
+      <div class="flex_wrap admin_code">
+        <section class="section">
+          <div class="tit">
+            <h2>그룹코드</h2>
+            <div class="tool">
+              <button type="button" class="btn_add" popovertarget="p_codeAdmin">추가</button>
+              <button type="button" class="btn_modify" popovertarget="p_codeAdmin">수정</button>
+              <button type="button" class="btn_del">삭제</button>
+            </div>
+          </div>
+          <div class="tbl_wrap">
+            <table class="tbl_default">
+              <caption>그룹코드</caption>
+              <thead>
+                <tr>
+                  <th scope="col">선택</th>
+                  <th scope="col">코드명</th>
+                  <th scope="col">설명</th>
+                  <th scope="col">사용여부</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input type="checkbox" title="줄선택"></td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <div class="switch_toggle">
+                      <label for="useYN0">
+                        <input type="checkbox" class="type_check" id="useYN0"> 사용여부
+                      </label>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" title="줄선택"></td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <div class="switch_toggle">
+                      <label for="useYN1">
+                        <input type="checkbox" class="type_check" id="useYN1"> 사용여부
+                      </label>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section class="section">
+          <div class="tit">
+            <h2>상세코드</h2>
+            <div class="tool">
+              <button type="button" class="btn_add" popovertarget="p_codeAdmin">추가</button>
+              <button type="button" class="btn_modify" popovertarget="p_codeAdmin">수정</button>
+              <button type="button" class="btn_del">삭제</button>
+            </div>
+          </div>
+          <div class="tbl_wrap">
+            <table class="tbl_default">
+              <caption>상세코드</caption>
+              <thead>
+                <tr>
+                  <th scope="col">선택</th>
+                  <th scope="col">코드명</th>
+                  <th scope="col">설명</th>
+                  <th scope="col">사용여부</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input type="checkbox" title="줄선택"></td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <div class="switch_toggle">
+                      <label for="useYN1-1">
+                        <input type="checkbox" class="type_check" id="useYN1-1"> 사용여부
+                      </label>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" title="줄선택"></td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <div class="switch_toggle">
+                      <label for="useYN1-2">
+                        <input type="checkbox" class="type_check" id="useYN1-2"> 사용여부
+                      </label>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        
+      </div>      
+    </div>  
+  </main>
+  @@include('../inc/footer.html')
+</div>
+<!-- 코드관리 팝업 -->
+<dialog id="p_codeAdmin" class="pop_wrap p_codeAdmin" popover="manual">
+  <header class="pop_tit">
+    <h1>그룹 or 상세코드 추가 / 수정</h1>
+    <div class="tool_wrap">
+      <button type="button" class="btn_cross" popovertarget="p_codeAdmin" popvertargetaction="hide">닫기</button>
+    </div>
+  </header>
+  <section class="pop_body">
+    <table class="tbl_ipt full_ipt">
+      <caption>예경보 종합 플랫폼 연결정보</caption>
+      <tbody>
+      <tr>
+        <th scope="row">그룹 코드</th>
+        <td>상세코드 일 때 그룹코드명</td>
+      </tr>      
+      <tr>
+        <th scope="row"><label for="" class="required">코드명</label></th>
+        <td><input type="text"></td>
+      </tr>      
+      <tr>
+        <th scope="row"><label for="" class="required">설명</label></th>
+        <td><input type="password"></td>
+      </tr>      
+      <tr>
+        <th scope="row">사용여부</th>
+        <td>
+          <div class="switch_toggle">
+            <label for="useYN_P">
+              <input type="checkbox" class="type_check" id="useYN_P" checked> 사용여부
+            </label>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="pop_foot">
+    <button type="submit" class="btn_default">저장</button>
+    <button type="submit" class="btn_gray">수정</button>
+    <button type="button" class="btn_cancel" popovertarget="p_codeAdmin" popvertargetaction="hide">닫기</button>
+  </section>
+</dialog>
+<!-- 코드관리 팝업__e -->
+@@include('../inc/script.html')
+</body>
+</html>

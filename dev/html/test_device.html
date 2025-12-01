@@ -1,0 +1,186 @@
+@@include('../inc/top.html')
+<div id="wrap" class="wrap">
+  @@include('../inc/header.html')    
+  <main id="content" class="main_container">
+    @@include('../inc/lnb_test_alert.html')    
+    <div class="cont_body">
+      <section class="bredcrumb">
+        <ul>
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>시험발령</li>
+          <li>개별단말 발령</li>
+        </ul>
+      </section>
+      <header class="tit">
+        <h1>개별단말 발령<span>시험발령</span></h1>        
+      </header>
+      <div>
+        <ul class="ipt_lst">
+          <li>
+            <label for="">재난유형(event):</label>
+            <input type="text">
+          </li>
+          <li>
+            <label for="">근거(source):</label>
+            <input type="text">
+          </li>
+          <li>
+            <label for="">세부유형(eventCode)</label>
+            <input type="text">
+          </li>
+          <li>
+            <label for="">제목(headline.ko-KR):</label>
+            <input type="text">
+          </li>
+          <li>
+            <label for="">처리코드(code)</label>
+            <input type="text">
+          </li>
+          <li>
+            <label for="">메시지ID(identifier):</label>
+            <input type="text">
+          </li>      
+          <li class="full inline">
+            <span class="label">장치구분(멀티)</span>
+            <ul class="device_type">
+              <li><label for=""><input type="checkbox">전체</label></li>
+              <li><label for=""><input type="checkbox">자동음성통보</label></li>
+              <li><label for=""><input type="checkbox">재해문자전광판</label></li>
+            </ul>
+          </li>
+          <li class="full">
+            <span class="label">개별 단말장치</span>
+            <button type="button" class="btn_default_line"  popovertarget="p_select_device">단말장치 선택</button>
+            <div class="selected tbl_wrap">
+              <table class="tbl_default">
+                <caption>선택된 단말기 목록</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">순번</th>
+                    <th scope="col">장치구분</th>
+                    <th scope="col">단말장치그룹</th>
+                    <th scope="col">단말 장치명</th>
+                    <th scope="col">설치지역</th>
+                    <th scope="col">설치주소</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>1</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> </tr>
+                  <tr><td>2</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> </tr>
+                  <tr><td>3</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> </tr>
+                </tbody>
+              </table>              
+            </div>            
+          </li>
+        </ul>
+        <ul class="ipt_lst">
+          <li class="full">
+            <label for="">재해문자전광판 40(Text40.ko-KR)</label>
+            <textarea name="" id="" wrap="hard" cols="90" rows="1"></textarea>
+          </li>
+          <li class="full">
+            <label for="">재해문자전광판 80(Text80.ko-KR)</label>
+            <textarea name="" id="" wrap="hard" cols="90" rows="1"></textarea>
+          </li>
+          <li class="full">
+            <label for="">마을방송(VoiceText.ko-KR)</label>
+            <textarea name="" id="" wrap="hard" cols="90" rows="1"></textarea>
+          </li>
+        </ul>
+        <div class="section_bot">
+          <div class="tool">
+            <button type="button" class="btn_gray_line">초기화</button>
+            <button type="button" class="btn_default">시험발령</button>
+          </div>
+        </div>
+      </div>
+    </div>  
+  </main>
+  @@include('../inc/footer.html')
+</div>
+<!-- 단말장치 선택 팝업 -->
+<dialog id="p_select_device" class="pop_wrap p_select_device" popover="manual">
+  <header class="pop_tit">
+    <h1>단말장치 선택</h1>
+    <div class="tool">
+      <button type="button" class="btn_cross" popovertarget="p_select_device" popvertargetaction="hide">닫기</button>
+    </div>
+  </header>
+  <section class="pop_body flex_vertical_wrap">
+    <section>
+      <div class="search">
+        <ul class="search_lst">              
+          <li>
+            <select name="" id="" title="단말기 그룹">
+              <option value="">단말기 그룹(공통코드)</option>
+            </select>
+          </li>
+          <li>
+            <select name="" id="" title="지역 대분류">
+              <option value="">시군구</option>
+            </select>
+            <select name="" id="" title="지역 중분류">
+              <option value="">읍면동</option>
+            </select>                
+          </li>
+          <li><input type="text" placeholder="발령지역" title="발령지역"></li>
+        </ul>
+        <button type="button" class="btn_default">검색</button>           
+      </div>
+      <div class="tbl_wrap">
+        <table class="tbl_default">
+          <caption>선택된 단말기 목록</caption>
+          <thead>
+            <tr>
+              <th scope="col">선택</th>
+              <th scope="col">장치구분</th>
+              <th scope="col">단말장치그룹</th>
+              <th scope="col">단말 장치명</th>
+              <th scope="col">설치지역</th>
+              <th scope="col">설치주소</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr> <td><input type="checkbox" title="선택"></td>  <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> </tr>
+            <tr> <td><input type="checkbox" title="선택"></td>  <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> </tr>
+            <tr> <td><input type="checkbox" title="선택"></td>  <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <section class="linked_top">
+      <div class="tbl_wrap">
+        <table class="tbl_default">
+          <caption>선택된 단말기 목록</caption>
+          <thead>
+            <tr>
+              <th scope="col">장치구분</th>
+              <th scope="col">단말장치그룹</th>
+              <th scope="col">단말 장치명</th>
+              <th scope="col">설치지역</th>
+              <th scope="col">설치주소</th>
+              <th scope="col">삭제</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr></td>  <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> </tr>
+            <tr></td>  <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> </tr>
+            <tr></td>  <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </section>
+  <section class="pop_foot">
+    <button type="submit" class="btn_gray_line">초기화</button>
+    <button type="submit" class="btn_default">적용</button>
+    <button type="button" class="btn_cancel" popovertarget="p_select_device" popvertargetaction="hide">취소</button>
+  </section>
+</dialog>
+<!-- 단말장치 선택 팝업__e -->
+@@include('../inc/script.html')
+
+</body>
+</html>

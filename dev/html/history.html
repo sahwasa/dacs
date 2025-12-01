@@ -1,0 +1,206 @@
+@@include('../inc/top.html')
+<div id="wrap" class="wrap">
+  @@include('../inc/header.html')    
+  <main id="content" class="main_container">
+    <div class="cont_body">
+      <section class="bredcrumb">
+        <ul>
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>발령이력</li>
+        </ul>
+      </section>
+      <header class="tit">
+        <h1>발령이력</h1>        
+      </header>
+      <div class="flex_vertical_wrap">
+        <section class="">
+          <header class="tit blind">
+            <h2>재난 발령이력</h2>            
+          </header>
+          <div class="search">
+            <ul class="search_lst">
+              <li>
+                <div class="ipt_range">
+                  <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31" lang="en">
+                  <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
+                </div>
+              </li>
+              <li>
+                <select name="" id="" title="자동,수동선택">
+                  <option value="">자동</option><option value="">수동</option>
+                </select>
+              </li>
+              <li>
+                <select name="" id="" title="자동,수동선택">
+                  <option value="">실제</option><option value="">훈련</option><option value="">시험</option>
+                </select>
+              </li>
+              <li>
+                <select name="" id="" title="재난 대분류">
+                  <option value="">자연재난</option><option value="">사회재난</option>
+                </select>
+                <select name="" id="" title="재난 중분류">
+                  <option value="">강풍</option>
+                </select>                
+              </li>
+              <li><input type="text" placeholder="발령지역" title="발령지역"></li>
+            </ul>
+            <button type="button" class="btn_default">검색</button>
+            <div class="tool">
+              <button type="button" class="btn_excel">엑셀다운</button>
+            </div>
+          </div>
+          <div class="tbl_wrap alert_history">
+            <table class="tbl_default tbl_hover">
+              <caption>재난 발령이력</caption>
+              <thead>
+                <tr>
+                  <th scope="col">순번</th>
+                  <th scope="col">사업자</th>
+                  <th scope="col">홍보기관</th>
+                  <th scope="col">재난유형</th>
+                  <th scope="col">재난유형</th>
+                  <th scope="col">발생일시</th>
+                  <th scope="col">제목</th>
+                  <th scope="col">수신일시</th>
+                  <th scope="col">통보완료일시</th>
+                  <th scope="col">전송결과</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="on">
+                  <td>1</td>
+                  <td>사업자</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><span class="txt_success">성공</span></td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>사업자</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><span class="txt_fail">실패</span></td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>사업자</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><span class="txt_fail">실패</span></td>
+                </tr>                
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section class="linked_top">
+          <header class="tit">
+            <h2>단말기 발송 결과</h2>            
+          </header>
+          <div class="search">
+            <ul class="search_lst">            
+              <li>
+                <select name="" id="" title="단말기 그룹">
+                  <option value="">단말기 그룹</option>
+                </select>
+              </li>          
+              <li>
+                <select name="" id="" title="지역 대분류">
+                  <option value="">시군구</option>
+                </select>
+                <select name="" id="" title="지역 중분류">
+                  <option value="">읍면동</option>
+                </select>                
+              </li>
+              <li><input type="text" placeholder="장비명/지역명" title="검색어"></li>
+            </ul>
+            <button type="button" class="btn_default">검색</button>
+            <div class="tool">
+              <button type="button" class="btn_excel">엑셀다운</button>
+            </div>
+          </div>
+          <div class="tbl_wrap">
+            <table class="tbl_default">
+              <caption>재난 발령이력</caption>
+              <thead>
+                <tr>
+                  <th scope="col">순번</th>
+                  <th scope="col">단말기그룹</th>
+                  <th scope="col">장치구분</th>
+                  <th scope="col">단말계정</th>
+                  <th scope="col">단말장치명</th>
+                  <th scope="col">단말장치번호</th>
+                  <th scope="col">설치지역</th>
+                  <th scope="col">설치주소</th>
+                  <th scope="col">발송일시</th>
+                  <th scope="col">전송결과</th>
+                  <th scope="col">실패사유</th>
+                  <th scope="col">재전송 차수</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>문자발송</td>
+                  <td>문자발송</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>2024-02-06 10:32:02</td>
+                  <td><span class="txt_success">성공</span></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>문자발송</td>
+                  <td>문자발송</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>2024-02-06 10:32:02</td>
+                  <td><span class="txt_fail">실패</span></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>             
+            </table>            
+          </div>
+          <div class="tbl_bot">
+            <ul class="device_result">
+              <li><button type="button" class="stt_all">전체<strong>3</strong></button></li>
+              <li><button type="button" class="stt_success">성공<strong>1</strong></button></li>
+              <li><button type="button" class="stt_fail">실패<strong>2</strong></button></li>
+            </ul>
+          </div>
+        </section>
+      </div>      
+    </div>  
+  </main>
+  @@include('../inc/footer.html')
+</div>
+@@include('../inc/script.html')
+
+</body>
+</html>

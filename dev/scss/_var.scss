@@ -1,0 +1,163 @@
+
+// Breakpoints
+$breakpoint-mobile: 767px;
+$breakpoint-mobile_tablet: 1024px;
+$breakpoint-tablet: 1200px;
+$breakpoint-desktop: 1600px;
+
+//font
+@font-face {
+	font-family: 'Pretendard';
+	font-weight: 900;
+	font-display: swap;
+	src: local('Pretendard Black'), url(../font/pretendard-subset/woff2-subset/Pretendard-Black.subset.woff2) format('woff2'), url(../font/pretendard-subset/woff-subset/Pretendard-Black.subset.woff) format('woff');
+}
+
+@font-face {
+	font-family: 'Pretendard';
+	font-weight: 800;
+	font-display: swap;
+	src: local('Pretendard ExtraBold'), url(../font/pretendard-subset/woff2-subset/Pretendard-ExtraBold.subset.woff2) format('woff2'), url(../font/pretendard-subset/woff-subset/Pretendard-ExtraBold.subset.woff) format('woff');
+}
+
+@font-face {
+	font-family: 'Pretendard';
+	font-weight: 700;
+	font-display: swap;
+	src: local('Pretendard Bold'), url(../font/pretendard-subset/woff2-subset/Pretendard-Bold.subset.woff2) format('woff2'), url(../font/pretendard-subset/woff-subset/Pretendard-Bold.subset.woff) format('woff');
+}
+
+@font-face {
+	font-family: 'Pretendard';
+	font-weight: 600;
+	font-display: swap;
+	src: local('Pretendard SemiBold'), url(../font/pretendard-subset/woff2-subset/Pretendard-SemiBold.subset.woff2) format('woff2'), url(../font/pretendard-subset/woff-subset/Pretendard-SemiBold.subset.woff) format('woff');
+}
+
+@font-face {
+	font-family: 'Pretendard';
+	font-weight: 500;
+	font-display: swap;
+	src: local('Pretendard Medium'), url(../font/pretendard-subset/woff2-subset/Pretendard-Medium.subset.woff2) format('woff2'), url(../font/pretendard-subset/woff-subset/Pretendard-Medium.subset.woff) format('woff');
+}
+
+@font-face {
+	font-family: 'Pretendard';
+	font-weight: normal;
+	font-display: swap;
+	src: local('Pretendard Regular'), url(../font/pretendard-subset/woff2-subset/Pretendard-Regular.subset.woff2) format('woff2'), url(../font/pretendard-subset/woff-subset/Pretendard-Regular.subset.woff) format('woff');
+}
+
+@font-face {
+	font-family: 'Pretendard';
+	font-weight: 300;
+	font-display: swap;
+	src: local('Pretendard Light'), url(../font/pretendard-subset/woff2-subset/Pretendard-Light.subset.woff2) format('woff2'), url(../font/pretendard-subset/woff-subset/Pretendard-Light.subset.woff) format('woff');
+}
+
+@font-face {
+	font-family: 'Pretendard';
+	font-weight: 200;
+	font-display: swap;
+	src: local('Pretendard ExtraLight'), url(../font/pretendard-subset/woff2-subset/Pretendard-ExtraLight.subset.woff2) format('woff2'), url(../font/pretendard-subset/woff-subset/Pretendard-ExtraLight.subset.woff) format('woff');
+}
+
+@font-face {
+	font-family: 'Pretendard';
+	font-weight: 100;
+	font-display: swap;
+	src: local('Pretendard Thin'), url(../font/pretendard-subset/woff2-subset/Pretendard-Thin.subset.woff2) format('woff2'), url(../font/pretendard-subset/woff-subset/Pretendard-Thin.subset.woff) format('woff');
+}
+
+// Base Palette
+$white: #fff;
+
+$blue-100: #E6EFF8;
+$blue-150: #9fc9ff;
+$blue-200: #078cd8;
+$blue-300: #057ffc;
+$blue-400: #5078a5;
+$blue-500: #1465c0;
+$blue-600: #0c4a90;
+$blue-700: #003964;
+
+$red-200: #ec5a5a;
+$red-300: #ff4747;
+$red-400: #ed3c3c;
+$red-500: #e42b29;
+$red-600: #dd1d1d;
+
+$green-500: #009e0f;
+$green-600: #098703;
+$yellow-500: #d58007;
+
+$gray-050: #F1F3F5; 
+$gray-100: #e0e0e0;
+$gray-200: #cdd1d5;
+$gray-300: #adadad;
+$gray-400: #b8c4d2;
+$gray-500: #d7d7d7;
+$gray-600: #c1c8d1;
+$gray-650: #8b95a3;
+$gray-700: #777777;
+$gray-800: #888888;
+
+
+$black-400: #586779;
+$black-500: #555555;
+$black-600: #666;
+$black-800: #222222;
+$black-900: #000000;
+
+$mute-red: #d17887;
+$mute-purple: #A083AF;
+$mute-olive: #B5A983;
+$mute-green: #7AA19D;
+$mute-blue: #8f99a3;
+
+// Semantic
+$primary: $blue-500;
+$primary-light: $blue-200;
+$primary-dark: $blue-600;
+
+$all: $black-400;
+$success: $green-500;
+$warning: $yellow-500;
+$error:   $red-200;
+$normal:  $green-500;
+$info:    $blue-300;
+
+// Text
+$text-primary: $black-500;
+$text-disabled: $gray-300;
+$text-success: $green-500;
+$text-error: $red-200;
+
+// Background
+$bg-default: $gray-050;
+$bg-light: #f9fafb;
+$bg-soft: $blue-100;
+
+// Border
+$border-default: $gray-100;
+$border-ipt: $gray-200;
+$border-box: $gray-600;
+
+$connection: (
+  all: (color: $black-400, icon: '\f1db', txt:'전체'),
+  connection: (color: $green-500, icon: '\eb2d', txt:'연결됨'),
+  disconnection: (color: $red-200, icon: '\0021', txt:'연결안됨')
+);
+$result:(
+  all:$black-900,
+  success:$blue-200,
+  fail:$red-200 
+);
+
+
+// layout
+$mainwidth:1440px;
+$maingap:20px;
+$sectiongap:40px;
+$defaultFontSize:13px;
+

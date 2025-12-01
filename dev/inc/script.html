@@ -1,0 +1,31 @@
+<script src="../js/jquery.min.js"></script>
+<script src="../js/ui_cmmn.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
+<script>
+  function displayCurrentTime() {
+    var timeView = document.querySelector('#cur_tm');
+    if (timeView == undefined) return;
+    var currentTime = new Date();
+    var year = currentTime.getFullYear();
+    var month = (currentTime.getMonth() + 1).toString().padStart(2, '0');
+    var day = currentTime.getDate().toString().padStart(2, '0');
+    var daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
+    var dayOfWeek = daysOfWeek[currentTime.getDay()];
+    var hours = currentTime.getHours();
+    var minutes = currentTime.getMinutes();
+    var seconds = currentTime.getSeconds();
+    hours = (hours < 10) ? "0" + hours : hours;
+    minutes = (minutes < 10) ? "0" + minutes : minutes;
+    seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+    var dateString = `${year}-${month}-${day} `;
+    var timeString = `${hours}:${minutes}:${seconds}`;
+
+    // document.querySelector('#today').innerHTML = dateString;
+    
+    timeView.innerHTML = dateString + timeString;
+  };
+  displayCurrentTime();
+  setInterval(displayCurrentTime, 1000);
+  commonInit();
+</script>

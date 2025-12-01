@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+  <link rel="icon" href="../images/logo.png" type="image/x-icon" />
+  <title>재난예경보장치제어시스템</title>
+  <link rel="stylesheet" href="../font/fontello/css/fontello.css">
+  <link rel="stylesheet" href="../font/Pretendard-1.3.9/pretendard.css">
+  <link rel="stylesheet" href="../css/cmmn.css">
+  <link rel="stylesheet" href="../css/pop.css">
+</head>
+<body>
+
+<div id="wrap" class="wrap">
+  <header class="header">
+  <div class="top_wrap">
+    <h1 class="main_logo">
+      <a href="../html/connect_stat.html?index=1,1">재난 예경보장치 제어시스템</a>
+    </h1> 
+    <div class="util">
+      <div class="top_stat">
+        <b>예 · 경보 통합플랫폼 연결상태</b>
+        <!-- <i class="ico_connection">연결됨</i> -->
+        <button type="button" class="ico_disconnection" popovertarget="warning_platform_info">연결안됨</button>
+      </div>
+      <div class="account">
+        <button type="button" class="btn_account" popovertarget="p_userInfo">홍길동</button>
+        <button type="button" class="btn_logout" onclick="location.href='login.html'">로그아웃</button>
+      </div>
+    </div>
+  </div>
+</header>
+<nav class="nav">
+  <ul class="nav_lst">
+    <li><a href="../html/connect_stat.html" class="on">연계현황</a></li>
+    <li><a href="../html/history.html">발령이력</a></li>
+    <li><a href="../html/test_area.html">시험발령</a>
+      <ul class="sub">
+        <li><a href="../html/test_area.html">지역단위 발령</a></li>
+        <li><a href="../html/test_device.html">개별단말 발령</a></li>
+      </ul>
+    </li>
+    <li><a href="../html/admin_device.html">단말 장치관리</a></li>
+    <li><a href="../html/admin_user.html">시스템관리</a>
+      <ul class="sub">
+        <li><a href="../html/admin_user.html">사용자관리</a></li>
+        <li><a href="../html/admin_set.html">시스템설정</a></li>
+        <li><a href="../html/admin_code.html">공통코드 관리</a></li>
+        <li><a href="../html/admin_log.html">로그관리</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+<!-- 내정보 팝업 -->
+<dialog id="p_userInfo" class="pop_wrap" popover="manual">
+  <header class="pop_tit">
+    <h1>내정보</h1>
+    <div class="tool_wrap">
+      <button type="button" class="btn_cross" popovertarget="p_userInfo" popvertargetaction="hide">닫기</button>
+    </div>
+  </header>
+  <section class="pop_body">
+    <table class="tbl_ipt full_ipt">
+      <caption>예경보 종합 플랫폼 연결정보</caption>
+      <tbody>
+      <tr>
+        <th scope="row"><label for="" class="required">사용자ID</label></th>
+        <td>Admin</td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="" class="required">사용자명</label></th>
+        <td><input type="text"></td>
+      </tr>
+      <!-- 수정 시
+      <tr>
+        <th scope="row"><label for="" class="required">비밀번호</label></th>
+        <td><input type="password"></td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="" class="required">비밀번호 확인</label></th>
+        <td><input type="password">
+          <p class="invalid">비밀번호가 일치하지 않습니다.</p>
+        </td>
+      </tr> -->
+      <tr>
+        <th scope="row"><label for="">소속기관</label></th>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="">부서</label></th>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="">직급</label></th>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="" class="required">핸드폰</label></th>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="">이메일</label></th>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="">권한</label></th>
+        <td>사용자</td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="pop_foot">
+    <button type="submit" class="btn_default">저장</button>
+    <button type="submit" class="btn_gray">수정</button>
+    <button type="button" class="btn_cancel" popovertarget="p_userInfo" popvertargetaction="hide">닫기</button>
+  </section>
+</dialog>
+<!-- 내정보 팝업__e -->
+<!-- 예경보 종합 플랫폼 연결정보 -->
+<dialog id="warning_platform_info" class="pop_wrap" popover="manual">
+  <header class="pop_tit">
+    <h1>예경보 종합 플랫폼 연결정보</h1>
+    <div class="tool_wrap">
+      <button type="button" class="btn_cross" popovertarget="warning_platform_info" popvertargetaction="hide">닫기</button>
+    </div>
+  </header>
+  <section class="pop_body"> 
+    <table class="tbl_ipt full_ipt">
+      <caption>예경보 종합 플랫폼 연결정보</caption>
+      <tr>
+        <th scope="row"><label for="" class="required">IP</label></th>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="" class="required">Port</label></th>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="" class="required">ID</label></th>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="" class="required">비밀번호</label></th>
+        <td><input type="text"></td>
+      </tr>
+    </table>
+    <div class="connect_test">
+      <button type="button" class="btn_test">테스트</button>
+      <span class="success">연결성공</span>
+      <span class="error">연결실패시 사유</span>
+    </div>
+  </section>
+  <section class="pop_foot">
+    <button type="submit" class="btn_default">저장</button>
+    <button type="submit" class="btn_gray">수정</button>
+    <button type="button" class="btn_cancel" popovertarget="warning_platform_info" popvertargetaction="hide">닫기</button>
+  </section>
+</dialog>
+<!-- 예경보 종합 플랫폼 연결정보 팝업__e -->
+    
+  <main id="content" class="main_container">
+    <div class="cont_body">
+      <section class="bredcrumb">
+        <ul>
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>발령이력</li>
+        </ul>
+      </section>
+      <header class="tit">
+        <h1>발령이력</h1>        
+      </header>
+      <div class="flex_vertical_wrap">
+        <section class="">
+          <header class="tit blind">
+            <h2>재난 발령이력</h2>            
+          </header>
+          <div class="search">
+            <ul class="search_lst">
+              <li>
+                <div class="ipt_range">
+                  <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31" lang="en">
+                  <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
+                </div>
+              </li>
+              <li>
+                <select name="" id="" title="자동,수동선택">
+                  <option value="">자동</option><option value="">수동</option>
+                </select>
+              </li>
+              <li>
+                <select name="" id="" title="자동,수동선택">
+                  <option value="">실제</option><option value="">훈련</option><option value="">시험</option>
+                </select>
+              </li>
+              <li>
+                <select name="" id="" title="재난 대분류">
+                  <option value="">자연재난</option><option value="">사회재난</option>
+                </select>
+                <select name="" id="" title="재난 중분류">
+                  <option value="">강풍</option>
+                </select>                
+              </li>
+              <li><input type="text" placeholder="발령지역" title="발령지역"></li>
+            </ul>
+            <button type="button" class="btn_default">검색</button>
+            <div class="tool">
+              <button type="button" class="btn_excel">엑셀다운</button>
+            </div>
+          </div>
+          <div class="tbl_wrap alert_history">
+            <table class="tbl_default tbl_hover">
+              <caption>재난 발령이력</caption>
+              <thead>
+                <tr>
+                  <th scope="col">순번</th>
+                  <th scope="col">사업자</th>
+                  <th scope="col">홍보기관</th>
+                  <th scope="col">재난유형</th>
+                  <th scope="col">재난유형</th>
+                  <th scope="col">발생일시</th>
+                  <th scope="col">제목</th>
+                  <th scope="col">수신일시</th>
+                  <th scope="col">통보완료일시</th>
+                  <th scope="col">전송결과</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="on">
+                  <td>1</td>
+                  <td>사업자</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><span class="txt_success">성공</span></td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>사업자</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><span class="txt_fail">실패</span></td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>사업자</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><span class="txt_fail">실패</span></td>
+                </tr>                
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section class="linked_top">
+          <header class="tit">
+            <h2>단말기 발송 결과</h2>            
+          </header>
+          <div class="search">
+            <ul class="search_lst">            
+              <li>
+                <select name="" id="" title="단말기 그룹">
+                  <option value="">단말기 그룹</option>
+                </select>
+              </li>          
+              <li>
+                <select name="" id="" title="지역 대분류">
+                  <option value="">시군구</option>
+                </select>
+                <select name="" id="" title="지역 중분류">
+                  <option value="">읍면동</option>
+                </select>                
+              </li>
+              <li><input type="text" placeholder="장비명/지역명" title="검색어"></li>
+            </ul>
+            <button type="button" class="btn_default">검색</button>
+            <div class="tool">
+              <button type="button" class="btn_excel">엑셀다운</button>
+            </div>
+          </div>
+          <div class="tbl_wrap">
+            <table class="tbl_default">
+              <caption>재난 발령이력</caption>
+              <thead>
+                <tr>
+                  <th scope="col">순번</th>
+                  <th scope="col">단말기그룹</th>
+                  <th scope="col">장치구분</th>
+                  <th scope="col">단말계정</th>
+                  <th scope="col">단말장치명</th>
+                  <th scope="col">단말장치번호</th>
+                  <th scope="col">설치지역</th>
+                  <th scope="col">설치주소</th>
+                  <th scope="col">발송일시</th>
+                  <th scope="col">전송결과</th>
+                  <th scope="col">실패사유</th>
+                  <th scope="col">재전송 차수</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>문자발송</td>
+                  <td>문자발송</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>2024-02-06 10:32:02</td>
+                  <td><span class="txt_success">성공</span></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>문자발송</td>
+                  <td>문자발송</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>2024-02-06 10:32:02</td>
+                  <td><span class="txt_fail">실패</span></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>             
+            </table>            
+          </div>
+          <div class="tbl_bot">
+            <ul class="device_result">
+              <li><button type="button" class="stt_all">전체<strong>3</strong></button></li>
+              <li><button type="button" class="stt_success">성공<strong>1</strong></button></li>
+              <li><button type="button" class="stt_fail">실패<strong>2</strong></button></li>
+            </ul>
+          </div>
+        </section>
+      </div>      
+    </div>  
+  </main>
+  <footer class="footer">
+Copyright © 기상청 기상통신소. All Rights RESERVED
+</footer>
+</div>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/ui_cmmn.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
+<script>
+  function displayCurrentTime() {
+    var timeView = document.querySelector('#cur_tm');
+    if (timeView == undefined) return;
+    var currentTime = new Date();
+    var year = currentTime.getFullYear();
+    var month = (currentTime.getMonth() + 1).toString().padStart(2, '0');
+    var day = currentTime.getDate().toString().padStart(2, '0');
+    var daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
+    var dayOfWeek = daysOfWeek[currentTime.getDay()];
+    var hours = currentTime.getHours();
+    var minutes = currentTime.getMinutes();
+    var seconds = currentTime.getSeconds();
+    hours = (hours < 10) ? "0" + hours : hours;
+    minutes = (minutes < 10) ? "0" + minutes : minutes;
+    seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+    var dateString = `${year}-${month}-${day} `;
+    var timeString = `${hours}:${minutes}:${seconds}`;
+
+    // document.querySelector('#today').innerHTML = dateString;
+    
+    timeView.innerHTML = dateString + timeString;
+  };
+  displayCurrentTime();
+  setInterval(displayCurrentTime, 1000);
+  commonInit();
+</script>
+
+</body>
+</html>

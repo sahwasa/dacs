@@ -1,0 +1,141 @@
+@@include('../inc/top.html')
+<div id="wrap" class="wrap">
+  @@include('../inc/header.html')    
+  <main id="content" class="main_container">
+    @@include('../inc/lnb_admin.html')
+    <div class="cont_body">
+      <section class="bredcrumb">
+        <ul>
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>사용자 관리</li>
+        </ul>
+      </section>
+      <header class="tit">
+        <h1>사용자 관리 <span>시스템 관리</span></h1>        
+      </header>      
+      <div>        
+        <div class="search">
+          <ul class="search_lst">            
+            <li>
+              <select name="" id="" title="전체">
+                <option value="">전체</option>
+              </select>
+            </li>          
+            <li><input type="text" placeholder="사용자명" title="검색어"></li>
+          </ul>
+          <button type="button" class="btn_default">검색</button>
+        </div>
+        <div class="tbl_top">
+          <div class="tool">
+            <button type="button" class="btn_add"  popovertarget="p_userAdmin">추가</button>
+            <button type="button" class="btn_del">삭제</button>
+          </div>
+        </div>
+        <div class="tbl_wrap">
+          <table class="tbl_default">
+            <caption>재난 발령이력</caption>
+            <thead>
+              <tr>
+                <th scope="col">선택</th>
+                <th scope="col">권한</th>
+                <th scope="col">사용자ID</th>
+                <th scope="col">사용자명</th>
+                <th scope="col">소속기관</th>
+                <th scope="col">부서</th>
+                <th scope="col">직급</th>
+                <th scope="col">등록일</th>
+                <th scope="col">수정</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" title="줄선택"></td>
+                <td>관리자</td>
+                <td>Admin</td>
+                <td>홍길동</td>
+                <td>ㅇㅇ시청</td>
+                <td>재난안전대책본부</td>
+                <td>주무관</td>
+                <td>2024-02-06</td>
+                <td><button type="button" class="btn_tblModify"  popovertarget="p_userAdmin">수정</button></td>
+              </tr>
+            </tbody>             
+          </table>            
+        </div>
+        @@include('../inc/paginate.html')
+      </div>
+    </div>  
+  </main>
+  @@include('../inc/footer.html')
+</div>
+<!-- 사용자관리 팝업 -->
+<dialog id="p_userAdmin" class="pop_wrap" popover="manual">
+  <header class="pop_tit">
+    <h1>사용자 추가 or 수정</h1>
+    <div class="tool_wrap">
+      <button type="button" class="btn_cross" popovertarget="p_userAdmin" popvertargetaction="hide">닫기</button>
+    </div>
+  </header>
+  <section class="pop_body">
+    <table class="tbl_ipt full_ipt">
+      <caption>예경보 종합 플랫폼 연결정보</caption>
+      <tbody>
+      <tr>
+        <th scope="row"><label for="" class="required">사용자ID</label></th>
+        <td>Admin</td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="" class="required">사용자명</label></th>
+        <td><input type="text"></td>
+      </tr>      
+      <tr>
+        <th scope="row"><label for="" class="required">비밀번호</label></th>
+        <td><input type="password"></td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="" class="required">비밀번호 확인</label></th>
+        <td><input type="password">
+          <p class="invalid">비밀번호가 일치하지 않습니다.</p>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="">소속기관</label></th>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="">부서</label></th>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="">직급</label></th>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="" class="required">핸드폰</label></th>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="">이메일</label></th>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="">권한</label></th>
+        <td>
+          <select name="" id=""><option value="">관리자</option></select>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="pop_foot">
+    <button type="submit" class="btn_default">저장</button>
+    <button type="submit" class="btn_gray">수정</button>
+    <button type="button" class="btn_cancel" popovertarget="p_userAdmin" popvertargetaction="hide">닫기</button>
+  </section>
+</dialog>
+<!-- 사용자관리 팝업__e -->
+@@include('../inc/script.html')
+</body>
+</html>

@@ -1,0 +1,230 @@
+@@include('../inc/top.html')
+<div id="wrap" class="wrap">
+  @@include('../inc/header.html')    
+  <main id="content" class="main_container">
+    <div class="cont_body">
+      <section class="bredcrumb">
+        <ul>
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>연계현황</li>
+        </ul>
+      </section>
+      <header class="tit">
+        <h1>연계현황</h1>        
+      </header>
+      <div class="flex_wrap">
+        <section class="flex_vertical_wrap">
+          <button type="button" class="warning_platform_stat" popovertarget="warning_platform_info">
+            <strong>예 · 경보 통합플랫폼 연결상태</strong>
+            <div class="tool">
+              <i class="ico_connection">연결됨</i>
+              <i class="ico_disconnection">연결안됨</i>
+            </div>
+          </button>
+          <section class="stat_device flex_vertical_wrap">
+            <div class="device_dashboard">
+              <div class="all">
+                <strong>전체</strong><span>00</span>             
+              </div>
+              <div class="connection">
+                <strong>연결됨</strong><span>2</span>             
+              </div>
+              <div class="disconnection">
+                <strong>연결안됨</strong><span>1</span>
+              </div>
+            </div>
+            <section class="device_lst">
+              <header class="tit">
+                <h1>단말기 그룹명1(그룹코드에서 추가)</h1>
+                <div class="tool">
+                  <ul class="device_stt_count">
+                    <li><button type="button" class="stt_all">전체<span>3</span></button></li>
+                    <li><button type="button" class="stt_connection">연결됨<span>1</span></button></li>
+                    <li><button type="button" class="stt_disconnection">연결안됨<span>2</span></button></li>
+                  </ul>
+                </div>
+              </header>
+              <div class="tbl_wrap">
+                <table class="tbl_default">
+                  <caption>단말기 그룹명1 목록</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">연결상태</th>
+                      <th scope="col">장치구분(매체)</th>
+                      <th scope="col">단말장치명</th>
+                      <th scope="col">설치지역</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><i class="ico_stt_connection">연결됨</i></td>
+                      <td>교내발송</td>
+                      <td>단말장치</td>
+                      <td>설치지역</td>
+                    </tr>
+                    <tr>
+                      <td><i class="ico_stt_connection">연결됨</i></td>
+                      <td>교내발송</td>
+                      <td>단말장치</td>
+                      <td>설치지역</td>
+                    </tr>
+                    <tr>
+                      <td><i class="ico_stt_connection">연결됨</i></td>
+                      <td>교내발송</td>
+                      <td>단말장치</td>
+                      <td>설치지역</td>
+                    </tr>
+                    <tr>
+                      <td><i class="ico_stt_connection">연결됨</i></td>
+                      <td>교내발송</td>
+                      <td>단말장치</td>
+                      <td>설치지역</td>
+                    </tr>
+                    <tr>
+                      <td><i class="ico_stt_disconnection">연결안됨</i></td>
+                      <td>마을발송</td>
+                      <td>단말장치</td>
+                      <td>설치지역</td>
+                    </tr>
+                    <tr>
+                      <td><i class="ico_stt_disconnection">연결안됨</i></td>
+                      <td>마을발송</td>
+                      <td>단말장치</td>
+                      <td>설치지역</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+            <section class="device_lst">
+              <header class="tit">
+                <h1>단말기 그룹명2(그룹코드에서 추가)</h1>
+                <div class="tool">
+                  <ul class="device_stt_count">
+                    <li><button type="button" class="stt_all">전체<span>3</span></button></li>
+                    <li><button type="button" class="stt_connection">연결됨<span>1</span></button></li>
+                    <li><button type="button" class="stt_disconnection">연결안됨<span>2</span></button></li>
+                  </ul>
+                </div>
+              </header>
+              <div class="tbl_wrap">
+                <table class="tbl_default">
+                  <caption>단말기 그룹명1 목록</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">연결상태</th>
+                      <th scope="col">장치구분(매체)</th>
+                      <th scope="col">단말장치명</th>
+                      <th scope="col">설치지역</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><i class="ico_stt_connection">연결됨</i></td>
+                      <td>교내발송</td>
+                      <td>단말장치</td>
+                      <td>설치지역</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </section>
+        </section>
+        <section class="right_section">
+          <header class="tit">
+            <h2>최근 일주일 발생 재난 및 발령결과</h2>            
+          </header>
+          <!-- <ul class="disaster_lst flex_vertical_wrap" data-empty="최근 발령된 재난 알림이 없습니다."></ul> -->
+          <ul class="disaster_lst flex_vertical_wrap" data-empty="최근 발령된 재난 알림이 없습니다.">
+            <li>
+              <a href="../html/history.html">
+                <div class="disaster_info">
+                  <img src="../images/symbol/FLN.png" class="disaster_symbol" alt="홍수경보">
+                  <dl class="desc">
+                    <dt>
+                      <b>자연재난  >  강풍  >  강풍주의보</b>
+                      <strong>25년 7월 안양천 범람 재난대응</strong>
+                    </dt>
+                    <dd><strong>재난위치</strong>서울시(양천구)</dd>
+                    <dd><strong>발생일시</strong>2025-10-10 12:34:56</dd>
+                    <dd><strong>통보일시</strong>2025-10-10 12:34:56</dd>                    
+                  </dl>
+                  <div class="type">
+                    <i class="manual">수동</i><i class="test">시험</i>
+                  </div>
+                </div>
+                <ul class="group_result">
+                  <li><strong>단말기 그룹명1</strong>
+                    <div class="tool">
+                      <ul class="device_result">
+                        <li><button type="button" class="stt_all">전체<strong>3</strong></button></li>
+                        <li><button type="button" class="stt_success">성공<strong>1</strong></button></li>
+                        <li><button type="button" class="stt_fail">실패<strong>2</strong></button></li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li><strong>단말기 그룹명2</strong>
+                    <div class="tool">
+                      <ul class="device_result">
+                        <li><button type="button" class="stt_all">전체<strong>3</strong></button></li>
+                        <li><button type="button" class="stt_success">성공<strong>1</strong></button></li>
+                        <li><button type="button" class="stt_fail">실패<strong>2</strong></button></li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </a>
+            </li>
+            <li>
+              <a href="../html/history.html">
+                <div class="disaster_info">
+                  <img src="../images/symbol/FLN.png" class="disaster_symbol" alt="홍수경보">
+                  <dl class="desc">
+                    <dt>
+                      <b>자연재난  >  강풍  >  강풍주의보</b>
+                      <strong>25년 7월 안양천 범람 재난대응</strong>
+                    </dt>
+                    <dd><strong>재난위치</strong>서울시(양천구)</dd>
+                    <dd><strong>발생일시</strong>2025-10-10 12:34:56</dd>
+                    <dd><strong>통보일시</strong>2025-10-10 12:34:56</dd>                    
+                  </dl>
+                  <div class="type">
+                    <i class="auto">자동</i><i class="real">실제</i>
+                  </div>
+                </div>
+                <ul class="group_result">
+                  <li><strong>단말기 그룹명1</strong>
+                    <div class="tool">
+                      <ul class="device_result">
+                        <li><button type="button" class="stt_all">전체<strong>3</strong></button></li>
+                        <li><button type="button" class="stt_success">성공<strong>1</strong></button></li>
+                        <li><button type="button" class="stt_fail">실패<strong>2</strong></button></li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li><strong>단말기 그룹명2</strong>
+                    <div class="tool">
+                      <ul class="device_result">
+                        <li><button type="button" class="stt_all">전체<strong>3</strong></button></li>
+                        <li><button type="button" class="stt_success">성공<strong>1</strong></button></li>
+                        <li><button type="button" class="stt_fail">실패<strong>2</strong></button></li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </div>      
+    </div>  
+  </main>
+  @@include('../inc/footer.html')
+</div>
+@@include('../inc/script.html')
+
+</body>
+</html>

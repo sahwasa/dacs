@@ -1,0 +1,76 @@
+@@include('../inc/top.html')
+<div id="wrap" class="wrap">
+  @@include('../inc/header.html')    
+  <main id="content" class="main_container">
+    @@include('../inc/lnb_admin.html')
+    <div class="cont_body">
+      <section class="bredcrumb">
+        <ul>
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>시스템 관리</li>
+          <li>로그 관리</li>
+        </ul>
+      </section>
+      <header class="tit">
+        <h1>로그 관리 <span>시스템 관리</span></h1>        
+      </header>      
+      <div>        
+        <div class="search">
+          <ul class="search_lst">            
+            <li>
+              <div class="ipt_range">
+                <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31" lang="en">
+                <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
+              </div>
+            </li>
+            <li>
+              <select name="" id="" title="범주">
+                <option value="">범주</option>
+              </select>
+            </li>          
+            <li>
+              <select name="" id="" title="종류">
+                <option value="">종류</option>
+              </select>
+            </li>          
+            <li><input type="text" placeholder="내용" title="검색어"></li>
+          </ul>
+          <button type="button" class="btn_default">검색</button>
+        </div>
+        <div class="tbl_wrap">
+          <table class="tbl_default">
+            <caption>재난 발령이력</caption>
+            <thead>
+              <tr>
+                <th scope="col">순번</th>
+                <th scope="col">시각</th>
+                <th scope="col">범주</th>
+                <th scope="col">종류</th>
+                <th scope="col">내용</th>
+                <th scope="col">ID</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>2024-02-06 12:30:40</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+            </tbody>             
+          </table>            
+        </div>
+        @@include('../inc/paginate.html')
+      </div>
+    </div>  
+  </main>
+  @@include('../inc/footer.html')
+</div>
+@@include('../inc/script.html')
+
+</body>
+</html>
