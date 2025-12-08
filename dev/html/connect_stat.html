@@ -3,38 +3,43 @@
   @@include('../inc/header.html')    
   <main id="content" class="main_container">
     <div class="cont_body">
-      <section class="bredcrumb">
-        <ul>
-          <li>
-            <a href="#">Home</a>
-          </li>
-          <li>연계현황</li>
-        </ul>
-      </section>
       <header class="tit">
         <h1>연계현황</h1>        
+        <section class="bredcrumb">
+          <ul>
+            <li>
+              <a href="#">Home</a>
+            </li>
+            <li>연계현황</li>
+          </ul>
+        </section>
       </header>
       <div class="flex_wrap">
         <section class="flex_vertical_wrap">
-          <button type="button" class="warning_platform_stat" popovertarget="warning_platform_info">
-            <strong>예 · 경보 통합플랫폼 연결상태</strong>
-            <div class="tool">
-              <i class="ico_connection">연결됨</i>
-              <i class="ico_disconnection">연결안됨</i>
-            </div>
-          </button>
-          <section class="stat_device flex_vertical_wrap">
+          <div class="flex_wrap connect_dashboard">
+            <button type="button" class="warning_platform_stat" popovertarget="warning_platform_info">
+              <strong>예 · 경보 통합플랫폼 연결상태</strong>
+              <div class="tool">
+                <!-- <i class="ico_connection">연결됨</i> -->
+                <i class="ico_disconnection">연결안됨</i>
+              </div>
+            </button>
             <div class="device_dashboard">
-              <div class="all">
-                <strong>전체</strong><span>00</span>             
-              </div>
-              <div class="connection">
-                <strong>연결됨</strong><span>2</span>             
-              </div>
-              <div class="disconnection">
-                <strong>연결안됨</strong><span>1</span>
-              </div>
+              <strong>단말기 연결상태</strong>
+              <ul>
+                <li class="all">
+                  전체<span>00</span>             
+                </li>
+                <li class="connection">
+                  연결됨<span>2</span>             
+                </li>
+                <li class="disconnection">
+                  연결안됨<span>1</span>
+                </li>
+              </ul>
             </div>
+          </div>
+          <section class="stat_device flex_vertical_wrap">
             <section class="device_lst">
               <header class="tit">
                 <h1>단말기 그룹명1(그룹코드에서 추가)</h1>
