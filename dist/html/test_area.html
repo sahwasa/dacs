@@ -8,6 +8,7 @@
   <title>재난예경보장치제어시스템</title>
   <link rel="stylesheet" href="../font/fontello/css/fontello.css">
   <link rel="stylesheet" href="../font/Pretendard-1.3.9/pretendard.css">
+  <link rel="stylesheet" href="../plugins/jqGrid/css/ui.jqgrid.css">
   <link rel="stylesheet" href="../css/cmmn.css">
   <link rel="stylesheet" href="../css/pop.css">
 </head>
@@ -182,33 +183,26 @@
         </section>
       </header>
       <div>
-        <ul class="ipt_lst">
+        <ul class="ipt_lst">         
           <li>
-            <label for="">재난유형(event):</label>
-            <input type="text">
+            <span class="label">발령기관(source):</span>
+            <p>ㅇㅇ시청 (아마도 고정값)</p>
           </li>
-          <li>
-            <label for="">근거(source):</label>
-            <input type="text">
+          <li class="span2">
+            <span class="label">재난유형(event / eventCode)</span>
+            <ul class="ipt_group">
+              <li><select name="" id="" title="재난유형 대분류"><option value="">자연재난</option></select></li>
+              <li><select name="" id="" title="재난유형 중분류"><option value="">홍수</option></select></li>
+              <li><select name="" id="" title="재난유형 소분류"><option value="">홍수주의보</option></select></li>
+              <li>&sol; <input type="text" placeholder="CODE명을 보여줄까요?"></li>
+            </ul>            
           </li>
-          <li>
-            <label for="">세부유형(eventCode)</label>
-            <input type="text">
-          </li>
-          <li>
+          <li class="full">
             <label for="">제목(headline.ko-KR):</label>
             <input type="text">
-          </li>
-          <li>
-            <label for="">처리코드(code)</label>
-            <input type="text">
-          </li>
-          <li>
-            <label for="">메시지ID(identifier):</label>
-            <input type="text">
-          </li>      
+          </li>               
           <li class="full inline">
-            <span class="label">장치구분(멀티)</span>
+            <span class="label">수신유형(다중선택)</span>
             <ul class="device_type">
               <li><label for=""><input type="checkbox">전체</label></li>
               <li><label for=""><input type="checkbox">자동음성통보</label></li>
@@ -257,7 +251,7 @@
 Copyright © KITValley. All Rights RESERVED
 </footer>
 </div>
-<script src="../js/jquery.min.js"></script>
+<script src="../plugins/jquery.min.js"></script>
 <script src="../js/ui_cmmn.js"></script>
 <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
 <script>

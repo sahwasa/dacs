@@ -39,38 +39,71 @@
           </ul>
           <button type="button" class="btn_default">검색</button>
         </div>
-        <div class="tbl_wrap">
-          <table class="tbl_default">
-            <caption>재난 발령이력</caption>
-            <thead>
-              <tr>
-                <th scope="col">순번</th>
-                <th scope="col">시각</th>
-                <th scope="col">범주</th>
-                <th scope="col">종류</th>
-                <th scope="col">내용</th>
-                <th scope="col">ID</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>2024-02-06 12:30:40</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-              </tr>
-            </tbody>             
-          </table>            
+        <div class="tbl_wrap grid_wrap">
+          <table id="jqgrid" class="jq-grid"></table>
+          <div id="gridPager"></div>            
         </div>
-        @@include('../inc/paginate.html')
       </div>
     </div>  
   </main>
   @@include('../inc/footer.html')
 </div>
 @@include('../inc/script.html')
-
+<script src="../plugins/jqGrid/js/jquery.jqGrid.min.js"></script>
+<script src="../plugins/jqGrid/js/i18n/grid.locale-kr.js"></script>
+<script>
+    var mydata = [
+      { 'type':'warn','t1': '12. 26. 오후 1:59:58', 't4': '[122.199.200.254:9320] 서버 로그인 실패. ID:onsite1 비밀번호 오류입니다. 비밀번호를 확인하여 주십시오.' },
+      { 'type':'info','t1': '7. 26. 오후 1:59:58', 't4': '[122.199.200.254:9320] 서버 로그인 실패. ID:onsite1 비밀번호 오류입니다. 비밀번호를 확인하여 주십시오.' },
+      { 'type':'error','t1': '7. 26. 오후 1:59:58', 't4': '[122.199.200.254:9320] 서버 로그인 실패. ID:onsite1 비밀번호 오류입니다. 비밀번호를 확인하여 주십시오.' },
+      { 'type':'','t1': '7. 26. 오후 1:59:58', 't4': '[122.199.200.254:9320] 서버 로그인 실패. ID:onsite1 비밀번호 오류입니다. 비밀번호를 확인하여 주십시오.' },
+      {'type':'', 't1': '7. 26. 오후 1:59:58', 't4': '[122.199.200.254:9320] 서버 로그인 실패. ID:onsite1 비밀번호 오류입니다. 비밀번호를 확인하여 주십시오.' }
+    ]
+    var mydata2 = [
+      { 'type':'warn','t1': '12. 26. 오후 1:59:58', 't2': '[122.199.200.254:9320] 서버 로그인 실패. ID:onsite1 비밀번호 오류입니다. 비밀번호를 확인하여 주십시오.' },
+      { 'type':'info','t1': '7. 26. 오후 1:59:58', 't2': '[122.199.200.254:9320] 서버 로그인 실패. ID:onsite1 비밀번호 오류입니다. 비밀번호를 확인하여 주십시오.' }
+    ]
+    var grid = $("#jqgrid").jqGrid({
+      data: mydata,
+      datatype: "local",      
+      colModel: [
+        {name:'type', hidden:true},
+        { label: '시각', name: 't1', align:'center',width:50 },
+        { label: '범주', name: 't2', align:'center',width:50 },
+        { label: '종류', name: 't3', align:'center',width:50 },
+        { label: '내용', name: 't4' }
+      ],
+      height: 'auto',
+      viewrecords: true,
+      rowTotal: 30,
+      rowNum:8,
+      rownumbers: true,
+      autowidth:true,
+      pager: "#gridPager",      
+      rownumWidth:30,
+      rowattr: function(rowData) {
+        return { "class": rowData.type};
+      }
+    });
+     // jqgrid
+    function jqgridInit(){
+      $('.jq-grid').each(function(){
+        var grids=$(this);
+        grids.setGridWidth($(this).parents('.tbl_wrap').width());
+      });
+    }
+    function showgrid(target){
+      var targetGrid = $(target);
+      $('.grid_wrap').hide();
+      targetGrid.show();
+      jqgridInit();
+    }
+    $(window).on('resize',function(){
+      jqgridInit();
+    })
+    if($('.grid_wrap').length){
+      setTimeout(jqgridInit(),1000);
+    }    
+  </script>
 </body>
 </html>

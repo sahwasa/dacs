@@ -1,6 +1,7 @@
 @use "./var";
 @use "./reset";
 @use "./mixin";
+@use "./gridCustom.scss";
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:color';
@@ -75,6 +76,7 @@
 .ext{@include mixin.text_ellipsis();display:inline-block;font-weight:normal;color:var.$text-primary;text-align:left;max-width:200px;vertical-align:middle;}
 .linked_top{
   &::before{@include mixin.fontello('\e892');display:block;width:65px;font-size:24px;text-align:center;margin:0 auto;color:#92a4b8;border:1px solid #c6d6e7;border-radius:8px;padding:5px 20px;}
+  & > .tbl_wrap{margin-top:20px;}
 }
 .gis_area{position:relative;background-color:var.$bg-soft;}
 .symbols{position:absolute;left:0;top:0;width:100%;height:100%;}

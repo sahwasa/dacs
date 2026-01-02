@@ -1,0 +1,50 @@
+@use "./var";
+@use "./reset";
+@use "./mixin";
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:color';
+
+/* jqgrid custom */
+.ui-jqgrid{background-color:#fff;
+  &.ui-corner-all{border-radius:0;}
+  .ui-jqgrid-hdiv{border-radius:0;margin-top:0;background-color:var.$bg-default;}
+  .ui-jqgrid-htable th.ui-th-column{color:var.$black-800;font-size:14px;border-bottom:1px solid #c5c9d0;padding:4px 0 8px;}
+  .ui-th-div input{vertical-align:initial;}
+  tr.jqgrow, tr.jqgroup{background-color:transparent;}
+  .ui-jqgrid-bdiv{overflow-x:hidden;}
+  tr.jqgrow td{font-size:14px;border-color:transparent;border-bottom-color:var.$border-default; padding:3px 10px;text-overflow:ellipsis;
+    .tool{justify-content:center;}
+    &:last-child{border-right-width:0;}
+  }
+  tr.ui-state-hover td{background-color:#F8F8F8;}
+  tr.ui-state-highlight td{background-color:#eaf8f7;}
+  .ui-jqgrid-resize{height:100% !important;}
+  .ui-jqgrid-pager{height:auto;border-radius:0;
+    .ui-pager-control{margin-top:32px;}
+    .ui-pager-table{table-layout:fixed;width:100%;}
+    td{font-size:14px;}
+    .ui-pg-button + td{padding:0 10px;
+      .ui-pg-input{width:80px;height:auto;box-shadow:none;font-size:14px;text-align:center;margin-right:10px;}
+
+      span{margin-left:10px;}
+    }
+    .ui-separator{display:none;}
+  }
+  .ui-paging-info{margin-top:0;}
+  .ui-icon-asc{margin-top:-17px;}
+  .ui-icon-desc{margin-top:-10px;margin-left:0;}
+  .ui-pg-button{padding:0!important;
+    span{position:relative;top:-1px;cursor:pointer;display:flex;width:30px;height:100%;justify-content:center; align-items:center; border-radius:2px;font-size:15px;font-weight:normal;
+      $_tui_ico_btn:( 'prev':'〈', 'next':'〉', 'first':'〈〈', 'end':'〉〉' );
+      @each $type, $txt in $_tui_ico_btn{
+        &.ui-icon-seek-#{$type}::before{font-size:10px;line-height:19px;font-weight:bold;color:#000;content:$txt;line-height:1;}
+      }
+      &:hover{background-color:#edf0f3;}
+    }  
+    &.ui-state-disabled span{
+      &:hover{background-color:transparent;}
+      &::before{color:#ccc;}
+    }
+  }
+}
