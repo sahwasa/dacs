@@ -184,7 +184,7 @@
           </ul>
         </section>
       </header>
-      <div class="flex_wrap admin_code">
+      <div class="flex_wrap">
         <section class="section">
           <div class="tit">
             <h2>그룹코드</h2>
@@ -195,43 +195,7 @@
             </div>
           </div>
           <div class="tbl_wrap">
-            <table class="tbl_default">
-              <caption>그룹코드</caption>
-              <thead>
-                <tr>
-                  <th scope="col">선택</th>
-                  <th scope="col">코드명</th>
-                  <th scope="col">설명</th>
-                  <th scope="col">사용여부</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><input type="checkbox" title="줄선택"></td>
-                  <td></td>
-                  <td></td>
-                  <td>
-                    <div class="switch_toggle">
-                      <label for="useYN0">
-                        <input type="checkbox" class="type_check" id="useYN0"> 사용여부
-                      </label>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" title="줄선택"></td>
-                  <td></td>
-                  <td></td>
-                  <td>
-                    <div class="switch_toggle">
-                      <label for="useYN1">
-                        <input type="checkbox" class="type_check" id="useYN1"> 사용여부
-                      </label>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            <table id="group1" class="jq-grid"></table>
           </div>
         </section>
         <section class="section">
@@ -244,46 +208,9 @@
             </div>
           </div>
           <div class="tbl_wrap">
-            <table class="tbl_default">
-              <caption>상세코드</caption>
-              <thead>
-                <tr>
-                  <th scope="col">선택</th>
-                  <th scope="col">코드명</th>
-                  <th scope="col">설명</th>
-                  <th scope="col">사용여부</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><input type="checkbox" title="줄선택"></td>
-                  <td></td>
-                  <td></td>
-                  <td>
-                    <div class="switch_toggle">
-                      <label for="useYN1-1">
-                        <input type="checkbox" class="type_check" id="useYN1-1"> 사용여부
-                      </label>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" title="줄선택"></td>
-                  <td></td>
-                  <td></td>
-                  <td>
-                    <div class="switch_toggle">
-                      <label for="useYN1-2">
-                        <input type="checkbox" class="type_check" id="useYN1-2"> 사용여부
-                      </label>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            <table id="group2" class="jq-grid"></table>
           </div>
-        </section>
-        
+        </section>        
       </div>      
     </div>  
   </main>
@@ -336,35 +263,48 @@ Copyright © KITValley. All Rights RESERVED
 </dialog>
 <!-- 코드관리 팝업__e -->
 <script src="../plugins/jquery.min.js"></script>
+<script src="../plugins/jqGrid/js/jquery.jqGrid.min.js"></script>
+<script src="../plugins/jqGrid/js/i18n/grid.locale-kr.js"></script>
 <script src="../js/ui_cmmn.js"></script>
-<!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
 <script>
-  function displayCurrentTime() {
-    var timeView = document.querySelector('#cur_tm');
-    if (timeView == undefined) return;
-    var currentTime = new Date();
-    var year = currentTime.getFullYear();
-    var month = (currentTime.getMonth() + 1).toString().padStart(2, '0');
-    var day = currentTime.getDate().toString().padStart(2, '0');
-    var daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
-    var dayOfWeek = daysOfWeek[currentTime.getDay()];
-    var hours = currentTime.getHours();
-    var minutes = currentTime.getMinutes();
-    var seconds = currentTime.getSeconds();
-    hours = (hours < 10) ? "0" + hours : hours;
-    minutes = (minutes < 10) ? "0" + minutes : minutes;
-    seconds = (seconds < 10) ? "0" + seconds : seconds;
-
-    var dateString = `${year}-${month}-${day} `;
-    var timeString = `${hours}:${minutes}:${seconds}`;
-
-    // document.querySelector('#today').innerHTML = dateString;
-    
-    timeView.innerHTML = dateString + timeString;
-  };
-  displayCurrentTime();
-  setInterval(displayCurrentTime, 1000);
-  commonInit();
+ var mydata = [
+    {'use_yn': false},
+    {'use_yn': true},
+  ] 
+var grid1 = $("#group1").jqGrid({
+    data: mydata,
+    datatype: "local",      
+    colModel: [
+      {label: '선택', name: 'chk', width: 60, align: 'center',
+        formatter: function () {
+          return '<input type="checkbox" class="row-check" title="줄선택" />';
+        }
+      },
+      { label: '코드명', name: 'name', align:'center'},
+      { label: '설명', name: 'desc' , align:'center'},
+      { label: '사용여부', name: 'use_yn', align:'center',formatter:formatSwitch},
+    ],
+    height: 'calc(100vh - 319px)',
+   rowNum: mydata.length,
+    autowidth:true,
+});
+var grid2 = $("#group2").jqGrid({
+    data: mydata,
+    datatype: "local",      
+    colModel: [
+      {label: '선택', name: 'chk', width: 60, align: 'center',
+        formatter: function () {
+          return '<input type="checkbox" class="row-check" title="줄선택" />';
+        }
+      },
+      { label: '코드명', name: 'name', align:'center'},
+      { label: '설명', name: 'desc' , align:'center'},
+      { label: '사용여부', name: 'use_yn', align:'center',formatter:formatSwitch},
+    ],
+    height: 'calc(100vh - 319px)',
+   rowNum: mydata.length,
+    autowidth:true,
+});
 </script>
 </body>
 </html>

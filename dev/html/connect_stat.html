@@ -51,56 +51,8 @@
                   </ul>
                 </div>
               </header>
-              <div class="tbl_wrap">
-                <table class="tbl_default">
-                  <caption>단말기 그룹명1 목록</caption>
-                  <thead>
-                    <tr>
-                      <th scope="col">연결상태</th>
-                      <th scope="col">장치구분(매체)</th>
-                      <th scope="col">단말장치명</th>
-                      <th scope="col">설치지역</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><i class="ico_stt_connection">연결됨</i></td>
-                      <td>교내발송</td>
-                      <td>단말장치</td>
-                      <td>설치지역</td>
-                    </tr>
-                    <tr>
-                      <td><i class="ico_stt_connection">연결됨</i></td>
-                      <td>교내발송</td>
-                      <td>단말장치</td>
-                      <td>설치지역</td>
-                    </tr>
-                    <tr>
-                      <td><i class="ico_stt_connection">연결됨</i></td>
-                      <td>교내발송</td>
-                      <td>단말장치</td>
-                      <td>설치지역</td>
-                    </tr>
-                    <tr>
-                      <td><i class="ico_stt_connection">연결됨</i></td>
-                      <td>교내발송</td>
-                      <td>단말장치</td>
-                      <td>설치지역</td>
-                    </tr>
-                    <tr>
-                      <td><i class="ico_stt_disconnection">연결안됨</i></td>
-                      <td>마을발송</td>
-                      <td>단말장치</td>
-                      <td>설치지역</td>
-                    </tr>
-                    <tr>
-                      <td><i class="ico_stt_disconnection">연결안됨</i></td>
-                      <td>마을발송</td>
-                      <td>단말장치</td>
-                      <td>설치지역</td>
-                    </tr>
-                  </tbody>
-                </table>
+              <div class="tbl_wrap grid_wrap">
+                <table id="group1" class="jq-grid"></table>
               </div>
             </section>
             <section class="device_lst">
@@ -114,26 +66,8 @@
                   </ul>
                 </div>
               </header>
-              <div class="tbl_wrap">
-                <table class="tbl_default">
-                  <caption>단말기 그룹명1 목록</caption>
-                  <thead>
-                    <tr>
-                      <th scope="col">연결상태</th>
-                      <th scope="col">장치구분(매체)</th>
-                      <th scope="col">단말장치명</th>
-                      <th scope="col">설치지역</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><i class="ico_stt_connection">연결됨</i></td>
-                      <td>교내발송</td>
-                      <td>단말장치</td>
-                      <td>설치지역</td>
-                    </tr>
-                  </tbody>
-                </table>
+              <div class="tbl_wrap grid_wrap">
+                <table id="group2" class="jq-grid"></table>
               </div>
             </section>
           </section>
@@ -230,6 +164,40 @@
   @@include('../inc/footer.html')
 </div>
 @@include('../inc/script.html')
-
+<script>
+  var mydata = [
+    {'status': 'connection', 't2': '교내방송', 't3':'단말장치', 't4':'설치지역' },
+    {'status': 'connection', 't2': '교내방송', 't3':'단말장치', 't4':'설치지역' },
+    {'status': 'connection', 't2': '교내방송', 't3':'단말장치', 't4':'설치지역' },
+    {'status': 'disconnection', 't2': '교내방송', 't3':'단말장치', 't4':'설치지역' },
+    {'status': 'disconnection', 't2': '교내방송', 't3':'단말장치', 't4':'설치지역' }
+  ] 
+  var grid1 = $("#group1").jqGrid({
+    data: mydata,
+    datatype: "local",      
+    colModel: [
+      { label: '장치구분(매체)', name: 't2', align:'center',width:50 },
+      { label: '단말장치명', name: 't3', align:'center',width:50 },
+      { label: '설치지역', name: 't4' },
+      { label: '연결상태', name: 'status', align:'center',width:50, formatter : formatStatus},
+    ],
+    height: 'auto',
+   rowNum: mydata.length,
+    autowidth:true,
+  });       
+  var grid2 = $("#group2").jqGrid({
+    data: mydata,
+    datatype: "local",      
+    colModel: [
+      { label: '연결상태', name: 'status', align:'center',width:50, formatter : formatStatus},
+      { label: '장치구분(매체)', name: 't2', align:'center',width:50 },
+      { label: '단말장치명', name: 't3', align:'center',width:50 },
+      { label: '설치지역', name: 't4' }
+    ],
+    height: 'auto',
+   rowNum: mydata.length,
+    autowidth:true,
+  });       
+</script>
 </body>
 </html>

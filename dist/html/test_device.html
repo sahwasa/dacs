@@ -202,7 +202,7 @@
             <input type="text">
           </li>   
           <li class="full inline">
-            <span class="label">장치구분(멀티):</span>
+            <span class="label">수신유형(다중선택):</span>
             <ul class="device_type">
               <li><label for=""><input type="checkbox">전체</label></li>
               <li><label for=""><input type="checkbox">자동음성통보</label></li>
@@ -211,27 +211,10 @@
           </li>
           <li class="full">
             <span class="label">개별 단말장치</span>
-            <button type="button" class="btn_default_line"  popovertarget="p_select_device">단말장치 선택</button>
+            <button type="button" class="btn_default_line" popovertarget="p_select_device">단말장치 선택</button>
             <div class="selected tbl_wrap">
-              <table class="tbl_default">
-                <caption>선택된 단말기 목록</caption>
-                <thead>
-                  <tr>
-                    <th scope="col">순번</th>
-                    <th scope="col">장치구분</th>
-                    <th scope="col">단말장치그룹</th>
-                    <th scope="col">단말 장치명</th>
-                    <th scope="col">설치지역</th>
-                    <th scope="col">설치주소</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr><td>1</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> </tr>
-                  <tr><td>2</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> </tr>
-                  <tr><td>3</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> </tr>
-                </tbody>
-              </table>              
-            </div>            
+              <table id="selected_lst" class="jq-grid"></table>
+            </div>                       
           </li>
         </ul>
         <ul class="ipt_lst">
@@ -291,46 +274,12 @@ Copyright © KITValley. All Rights RESERVED
         <button type="button" class="btn_default">검색</button>           
       </div>
       <div class="tbl_wrap">
-        <table class="tbl_default">
-          <caption>선택된 단말기 목록</caption>
-          <thead>
-            <tr>
-              <th scope="col">선택</th>
-              <th scope="col">장치구분</th>
-              <th scope="col">단말장치그룹</th>
-              <th scope="col">단말 장치명</th>
-              <th scope="col">설치지역</th>
-              <th scope="col">설치주소</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr> <td><input type="checkbox" title="선택"></td>  <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> </tr>
-            <tr> <td><input type="checkbox" title="선택"></td>  <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> </tr>
-            <tr> <td><input type="checkbox" title="선택"></td>  <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> </tr>
-          </tbody>
-        </table>
-      </div>
+        <table id="group1" class="jq-grid"></table>
+      </div>      
     </section>
     <section class="linked_top">
       <div class="tbl_wrap">
-        <table class="tbl_default">
-          <caption>선택된 단말기 목록</caption>
-          <thead>
-            <tr>
-              <th scope="col">장치구분</th>
-              <th scope="col">단말장치그룹</th>
-              <th scope="col">단말 장치명</th>
-              <th scope="col">설치지역</th>
-              <th scope="col">설치주소</th>
-              <th scope="col">삭제</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr></td>  <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> </tr>
-            <tr></td>  <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> </tr>
-            <tr></td>  <td>-</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> </tr>
-          </tbody>
-        </table>
+        <table id="group2" class="jq-grid"></table>
       </div>
     </section>
   </section>
@@ -342,36 +291,72 @@ Copyright © KITValley. All Rights RESERVED
 </dialog>
 <!-- 단말장치 선택 팝업__e -->
 <script src="../plugins/jquery.min.js"></script>
+<script src="../plugins/jqGrid/js/jquery.jqGrid.min.js"></script>
+<script src="../plugins/jqGrid/js/i18n/grid.locale-kr.js"></script>
 <script src="../js/ui_cmmn.js"></script>
-<!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
 <script>
-  function displayCurrentTime() {
-    var timeView = document.querySelector('#cur_tm');
-    if (timeView == undefined) return;
-    var currentTime = new Date();
-    var year = currentTime.getFullYear();
-    var month = (currentTime.getMonth() + 1).toString().padStart(2, '0');
-    var day = currentTime.getDate().toString().padStart(2, '0');
-    var daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
-    var dayOfWeek = daysOfWeek[currentTime.getDay()];
-    var hours = currentTime.getHours();
-    var minutes = currentTime.getMinutes();
-    var seconds = currentTime.getSeconds();
-    hours = (hours < 10) ? "0" + hours : hours;
-    minutes = (minutes < 10) ? "0" + minutes : minutes;
-    seconds = (seconds < 10) ? "0" + seconds : seconds;
-
-    var dateString = `${year}-${month}-${day} `;
-    var timeString = `${hours}:${minutes}:${seconds}`;
-
-    // document.querySelector('#today').innerHTML = dateString;
-    
-    timeView.innerHTML = dateString + timeString;
-  };
-  displayCurrentTime();
-  setInterval(displayCurrentTime, 1000);
-  commonInit();
+var mydata = [
+    {'t1': '-'},
+    {'t1': '-'},
+] 
+var grid0 = $("#selected_lst").jqGrid({
+    data: mydata,
+    datatype: "local",      
+    colModel: [
+      { label: '장치구분', name: 't1', align:'center',width:50 },
+      { label: '단말장치그룹', name: 't2', align:'center',width:50 },
+      { label: '단말 장치명', name: 't3' },
+      { label: '설치지역', name: 't4' },
+      { label: '설치주소', name: 't5' },
+    ],
+    height: 'auto',
+   rowNum: mydata.length,
+    rownumbers:true,    
+    rownumWidth:60,
+    autowidth:true,gridComplete: function () {
+      // rownumber 헤더에 제목 추가
+      $("#selected_lst")
+        .closest(".ui-jqgrid")
+        .find(".ui-jqgrid-htable th.ui-state-default:first")
+        .html("<div>순번</div>");
+    }
+} );
+ var grid1 = $("#group1").jqGrid({
+    data: mydata,
+    datatype: "local",      
+    colModel: [
+      { label: '장치구분', name: 't1', align:'center' },
+      { label: '단말장치그룹', name: 't2', align:'center'},
+      { label: '단말 장치명', name: 't3' },
+      { label: '설치지역', name: 't4' },
+      { label: '설치주소', name: 't5' },
+    ],
+    height:198,
+   rowNum: mydata.length,
+    rownumber:true,
+    multiselect:true,
+    autowidth:true,
+  })
+  var mydata2 = [
+    {'btn': 'Del'},
+    {'btn': 'Del'},
+] 
+ var grid2 = $("#group2").jqGrid({
+    data: mydata2,
+    datatype: "local",      
+    colModel: [
+      { label: '장치구분', name: 't1', align:'center' },
+      { label: '단말장치그룹', name: 't2', align:'center'},
+      { label: '단말 장치명', name: 't3' },
+      { label: '설치지역', name: 't4' },
+      { label: '설치주소', name: 't5' },
+      { label: '삭제', name: 'btn',align:'center',formatter:formatBtn},
+    ],
+    height:197,
+   rowNum: mydata.length,
+    rownumber:true,
+    autowidth:true,
+  })
 </script>
-
 </body>
 </html>

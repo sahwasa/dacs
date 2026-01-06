@@ -1,19 +1,17 @@
 @use "./var";
 @use "./reset";
 @use "./mixin";
-@use 'sass:list';
-@use 'sass:map';
-@use 'sass:color';
 
 /* jqgrid custom */
 .ui-jqgrid{background-color:#fff;
+  &:not(:has(.ui-jqgrid-pager)){background-color:var.$bg-default;}
   &.ui-corner-all{border-radius:0;}
   .ui-jqgrid-hdiv{border-radius:0;margin-top:0;background-color:var.$bg-default;}
-  .ui-jqgrid-htable th.ui-th-column{color:var.$black-800;font-size:14px;border-bottom:1px solid #c5c9d0;padding:4px 0 8px;}
+  .ui-jqgrid-htable th.ui-th-column{color:var.$black-800;font-size:14px;border-bottom:1px solid #c5c9d0;padding:4px 0 8px;font-weight:normal;}
   .ui-th-div input{vertical-align:initial;}
   tr.jqgrow, tr.jqgroup{background-color:transparent;}
   .ui-jqgrid-bdiv{overflow-x:hidden;}
-  tr.jqgrow td{font-size:14px;border-color:transparent;border-bottom-color:var.$border-default; padding:3px 10px;text-overflow:ellipsis;
+  tr.jqgrow td{font-size:14px;border-width:0;border-bottom:1px solid var.$border-default; padding:3px 10px;text-overflow:ellipsis;background-color:#fff;
     .tool{justify-content:center;}
     &:last-child{border-right-width:0;}
   }
@@ -21,8 +19,9 @@
   tr.ui-state-highlight td{background-color:#eaf8f7;}
   .ui-jqgrid-resize{height:100% !important;}
   .ui-jqgrid-pager{height:auto;border-radius:0;
-    .ui-pager-control{margin-top:32px;}
+    &:not(:has(.tbl_bot)) .ui-pager-control{margin-top:32px;}
     .ui-pager-table{table-layout:fixed;width:100%;}
+    .device_result{justify-content:flex-end;}
     td{font-size:14px;}
     .ui-pg-button + td{padding:0 10px;
       .ui-pg-input{width:80px;height:auto;box-shadow:none;font-size:14px;text-align:center;margin-right:10px;}
@@ -47,4 +46,9 @@
       &::before{color:#ccc;}
     }
   }
+}
+.ui-jqgrid-pager{
+  .tbl_bot{margin-top:0;}
+  &:has(.tbl_bot){margin-top:0;}
+  .device_result{justify-content:flex-end;}
 }

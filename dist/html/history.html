@@ -212,62 +212,8 @@
               <button type="button" class="btn_excel">엑셀다운</button>
             </div>
           </div>
-          <div class="tbl_wrap alert_history">
-            <table class="tbl_default tbl_hover">
-              <caption>재난 발령이력</caption>
-              <thead>
-                <tr>
-                  <th scope="col">순번</th>
-                  <th scope="col">사업자</th>
-                  <th scope="col">홍보기관</th>
-                  <th scope="col">재난유형</th>
-                  <th scope="col">재난유형</th>
-                  <th scope="col">발생일시</th>
-                  <th scope="col">제목</th>
-                  <th scope="col">수신일시</th>
-                  <th scope="col">통보완료일시</th>
-                  <th scope="col">전송결과</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="on">
-                  <td>1</td>
-                  <td>사업자</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td><span class="txt_success">성공</span></td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>사업자</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td><span class="txt_fail">실패</span></td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>사업자</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td><span class="txt_fail">실패</span></td>
-                </tr>                
-              </tbody>
-            </table>
+          <div class="tbl_wrap">
+            <table id="group1" class="jq-grid"></table>
           </div>
         </section>
         <section class="linked_top">
@@ -297,63 +243,9 @@
             </div>
           </div>
           <div class="tbl_wrap">
-            <table class="tbl_default">
-              <caption>재난 발령이력</caption>
-              <thead>
-                <tr>
-                  <th scope="col">순번</th>
-                  <th scope="col">단말기그룹</th>
-                  <th scope="col">장치구분</th>
-                  <th scope="col">단말계정</th>
-                  <th scope="col">단말장치명</th>
-                  <th scope="col">단말장치번호</th>
-                  <th scope="col">설치지역</th>
-                  <th scope="col">설치주소</th>
-                  <th scope="col">발송일시</th>
-                  <th scope="col">전송결과</th>
-                  <th scope="col">실패사유</th>
-                  <th scope="col">재전송 차수</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>문자발송</td>
-                  <td>문자발송</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>2024-02-06 10:32:02</td>
-                  <td><span class="txt_success">성공</span></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>문자발송</td>
-                  <td>문자발송</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>2024-02-06 10:32:02</td>
-                  <td><span class="txt_fail">실패</span></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-              </tbody>             
-            </table>            
-          </div>
-          <div class="tbl_bot">
-            <ul class="device_result">
-              <li><button type="button" class="stt_all">전체<strong>3</strong></button></li>
-              <li><button type="button" class="stt_success">성공<strong>1</strong></button></li>
-              <li><button type="button" class="stt_fail">실패<strong>2</strong></button></li>
-            </ul>
-          </div>
+            <table id="group2" class="jq-grid"></table>
+            <div id="group2Pager"></div>
+          </div>                   
         </section>
       </div>      
     </div>  
@@ -363,35 +255,82 @@ Copyright © KITValley. All Rights RESERVED
 </footer>
 </div>
 <script src="../plugins/jquery.min.js"></script>
+<script src="../plugins/jqGrid/js/jquery.jqGrid.min.js"></script>
+<script src="../plugins/jqGrid/js/i18n/grid.locale-kr.js"></script>
 <script src="../js/ui_cmmn.js"></script>
-<!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
 <script>
-  function displayCurrentTime() {
-    var timeView = document.querySelector('#cur_tm');
-    if (timeView == undefined) return;
-    var currentTime = new Date();
-    var year = currentTime.getFullYear();
-    var month = (currentTime.getMonth() + 1).toString().padStart(2, '0');
-    var day = currentTime.getDate().toString().padStart(2, '0');
-    var daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
-    var dayOfWeek = daysOfWeek[currentTime.getDay()];
-    var hours = currentTime.getHours();
-    var minutes = currentTime.getMinutes();
-    var seconds = currentTime.getSeconds();
-    hours = (hours < 10) ? "0" + hours : hours;
-    minutes = (minutes < 10) ? "0" + minutes : minutes;
-    seconds = (seconds < 10) ? "0" + seconds : seconds;
-
-    var dateString = `${year}-${month}-${day} `;
-    var timeString = `${hours}:${minutes}:${seconds}`;
-
-    // document.querySelector('#today').innerHTML = dateString;
-    
-    timeView.innerHTML = dateString + timeString;
-  };
-  displayCurrentTime();
-  setInterval(displayCurrentTime, 1000);
-  commonInit();
+  var mydata = [
+    {'status': 'success'},
+    {'status': 'success'},
+    {'status': 'success'},
+    {'status': 'success'},
+    {'status': 'fail'},
+    {'status': 'fail'},
+    {'status': 'fail'},
+    {'status': 'fail'},
+    {'status': 'fail'},
+    {'status': 'fail'},
+  ] 
+  var grid1= $("#group1").jqGrid({
+    data: mydata,
+    datatype: "local",      
+    colModel: [
+      { label: '사업자', name: 't1', align:'center',width:50 },
+      { label: '홍보기관', name: 't2', align:'center',width:50 },
+      { label: '재난유형', name: 't3' },
+      { label: '제목', name: 't4' },
+      { label: '발생일시', name: 't5' },
+      { label: '수신일시', name: 't6' },
+      { label: '통보완료일시', name: 't7' },
+      { label: '전송결과', name: 'status', align:'center',width:50, formatter : formatStatus},
+    ],
+    height: 167.5,
+   rowNum: mydata.length,
+    rownumber:true,    
+    autowidth:true,
+  });       
+  var grid2 = $("#group2").jqGrid({
+    data: mydata,
+    datatype: "local",      
+    colModel: [
+      { label: '단말기그룹', name: 't2', align:'center' },
+      { label: '장치구분', name: 't3', align:'center' },
+      { label: '단말계정', name: 't4' },
+      { label: '단말장치명', name: 't4' },
+      { label: '단말장치번호', name: 't4' },
+      { label: '설치지역', name: 't4' },
+      { label: '설치주소', name: 't4' },
+      { label: '발송일시', name: 't4' },
+      { label: '전송결과', name: 'status', width:60, formatter : formatStatus },
+      { label: '실패사유', name: 't4' },
+      { label: '재전송 차수', name: 't4' },
+    ],
+    height: 'auto',
+    rowNum:5,
+    rownumbers: true,
+    autowidth:true,
+    pager: "#group2Pager",
+    gridComplete: function () {
+      // rownumber 헤더에 제목 추가
+      $("#group2")
+        .closest(".ui-jqgrid")
+        .find(".ui-jqgrid-htable th.ui-state-default:first")
+        .html("<div>순번</div>");
+     
+      // pager 우측 삽입
+      const $pager = $("#group2Pager");      
+      const $right = $pager.find("#group2Pager_right");
+      $pager.find('.ui-pager-control').addClass('tbl_bot');
+      if ($right.find(".device_result").length === 0) {
+        $right.append(`
+          <ul class="device_result">
+            <li><button type="button" class="stt_all">전체<strong>3</strong></button></li>
+            <li><button type="button" class="stt_success">성공<strong>1</strong></button></li>
+            <li><button type="button" class="stt_fail">실패<strong>2</strong></button></li>
+          </ul>
+        `);
+      } }
+  });       
 </script>
 
 </body>

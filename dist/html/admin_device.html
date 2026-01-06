@@ -174,7 +174,7 @@
           </ul>
         </section>
       </header>
-      <div class="flex_wrap admin_device">
+      <div class="flex_wrap">
         <section>
           <div class="search">
             <ul class="search_lst">              
@@ -197,64 +197,12 @@
           </div>
           <div class="tbl_top">
             <div class="tool">
-              <button type="button" class="btn_add">추가</button>
+              <button type="button" class="btn_add" popovertarget="p_deviceAdmin">추가</button>
               <button type="button" class="btn_del">삭제</button>
             </div>
           </div>
           <div class="tbl_wrap">
-            <table class="tbl_default">
-              <caption>장치관리</caption>
-              <thead>
-                <tr>
-                  <th scope="col">상태</th>
-                  <th scope="col">장치구분</th>
-                  <th scope="col">단말장치그룹</th>
-                  <th scope="col">단말 장치명</th>
-                  <th scope="col">설치지역</th>
-                  <th scope="col">설치주소</th>
-                  <th scope="col">관리</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><span class="txt_normal">정상</span></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td><span class="txt_error">비정상</span></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr><td></td> <td></td> <td></td> <td></td> <td></td> <td></td><td>d</td></tr>
-                <tr><td></td> <td></td> <td></td> <td></td> <td></td> <td></td><td>d</td></tr>
-                <tr><td></td> <td></td> <td></td> <td></td> <td></td> <td></td><td>d</td></tr>
-                <tr><td></td> <td></td> <td></td> <td></td> <td></td> <td></td><td>d</td></tr>
-                <tr><td></td> <td></td> <td></td> <td></td> <td></td> <td></td><td>d</td></tr>
-                <tr><td></td> <td></td> <td></td> <td></td> <td></td> <td></td><td>d</td></tr>
-                <tr><td></td> <td></td> <td></td> <td></td> <td></td> <td></td><td>d</td></tr>
-                <tr><td></td> <td></td> <td></td> <td></td> <td></td> <td></td><td>d</td></tr>
-                <tr><td></td> <td></td> <td></td> <td></td> <td></td> <td></td><td>d</td></tr>
-                <tr><td></td> <td></td> <td></td> <td></td> <td></td> <td></td><td>d</td></tr>
-                <tr><td></td> <td></td> <td></td> <td></td> <td></td> <td></td><td>d</td></tr>
-                <tr><td></td> <td></td> <td></td> <td></td> <td></td> <td></td><td>d</td></tr>
-                <tr><td></td> <td></td> <td></td> <td></td> <td></td> <td></td><td>d</td></tr>
-                <tr><td></td> <td></td> <td></td> <td></td> <td></td> <td></td><td>d</td></tr>
-                <tr><td></td> <td></td> <td></td> <td></td> <td></td> <td></td><td>d</td></tr>
-                <tr><td></td> <td></td> <td></td> <td></td> <td></td> <td></td><td>d</td></tr>
-                <tr><td></td> <td></td> <td></td> <td></td> <td></td> <td></td><td>d</td></tr>
-                <tr><td></td> <td></td> <td></td> <td></td> <td></td> <td></td><td>d</td></tr>
-                <tr><td></td> <td></td> <td></td> <td></td> <td></td> <td></td><td>d</td></tr>
-              </tbody>
-            </table>
+            <table id="device_lst" class="jq-grid"></table>
           </div>
         </section>
         <section class="gis_area">
@@ -324,37 +272,158 @@
 Copyright © KITValley. All Rights RESERVED
 </footer>
 </div>
+<!-- 단말 장치관리 팝업 -->
+<dialog id="p_deviceAdmin" class="pop_wrap" popover="manual">
+  <header class="pop_tit">
+    <h1>단말장치 추가 or 수정</h1>
+    <div class="tool_wrap">
+      <button type="button" class="btn_cross" popovertarget="p_deviceAdmin" popvertargetaction="hide">닫기</button>
+    </div>
+  </header>
+  <section class="pop_body">
+    <table class="tbl_ipt full_ipt">
+      <caption>예경보 종합 플랫폼 연결정보</caption>
+      <tbody>
+      <tr>
+        <th scope="row"><label for="" class="required">단말장치 그룹</label></th>
+        <td>
+          <select name="" id="">
+            <option value="">공통코드에서 불러옴</option>
+          </select>
+        </td>
+        <th scope="row"><label for="" class="required">장치구분</label></th>
+        <td>
+          <select name="" id="">
+            <option value="">공통코드에서 불러옴</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="">단말장치명</label></th>
+        <td colspan="3"><input type="text"></td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="" class="required">단말장치 번호</label></th>
+        <td colspan="3">
+          <div class="ipt_group">
+            <input type="text">
+            <button type="button" class="btn_gray">중복확인</button>
+          </div>
+          <p class="invalid">중복</p>
+        </td>
+      </tr>           
+      <tr>
+        <th scope="row"><label for="" class="required">설치지역</label></th>
+        <td colspan="3">
+          <ul class="ipt_group">
+            <li><select name="" id="" title="시군구 선택"><option value="">시군구</option></select></li>
+            <li><select name="" id="" title="읍면동 선택"><option value="">읍면동</option></select></li>
+            <li><select name="" id="" title="리 선택"><option value="">리</option></select></li>
+          </ul>         
+        </td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="" class="required">설치주소</label></th>
+        <td colspan="3"><input type="text"></td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="" class="required">위도</label></th>
+        <td><input type="text"></td>
+        <th scope="row"><label for="" class="required">경도</label></th>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="">모델명</label></th>
+        <td><input type="text"></td>
+        <th scope="row"><label for="">출력방식</label></th>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="">연결타입</label></th>
+        <td><input type="text"></td>
+        <th scope="row"><label for="">단말장치 IP</label></th>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="">최대 허용거리</label></th>
+        <td><input type="text"></td>
+        <td colspan="2">&nbsp;</td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="">계정ID</label></th>
+        <td><input type="text"></td>
+        <th scope="row"><label for="">비밀번호</label></th>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="">제조사</label></th>
+        <td><input type="text"></td>
+        <th scope="row"><label for="">전화번호</label></th>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="">시작일자</label></th>
+        <td><input type="date" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31"></td>
+        <th scope="row"><label for="">종료일자</label></th>
+        <td><input type="date" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31"></td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="">설치일자</label></th>
+        <td><input type="date" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31"></td>
+        <th scope="row"><span class="label">사용여부</span></th>
+        <td>
+          <div class="switch_toggle">
+            <label for="">
+              <input type="checkbox" class="type_check" id=""> 사용여부
+            </label>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row"><label for="">메모</label></th>
+        <td colspan="3">
+          <input type="text">
+        </td>
+      </tr>    
+      </tbody>
+    </table>
+  </section>
+  <section class="pop_foot">
+    <button type="submit" class="btn_default">저장</button>
+    <button type="submit" class="btn_gray">수정</button>
+    <button type="button" class="btn_cancel" popovertarget="p_deviceAdmin" popvertargetaction="hide">닫기</button>
+  </section>
+</dialog>
+<!-- 단말 장치관리 팝업__e -->
 <script src="../plugins/jquery.min.js"></script>
+<script src="../plugins/jqGrid/js/jquery.jqGrid.min.js"></script>
+<script src="../plugins/jqGrid/js/i18n/grid.locale-kr.js"></script>
 <script src="../js/ui_cmmn.js"></script>
-<!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
 <script>
-  function displayCurrentTime() {
-    var timeView = document.querySelector('#cur_tm');
-    if (timeView == undefined) return;
-    var currentTime = new Date();
-    var year = currentTime.getFullYear();
-    var month = (currentTime.getMonth() + 1).toString().padStart(2, '0');
-    var day = currentTime.getDate().toString().padStart(2, '0');
-    var daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
-    var dayOfWeek = daysOfWeek[currentTime.getDay()];
-    var hours = currentTime.getHours();
-    var minutes = currentTime.getMinutes();
-    var seconds = currentTime.getSeconds();
-    hours = (hours < 10) ? "0" + hours : hours;
-    minutes = (minutes < 10) ? "0" + minutes : minutes;
-    seconds = (seconds < 10) ? "0" + seconds : seconds;
-
-    var dateString = `${year}-${month}-${day} `;
-    var timeString = `${hours}:${minutes}:${seconds}`;
-
-    // document.querySelector('#today').innerHTML = dateString;
-    
-    timeView.innerHTML = dateString + timeString;
-  };
-  displayCurrentTime();
-  setInterval(displayCurrentTime, 1000);
-  commonInit();
+var mydata = [
+    {'status': 'normal','btn':'Modify'},
+    {'status': 'error','btn':'Modify'},
+  ] 
+var grid = $("#device_lst").jqGrid({
+    data: mydata,
+    datatype: "local",      
+    colModel: [
+      { label: '상태', name: 'status', align:'center',formatter:formatStatus},
+      { label: '장치구분', name: 't2', align:'center'},
+      { label: '단말장치그룹', name: 't3' },
+      { label: '단말 장치명', name: 't4' },
+      { label: '설치지역', name: 't5' },
+      { label: '설치주소', name: 't6' },
+      { label: '관리', name: 'btn', align:'center',formatter:formatBtn},
+    ],
+    height: 'calc(100vh - 377px)',
+   rowNum: mydata.length,
+    autowidth:true,
+} );
+$(grid).on('click','[data-action="Modify"]', function(){
+  const popoverId = 'p_deviceAdmin';
+  $(this).attr('popovertarget', popoverId);
+})
 </script>
-
 </body>
 </html>

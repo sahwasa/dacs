@@ -63,6 +63,7 @@
 .btn_confirm{@include mixin.btn(var.$gray-100);background-color:#f9fafb;color:#717171;padding:0 10px;font-weight:normal;}
 .btn_excel{@include mixin.btn(var.$green-600, var.$green-600);color:var.$green-600;font-weight:normal;}
 .btn_tblModify{@include mixin.ico_only($y:-84px,$w:18px,$h:18px,$imgurl:'btn.png');}
+.btn_tblDel{@include mixin.ico_only($y:-112px,$w:18px,$h:18px,$imgurl:'btn.png');}
 
 // .icobtn_login{@include mixin.flex;gap:7px;color:#464c53;
 //   &::before{@include mixin.icobtn($y:-49px,$w:32px);content:"";}
@@ -436,10 +437,4 @@ $_types:(auto:var.$mute-purple,manual:var.$mute-olive,real:var.$mute-red,test:va
   }
 }
 .alert_history{height:173.5px;}
-.admin_device{align-items:stretch;height:calc(100vh - 243px);
-  .tbl_wrap{height:calc(100% - 107px);}
-}
 .admin_set{gap:40px;padding-top:20px;}
-.admin_code{align-items:stretch;height:calc(100vh - 243px);
-  .tbl_wrap{height:calc(100% - 38px);}
-}
