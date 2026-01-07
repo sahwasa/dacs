@@ -386,13 +386,13 @@ $_types:(auto:var.$mute-purple,manual:var.$mute-olive,real:var.$mute-red,test:va
   $index: 1;
   li{
     @each $state, $value in var.$connection {
-      &:nth-of-type(#{$index}) button{
+      &:nth-of-type(#{$index}) i{
         @include mixin.status($state,$bg_color:null,$border_opacity:.3,$icoBg:true);
       }
       $index: $index + 1;
     }
   }
-  button{@include mixin.flex();gap:6px;border:1px solid transparent;padding:3px 16px 3px 6px;border-radius:12px;
+  i{@include mixin.flex();gap:6px;border:1px solid transparent;padding:3px 16px 3px 6px;border-radius:12px;
     &::before{width:16px;height:16px;border-radius:50%;}
   }
   span{margin-left:6px;font-weight:600;}
