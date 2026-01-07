@@ -23,8 +23,8 @@
     <div class="util">
       <div class="top_stat">
         <b>예 · 경보 통합플랫폼 연결상태</b>
-        <!-- <i class="ico_connection">연결됨</i> -->
-        <button type="button" class="ico_disconnection" popovertarget="warning_platform_info">연결안됨</button>
+        <i class="ico_connection">연결됨</i>
+        <i class="ico_disconnection">연결안됨</i>
       </div>
       <div class="account">
         <button type="button" class="btn_account" popovertarget="p_userInfo">홍길동</button>
@@ -37,21 +37,9 @@
   <ul class="nav_lst">
     <li><a href="../html/connect_stat.html" class="on">연계현황</a></li>
     <li><a href="../html/history.html">발령이력</a></li>
-    <li><a href="../html/test_area.html">시험발령</a>
-      <ul class="sub">
-        <li><a href="../html/test_area.html">지역단위 발령</a></li>
-        <li><a href="../html/test_device.html">개별단말 발령</a></li>
-      </ul>
-    </li>
+    <li><a href="../html/test_area.html">시험발령</a></li>
     <li><a href="../html/admin_device.html">단말 장치관리</a></li>
-    <li><a href="../html/admin_user.html">시스템관리</a>
-      <ul class="sub">
-        <li><a href="../html/admin_user.html">사용자관리</a></li>
-        <li><a href="../html/admin_set.html">시스템설정</a></li>
-        <li><a href="../html/admin_code.html">공통코드 관리</a></li>
-        <li><a href="../html/admin_log.html">로그관리</a></li>
-      </ul>
-    </li>
+    <li><a href="../html/admin_user.html">시스템관리</a></li>
   </ul>
 </nav>
 <!-- 내정보 팝업 -->
@@ -74,7 +62,6 @@
         <th scope="row"><label for="" class="required">사용자명</label></th>
         <td><input type="text"></td>
       </tr>
-      <!-- 수정 시
       <tr>
         <th scope="row"><label for="" class="required">비밀번호</label></th>
         <td><input type="password"></td>
@@ -82,9 +69,9 @@
       <tr>
         <th scope="row"><label for="" class="required">비밀번호 확인</label></th>
         <td><input type="password">
-          <p class="invalid">비밀번호가 일치하지 않습니다.</p>
+          <p class="invalid on">비밀번호가 일치하지 않습니다.</p>
         </td>
-      </tr> -->
+      </tr>
       <tr>
         <th scope="row"><label for="">소속기관</label></th>
         <td><input type="text"></td>
@@ -113,54 +100,11 @@
     </table>
   </section>
   <section class="pop_foot">
-    <button type="submit" class="btn_default">저장</button>
-    <button type="submit" class="btn_gray">수정</button>
+    <button type="submit" class="btn_default">저장</button>    
     <button type="button" class="btn_cancel" popovertarget="p_userInfo" popvertargetaction="hide">닫기</button>
   </section>
 </dialog>
-<!-- 내정보 팝업__e -->
-<!-- 예경보 종합 플랫폼 연결정보 -->
-<dialog id="warning_platform_info" class="pop_wrap" popover="manual">
-  <header class="pop_tit">
-    <h1>예경보 종합 플랫폼 연결정보</h1>
-    <div class="tool_wrap">
-      <button type="button" class="btn_cross" popovertarget="warning_platform_info" popvertargetaction="hide">닫기</button>
-    </div>
-  </header>
-  <section class="pop_body"> 
-    <table class="tbl_ipt full_ipt">
-      <caption>예경보 종합 플랫폼 연결정보</caption>
-      <tr>
-        <th scope="row"><label for="" class="required">IP</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="" class="required">Port</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="" class="required">ID</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="" class="required">비밀번호</label></th>
-        <td><input type="text"></td>
-      </tr>
-    </table>
-    <div class="connect_test">
-      <button type="button" class="btn_test">테스트</button>
-      <span class="success">연결성공</span>
-      <span class="error">연결실패시 사유</span>
-    </div>
-  </section>
-  <section class="pop_foot">
-    <button type="submit" class="btn_default">저장</button>
-    <button type="submit" class="btn_gray">수정</button>
-    <button type="button" class="btn_cancel" popovertarget="warning_platform_info" popvertargetaction="hide">닫기</button>
-  </section>
-</dialog>
-<!-- 예경보 종합 플랫폼 연결정보 팝업__e -->
-    
+<!-- 내정보 팝업__e -->    
   <main id="content" class="main_container">
     <div class="cont_body">
       <header class="tit">

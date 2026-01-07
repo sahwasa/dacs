@@ -60,7 +60,9 @@ input[list]::-webkit-calendar-picker-indicator{-webkit-appearance:none;-moz-appe
 }
 input:is([type="radio"],[type="checkbox"]).invalid,
 input:invalid{position:relative;outline:2px solid var.$error;background-color:#faebe9;color:var.$error;}
-.invalid{color:var.$error;}
+.invalid{display:none;color:var.$error;
+  &.on{display:block;visibility:visible;}
+}
 input:read-only{background-color:#eeeff1;}
 label:has(input){display:inline-flex;justify-content:flex-start;align-items:center;gap:5px;white-space:nowrap;}
 .required{

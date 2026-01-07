@@ -3,13 +3,14 @@
   <main id="content" class="login">
     <header>
       <h1 class="main_logo"><strong>재난 예·경보장치  제어시스템</strong>LOGIN</h1>      
-    </header>
-    <div class="login_ipt">
-      <input type="text" name="" title="아이디" placeholder="아이디">
-      <input type="password" name="" title="비밀번호" placeholder="비밀번호">
-      <label for="remember"><input type="checkbox" id="remember">ID 기억하기</label>
-      <a href="../html/connect_stat.html" class="btn_login">로그인</a>
-    </div>
+    </header>    
+    <form class="login_ipt" action="../html/connect_stat.html">
+        <input type="text" name="" title="아이디" placeholder="아이디">
+        <input type="password" name="" title="비밀번호" placeholder="비밀번호">
+        <p class="invalid on">비밀번호를 확인해주세요.</p>
+        <label for="remember"><input type="checkbox" id="remember">ID 기억하기</label>
+        <button type="submit" class="btn_login">로그인</button>
+    </form>
   </main>
   @@include('../inc/footer.html')
 </div>

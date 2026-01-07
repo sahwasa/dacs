@@ -5,7 +5,7 @@
      @@include('../inc/lnb_admin.html')
     <div class="cont_body">
       <header class="tit">
-        <h1>시스템 설정<span>시스템 관리</span></h1>        
+        <h1>시스템 설정</h1>        
         <section class="bredcrumb">
           <ul>
             <li>
@@ -27,12 +27,16 @@
               <input type="text">
             </li>
             <li>
-              <label for="">사업자 ID :</label>
+              <label for="">이메일 :</label>
               <input type="text">
             </li>
             <li>
-              <label for="">사업자명 :</label>
+              <label for="">시스템명 :</label>
               <input type="text">
+            </li>
+            <li>
+              <label for="">라이센스 만기일 :</label>
+              <input type="text" value="2026-01-07" readonly>
             </li>
           </ul>          
         </section>
@@ -44,27 +48,20 @@
             <li>
               <label for="">로컬 IP :</label>
               <input type="text">
-            </li>          
-            <li class="span2">
-              <span class="label">설치지역 :</span>
-              <ul class="ipt_group">
-                <li><select name="" id="" title="시군구 선택"><option value="">시군구</option></select></li>
-                <li><select name="" id="" title="읍면동 선택"><option value="">읍면동</option></select></li>
-              </ul>
-            </li>
+            </li>            
           </ul>
         </section>
         <section class="section">
           <header class="tit">
-            <h2>서버설정</h2>
+            <h2>접속정보</h2>
           </header>
           <ul class="ipt_lst">
             <li>
-              <label for="">사업자 IP :</label>
+              <label for="">서버 IP :</label>
               <input type="text">
             </li> 
             <li>
-              <label for="">서버 Port :</label>
+              <label for="">Port :</label>
               <input type="text">
             </li> 
             <li>
@@ -73,14 +70,6 @@
             </li> 
             <li>
               <label for="">비밀번호 :</label>
-              <input type="text">
-            </li> 
-            <li>
-              <label for="">수신자 주소 :</label>
-              <input type="text">
-            </li> 
-            <li>
-              <label for="">메세지 :</label>
               <input type="text">
             </li>            
           </ul>
