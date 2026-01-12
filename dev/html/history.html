@@ -1,6 +1,6 @@
-@@include('../inc/top.html')
+@@include('inc/top.html')
 <div id="wrap" class="wrap">
-  @@include('../inc/header.html')    
+  @@include('inc/header.html')    
   <main id="content" class="main_container">
     <div class="cont_body">
       <header class="tit">
@@ -90,9 +90,9 @@
       </div>      
     </div>  
   </main>
-  @@include('../inc/footer.html')
+  @@include('inc/footer.html')
 </div>
-@@include('../inc/script.html')
+@@include('inc/script.html')
 <script>
   var mydata = [
     {'status': 'success'},
@@ -117,7 +117,9 @@
       { label: '발생일시', name: 't5' },
       { label: '수신일시', name: 't6' },
       { label: '통보완료일시', name: 't7' },
-      { label: '전송결과', name: 'status', align:'center',width:50, formatter : formatStatus},
+      { label: '전송결과', name: 'status', align:'center',width:50,
+       formatter : formatStatus //ui_temp.js 참고
+      },
     ],
     height: 167.5,
    rowNum: mydata.length,
@@ -136,7 +138,9 @@
       { label: '설치지역', name: 't4' },
       { label: '설치주소', name: 't4' },
       { label: '발송일시', name: 't4' },
-      { label: '전송결과', name: 'status', width:60, formatter : formatStatus },
+      { label: '전송결과', name: 'status', width:60,
+       formatter : formatStatus //ui_temp.js 참고
+      },
       { label: '실패사유', name: 't4' },
       { label: '재전송 차수', name: 't4' },
     ],

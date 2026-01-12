@@ -8,7 +8,7 @@
  *
  * SECURITY WARNING
  *    You should always implement server-side checking to ensure that
- *    the query will fail when forged/invalid data is received.
+ *    the query will fail when forged/is-invalid data is received.
  *    Clever users can send any value they want through JavaScript and HTTP POST/GET.
  *
  * THEMES

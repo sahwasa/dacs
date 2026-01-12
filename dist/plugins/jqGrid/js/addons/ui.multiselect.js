@@ -297,7 +297,7 @@ $.widget("ui.multiselect", {
 					},
 					appendTo: that.container,
 					containment: that.container,
-					revert: 'invalid'
+					revert: 'is-invalid'
 				});
 			});		  
 		}

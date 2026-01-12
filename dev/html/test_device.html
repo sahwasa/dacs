@@ -1,8 +1,8 @@
-@@include('../inc/top.html')
+@@include('inc/top.html')
 <div id="wrap" class="wrap">
-  @@include('../inc/header.html')    
+  @@include('inc/header.html')    
   <main id="content" class="main_container">
-    @@include('../inc/lnb_test_alert.html')    
+    @@include('inc/lnb_test_alert.html')    
     <div class="cont_body">
       <header class="tit">
         <h1>개별단말 발령<span>시험발령</span></h1>        
@@ -74,7 +74,7 @@
       </div>
     </div>  
   </main>
-  @@include('../inc/footer.html')
+  @@include('inc/footer.html')
 </div>
 <!-- 단말장치 선택 팝업 -->
 <dialog id="p_select_device" class="pop_wrap p_select_device" popover="manual">
@@ -122,7 +122,7 @@
   </section>
 </dialog>
 <!-- 단말장치 선택 팝업__e -->
-@@include('../inc/script.html')
+@@include('inc/script.html')
 <script>
 var mydata = [
     {'t1': '-'},
@@ -142,7 +142,8 @@ var grid0 = $("#selected_lst").jqGrid({
    rowNum: mydata.length,
     rownumbers:true,    
     rownumWidth:60,
-    autowidth:true,gridComplete: function () {
+    autowidth:true,
+    gridComplete: function () {
       // rownumber 헤더에 제목 추가
       $("#selected_lst")
         .closest(".ui-jqgrid")
@@ -179,7 +180,9 @@ var grid0 = $("#selected_lst").jqGrid({
       { label: '단말 장치명', name: 't3' },
       { label: '설치지역', name: 't4' },
       { label: '설치주소', name: 't5' },
-      { label: '삭제', name: 'btn',align:'center',formatter:formatBtn},
+      { label: '삭제', name: 'btn',align:'center',
+        formatter:formatBtn //ui_temp.js 참고
+      },
     ],
     height:197,
    rowNum: mydata.length,

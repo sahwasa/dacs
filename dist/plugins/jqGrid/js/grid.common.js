@@ -827,7 +827,7 @@ $.extend($.jgrid,{
 				// remove error styles and messages
 			} else {
 				// style field, show error, etc.
-				// form is invalid
+				// form is is-invalid
 				//var message = field.validationMessage;
 				formvalid = false;
 				break;

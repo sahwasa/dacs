@@ -12591,7 +12591,7 @@ $.jgrid.extend({
 				"hoverClass": "ui-state-hover"
 			},
 			"drag_opts" : {
-				"revert": "invalid",
+				"revert": "is-invalid",
 				"helper": "clone",
 				"cursor": "move",
 				"appendTo" : "#jqgrid_dnd",

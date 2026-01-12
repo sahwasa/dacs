@@ -20,7 +20,7 @@ const dist = "dist";
 
 // 작업용 폴더 파일 path
 const path = {
-  html:dev + "/**/*.html",
+  html:dev + "/html/**/*.html",
   scss: dev + "/scss/*.scss",
   js: dev + "/js/*.js",
   images: dev + "/**/images/**/*"
@@ -43,10 +43,10 @@ const cleanPaths = [
 // task start
 function inc(){
   return merge(
-    src(path.html)
+    src(path.html,{ base: dev + '/html' })
     .pipe(gulpInc({
       prefix : '@@',
-      basepath : '@file'
+      basepath : 'dev'
     }))
     .pipe(dest(dist + '/'))
     .pipe(bs.stream())

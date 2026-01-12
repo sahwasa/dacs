@@ -1,8 +1,8 @@
-@@include('../inc/top.html')
+@@include('inc/top.html')
 <div id="wrap" class="wrap">
-  @@include('../inc/header.html')    
+  @@include('inc/header.html')    
   <main id="content" class="main_container">
-    @@include('../inc/lnb_admin.html')
+    @@include('inc/lnb_admin.html')
     <div class="cont_body">
       <header class="tit">
         <h1>공통코드 관리</h1>        
@@ -46,7 +46,7 @@
       </div>      
     </div>  
   </main>
-  @@include('../inc/footer.html')
+  @@include('inc/footer.html')
 </div>
 <!-- 코드관리 팝업 -->
 <dialog id="p_codeAdmin" class="pop_wrap p_codeAdmin" popover="manual">
@@ -92,7 +92,7 @@
   </section>
 </dialog>
 <!-- 코드관리 팝업__e -->
-@@include('../inc/script.html')
+@@include('inc/script.html')
 <script>
  var mydata = [
     {'use_yn': false},
@@ -109,7 +109,9 @@ var grid1 = $("#group1").jqGrid({
       },
       { label: '코드명', name: 'name', align:'center'},
       { label: '설명', name: 'desc' , align:'center'},
-      { label: '사용여부', name: 'use_yn', align:'center',formatter:formatSwitch},
+      { label: '사용여부', name: 'use_yn', align:'center',
+        formatter:formatSwitch //ui_temp.js 참고
+      },
     ],
     height: 'calc(100vh - 319px)',
    rowNum: mydata.length,
@@ -126,7 +128,9 @@ var grid2 = $("#group2").jqGrid({
       },
       { label: '코드명', name: 'name', align:'center'},
       { label: '설명', name: 'desc' , align:'center'},
-      { label: '사용여부', name: 'use_yn', align:'center',formatter:formatSwitch},
+      { label: '사용여부', name: 'use_yn', align:'center',
+        formatter:formatSwitch //ui_temp.js 참고
+      },
     ],
     height: 'calc(100vh - 319px)',
    rowNum: mydata.length,

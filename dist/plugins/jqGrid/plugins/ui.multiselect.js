@@ -258,7 +258,7 @@ $.widget("ui.multiselect", {
 				},
 				appendTo: '.ui-multiselect',
 				containment: '.ui-multiselect',
-				revert: 'invalid'
+				revert: 'is-invalid'
 	    });
 		});
 	},

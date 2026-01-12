@@ -1,6 +1,6 @@
-@@include('../inc/top.html')
+@@include('inc/top.html')
 <div id="wrap" class="wrap">
-  @@include('../inc/header.html')    
+  @@include('inc/header.html')    
   <main id="content" class="main_container">
     <div class="cont_body">
       <header class="tit">
@@ -108,7 +108,7 @@
       </div>      
     </div>  
   </main>
-  @@include('../inc/footer.html')
+  @@include('inc/footer.html')
 </div>
 <!-- 단말 장치관리 팝업 -->
 <dialog id="p_deviceAdmin" class="pop_wrap" popover="manual">
@@ -147,7 +147,7 @@
             <input type="text">
             <button type="button" class="btn_gray">중복확인</button>
           </div>
-          <p class="invalid">중복</p>
+          <p class="is-invalid">중복</p>
         </td>
       </tr>           
       <tr>
@@ -233,7 +233,7 @@
   </section>
 </dialog>
 <!-- 단말 장치관리 팝업__e -->
-@@include('../inc/script.html')
+@@include('inc/script.html')
 <script>
 var mydata = [
     {'status': 'normal','btn':'Modify'},
@@ -243,13 +243,17 @@ var grid = $("#device_lst").jqGrid({
     data: mydata,
     datatype: "local",      
     colModel: [
-      { label: '상태', name: 'status', align:'center',formatter:formatStatus},
+      { label: '상태', name: 'status', align:'center',
+        formatter:formatStatus //ui_temp.js 참고
+      },
       { label: '장치구분', name: 't2', align:'center'},
       { label: '단말장치그룹', name: 't3' },
       { label: '단말 장치명', name: 't4' },
       { label: '설치지역', name: 't5' },
       { label: '설치주소', name: 't6' },
-      { label: '관리', name: 'btn', align:'center',formatter:formatBtn},
+      { label: '관리', name: 'btn', align:'center',
+        formatter:formatBtn //ui_temp.js 참고
+      },
     ],
     height: 'calc(100vh - 377px)',
    rowNum: mydata.length,

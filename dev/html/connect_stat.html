@@ -1,6 +1,6 @@
-@@include('../inc/top.html')
+@@include('inc/top.html')
 <div id="wrap" class="wrap">
-  @@include('../inc/header.html')    
+  @@include('inc/header.html')    
   <main id="content" class="main_container">
     <div class="cont_body">
       <header class="tit">
@@ -161,9 +161,9 @@
       </div>      
     </div>  
   </main>
-  @@include('../inc/footer.html')
+  @@include('inc/footer.html')
 </div>
-@@include('../inc/script.html')
+@@include('inc/script.html')
 <script>
   var mydata = [
     {'status': 'connection', 't2': '교내방송', 't3':'단말장치', 't4':'설치지역' },
@@ -179,7 +179,9 @@
       { label: '장치구분(매체)', name: 't2', align:'center',width:50 },
       { label: '단말장치명', name: 't3', align:'center',width:50 },
       { label: '설치지역', name: 't4' },
-      { label: '연결상태', name: 'status', align:'center',width:50, formatter : formatStatus},
+      { label: '연결상태', name: 'status', align:'center',width:50, 
+      formatter : formatStatus //ui_temp.js 참고
+      },
     ],
     height: 'auto',
    rowNum: mydata.length,
@@ -189,7 +191,9 @@
     data: mydata,
     datatype: "local",      
     colModel: [
-      { label: '연결상태', name: 'status', align:'center',width:50, formatter : formatStatus},
+      { label: '연결상태', name: 'status', align:'center',width:50, 
+        formatter : formatStatus //ui_temp.js 참고
+      },
       { label: '장치구분(매체)', name: 't2', align:'center',width:50 },
       { label: '단말장치명', name: 't3', align:'center',width:50 },
       { label: '설치지역', name: 't4' }
