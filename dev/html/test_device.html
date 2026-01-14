@@ -185,9 +185,12 @@ var grid0 = $("#selected_lst").jqGrid({
       },
     ],
     height:197,
-   rowNum: mydata.length,
+    rowNum: mydata.length,
     rownumber:true,
     autowidth:true,
+    gridComplete:function(){
+      $(this).gridResizing();
+    }
   })
 </script>
 </body>

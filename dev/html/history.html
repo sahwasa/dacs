@@ -125,6 +125,9 @@
    rowNum: mydata.length,
     rownumber:true,    
     autowidth:true,
+    gridComplete:function(){
+      $(this).gridResizing();
+    }
   });       
   var grid2 = $("#group2").jqGrid({
     data: mydata,
@@ -150,7 +153,7 @@
     autowidth:true,
     pager: "#group2Pager",
     gridComplete: function () {
-      // rownumber 헤더에 제목 추가
+      // rownumber 헤더에 제목 추가      
       $("#group2")
         .closest(".ui-jqgrid")
         .find(".ui-jqgrid-htable th.ui-state-default:first")
@@ -168,7 +171,9 @@
             <li><button type="button" class="stt_fail">실패<strong>2</strong></button></li>
           </ul>
         `);
-      } }
+      } 
+      $(this).gridResizing();
+    }
   });       
 </script>
 

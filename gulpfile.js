@@ -20,7 +20,7 @@ const dist = "dist";
 
 // 작업용 폴더 파일 path
 const path = {
-  html:dev + "/html/**/*.html",
+  html:dev + "/**/*.html",
   scss: dev + "/scss/*.scss",
   js: dev + "/js/*.js",
   images: dev + "/**/images/**/*"
