@@ -50,46 +50,48 @@
 </div>
 <!-- 코드관리 팝업 -->
 <dialog id="p_codeAdmin" class="pop_wrap p_codeAdmin" popover="manual">
-  <header class="pop_tit">
-    <h1>그룹 or 상세코드 추가 / 수정</h1>
-    <div class="tool_wrap">
-      <button type="button" class="btn_cross" popovertarget="p_codeAdmin" popvertargetaction="hide">닫기</button>
-    </div>
-  </header>
-  <section class="pop_body">
-    <table class="tbl_ipt full_ipt">
-      <caption>예경보 종합 플랫폼 연결정보</caption>
-      <tbody>
-      <tr>
-        <th scope="row">그룹 코드</th>
-        <td>상세코드 일 때 그룹코드명</td>
-      </tr>      
-      <tr>
-        <th scope="row"><label for="" class="required">코드명</label></th>
-        <td><input type="text"></td>
-      </tr>      
-      <tr>
-        <th scope="row"><label for="" class="required">설명</label></th>
-        <td><input type="password"></td>
-      </tr>      
-      <tr>
-        <th scope="row">사용여부</th>
-        <td>
-          <div class="switch_toggle">
-            <label for="useYN_P">
-              <input type="checkbox" class="type_check" id="useYN_P" checked> 사용여부
-            </label>
-          </div>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-  </section>
-  <section class="pop_foot">
-    <button type="submit" class="btn_default">저장</button>
-    <button type="submit" class="btn_gray">수정</button>
-    <button type="button" class="btn_cancel" popovertarget="p_codeAdmin" popvertargetaction="hide">닫기</button>
-  </section>
+  <form id="">
+    <header class="pop_tit">
+      <h1>그룹 or 상세코드 추가 / 수정</h1>
+      <div class="tool_wrap">
+        <button type="button" class="btn_cross" popovertarget="p_codeAdmin" popvertargetaction="hide">닫기</button>
+      </div>
+    </header>
+    <section class="pop_body">  
+      <table class="tbl_ipt full_ipt">
+        <caption>예경보 종합 플랫폼 연결정보</caption>
+        <tbody>
+        <tr>
+          <th scope="row">그룹 코드</th>
+          <td>상세코드 일 때 그룹코드명</td>
+        </tr>      
+        <tr>
+          <th scope="row"><label for="" class="required">코드명</label></th>
+          <td><input type="text"></td>
+        </tr>      
+        <tr>
+          <th scope="row"><label for="" class="required">설명</label></th>
+          <td><input type="password"></td>
+        </tr>      
+        <tr>
+          <th scope="row">사용여부</th>
+          <td>
+            <div class="switch_toggle">
+              <label for="useYN_P">
+                <input type="checkbox" class="type_check" id="useYN_P" checked> 사용여부
+              </label>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="pop_foot">
+      <button type="submit" class="btn_default">저장</button>
+      <button type="submit" class="btn_gray">수정</button>
+      <button type="button" class="btn_cancel" popovertarget="p_codeAdmin" popovertargetaction="hide">닫기</button>
+    </section>
+  </form>
 </dialog>
 <!-- 코드관리 팝업__e -->
 @@include('inc/script.html')
@@ -133,7 +135,7 @@ var grid2 = $("#group2").jqGrid({
       },
     ],
     height: 'calc(100vh - 319px)',
-   rowNum: mydata.length,
+    rowNum: mydata.length,
     autowidth:true,
 });
 </script>

@@ -27,64 +27,66 @@
 </nav>
 <!-- 내정보 팝업 -->
 <dialog id="p_userInfo" class="pop_wrap" popover="manual">
-  <header class="pop_tit">
-    <h1>내정보</h1>
-    <div class="tool_wrap">
-      <button type="button" class="btn_cross" popovertarget="p_userInfo" popvertargetaction="hide">닫기</button>
-    </div>
-  </header>
-  <section class="pop_body">
-    <table class="tbl_ipt full_ipt">
-      <caption>예경보 종합 플랫폼 연결정보</caption>
-      <tbody>
-      <tr>
-        <th scope="row"><label for="" class="required">사용자ID</label></th>
-        <td>Admin</td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="" class="required">사용자명</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="" class="required">비밀번호</label></th>
-        <td><input type="password"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="" class="required">비밀번호 확인</label></th>
-        <td><input type="password">
-          <p class="is-invalid on">비밀번호가 일치하지 않습니다.</p>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="">소속기관</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="">부서</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="">직급</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="" class="required">핸드폰</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="">이메일</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="">권한</label></th>
-        <td>사용자</td>
-      </tr>
-      </tbody>
-    </table>
-  </section>
-  <section class="pop_foot">
-    <button type="submit" class="btn_default hidetest" onclick="hide();">저장</button>    
-    <button type="button" class="btn_cancel" popovertarget="p_userInfo" popvertargetaction="hide">닫기</button>
-  </section>
+  <form action="">
+    <header class="pop_tit">
+      <h1>내정보</h1>
+      <div class="tool_wrap">
+        <button type="button" class="btn_cross" popovertarget="p_userInfo" popvertargetaction="hide">닫기</button>
+      </div>
+    </header>
+    <section class="pop_body">
+      <table class="tbl_ipt full_ipt">
+        <caption>예경보 종합 플랫폼 연결정보</caption>
+        <tbody>
+        <tr>
+          <th scope="row"><label for="" class="required">사용자ID</label></th>
+          <td>Admin</td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="" class="required">사용자명</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="" class="required">비밀번호</label></th>
+          <td><input type="password"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="" class="required">비밀번호 확인</label></th>
+          <td><input type="password">
+            <p class="is-invalid on">비밀번호가 일치하지 않습니다.</p>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">소속기관</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">부서</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">직급</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="" class="required">핸드폰</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">이메일</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">권한</label></th>
+          <td>사용자</td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="pop_foot">
+      <button type="submit" class="btn_default hidetest" onclick="hide();">저장</button>    
+      <button type="button" class="btn_cancel" popovertarget="p_userInfo" popvertargetaction="hide">닫기</button>
+    </section>
+  </form>
 </dialog>
 <!-- 내정보 팝업__e -->

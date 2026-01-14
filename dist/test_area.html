@@ -44,65 +44,67 @@
 </nav>
 <!-- 내정보 팝업 -->
 <dialog id="p_userInfo" class="pop_wrap" popover="manual">
-  <header class="pop_tit">
-    <h1>내정보</h1>
-    <div class="tool_wrap">
-      <button type="button" class="btn_cross" popovertarget="p_userInfo" popvertargetaction="hide">닫기</button>
-    </div>
-  </header>
-  <section class="pop_body">
-    <table class="tbl_ipt full_ipt">
-      <caption>예경보 종합 플랫폼 연결정보</caption>
-      <tbody>
-      <tr>
-        <th scope="row"><label for="" class="required">사용자ID</label></th>
-        <td>Admin</td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="" class="required">사용자명</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="" class="required">비밀번호</label></th>
-        <td><input type="password"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="" class="required">비밀번호 확인</label></th>
-        <td><input type="password">
-          <p class="is-invalid on">비밀번호가 일치하지 않습니다.</p>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="">소속기관</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="">부서</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="">직급</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="" class="required">핸드폰</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="">이메일</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="">권한</label></th>
-        <td>사용자</td>
-      </tr>
-      </tbody>
-    </table>
-  </section>
-  <section class="pop_foot">
-    <button type="submit" class="btn_default hidetest" onclick="hide();">저장</button>    
-    <button type="button" class="btn_cancel" popovertarget="p_userInfo" popvertargetaction="hide">닫기</button>
-  </section>
+  <form action="">
+    <header class="pop_tit">
+      <h1>내정보</h1>
+      <div class="tool_wrap">
+        <button type="button" class="btn_cross" popovertarget="p_userInfo" popvertargetaction="hide">닫기</button>
+      </div>
+    </header>
+    <section class="pop_body">
+      <table class="tbl_ipt full_ipt">
+        <caption>예경보 종합 플랫폼 연결정보</caption>
+        <tbody>
+        <tr>
+          <th scope="row"><label for="" class="required">사용자ID</label></th>
+          <td>Admin</td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="" class="required">사용자명</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="" class="required">비밀번호</label></th>
+          <td><input type="password"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="" class="required">비밀번호 확인</label></th>
+          <td><input type="password">
+            <p class="is-invalid on">비밀번호가 일치하지 않습니다.</p>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">소속기관</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">부서</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">직급</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="" class="required">핸드폰</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">이메일</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">권한</label></th>
+          <td>사용자</td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="pop_foot">
+      <button type="submit" class="btn_default hidetest" onclick="hide();">저장</button>    
+      <button type="button" class="btn_cancel" popovertarget="p_userInfo" popvertargetaction="hide">닫기</button>
+    </section>
+  </form>
 </dialog>
 <!-- 내정보 팝업__e -->    
   <main id="content" class="main_container">
@@ -126,69 +128,71 @@
           </ul>
         </section>
       </header>
-      <div>
-        <ul class="ipt_lst">         
-          <li>
-            <label for="">발령기관(source):</label>
-            <input type="text" value="ㅇㅇ시청 (아마도 고정값)" readonly />
-          </li>
-          <li class="span2">
-            <span class="label">재난유형(event / eventCode)</span>
-            <ul class="ipt_group">
-              <li><select name="" id="" title="재난유형 대분류"><option value="">자연재난</option></select></li>
-              <li><select name="" id="" title="재난유형 중분류"><option value="">홍수</option></select></li>
-              <li><select name="" id="" title="재난유형 소분류"><option value="">홍수주의보</option></select></li>
-              <li>&sol; <input type="text" placeholder="CODE명을 보여줄까요?"></li>
-            </ul>            
-          </li>
-          <li class="full">
-            <label for="">제목(headline.ko-KR):</label>
-            <input type="text">
-          </li>               
-          <li class="full inline">
-            <span class="label">수신유형(다중선택)</span>
-            <ul class="device_type">
-              <li><label for=""><input type="checkbox">전체</label></li>
-              <li><label for=""><input type="checkbox">자동음성통보</label></li>
-              <li><label for=""><input type="checkbox">재해문자전광판</label></li>
-            </ul>
-          </li>
-          <li class="full">
-            <span class="label">지역</span>
-            <ul class="ipt_group">
-              <li><select name="" id="" title="시군구 선택"><option value="">시군구</option></select></li>
-              <li><select name="" id="" title="읍면동 선택"><option value="">읍면동</option></select></li>
-              <li><select name="" id="" title="리 선택"><option value="">리</option></select></li>
-            </ul>
-            <div class="selected">
-              <ul class="tag_lst">
-                <li>부천시<button type="button" class="btn_cross">삭제</button></li>
-                <li>안양시 만안구<button type="button" class="btn_cross">삭제</button></li>
+      <form action="">
+        <div>
+          <ul class="ipt_lst">         
+            <li>
+              <label for="">발령기관(source):</label>
+              <input type="text" value="ㅇㅇ시청 (아마도 고정값)" readonly />
+            </li>
+            <li class="span2">
+              <span class="label">재난유형(event / eventCode)</span>
+              <ul class="ipt_group">
+                <li><select name="" id="" title="재난유형 대분류"><option value="">자연재난</option></select></li>
+                <li><select name="" id="" title="재난유형 중분류"><option value="">홍수</option></select></li>
+                <li><select name="" id="" title="재난유형 소분류"><option value="">홍수주의보</option></select></li>
+                <li>&sol; <input type="text" placeholder="CODE명을 보여줄까요?"></li>
+              </ul>            
+            </li>
+            <li class="full">
+              <label for="">제목(headline.ko-KR):</label>
+              <input type="text">
+            </li>               
+            <li class="full inline">
+              <span class="label">수신유형(다중선택)</span>
+              <ul class="device_type">
+                <li><label for=""><input type="checkbox">전체</label></li>
+                <li><label for=""><input type="checkbox">자동음성통보</label></li>
+                <li><label for=""><input type="checkbox">재해문자전광판</label></li>
               </ul>
-            </div>            
-          </li>
-        </ul>
-        <ul class="ipt_lst">
-          <li class="full">
-            <label for="">재해문자전광판 40(Text40.ko-KR)</label>
-            <textarea name="" id="" wrap="hard" cols="90" rows="1"></textarea>
-          </li>
-          <li class="full">
-            <label for="">재해문자전광판 80(Text80.ko-KR)</label>
-            <textarea name="" id="" wrap="hard" cols="90" rows="1"></textarea>
-          </li>
-          <li class="full">
-            <label for="">마을방송(VoiceText.ko-KR)</label>
-            <textarea name="" id="" wrap="hard" cols="90" rows="1"></textarea>
-          </li>
-        </ul>
-        <div class="section_bot">
-          <div class="tool">
-            <button type="button" class="btn_gray_line">초기화</button>
-            <button type="button" class="btn_default">시험발령</button>
+            </li>
+            <li class="full">
+              <span class="label">지역</span>
+              <ul class="ipt_group">
+                <li><select name="" id="" title="시군구 선택"><option value="">시군구</option></select></li>
+                <li><select name="" id="" title="읍면동 선택"><option value="">읍면동</option></select></li>
+                <li><select name="" id="" title="리 선택"><option value="">리</option></select></li>
+              </ul>
+              <div class="selected">
+                <ul class="tag_lst">
+                  <li>부천시<button type="button" class="btn_cross">삭제</button></li>
+                  <li>안양시 만안구<button type="button" class="btn_cross">삭제</button></li>
+                </ul>
+              </div>            
+            </li>
+          </ul>
+          <ul class="ipt_lst">
+            <li class="full">
+              <label for="">재해문자전광판 40(Text40.ko-KR)</label>
+              <textarea name="" id="" wrap="hard" cols="90" rows="1"></textarea>
+            </li>
+            <li class="full">
+              <label for="">재해문자전광판 80(Text80.ko-KR)</label>
+              <textarea name="" id="" wrap="hard" cols="90" rows="1"></textarea>
+            </li>
+            <li class="full">
+              <label for="">마을방송(VoiceText.ko-KR)</label>
+              <textarea name="" id="" wrap="hard" cols="90" rows="1"></textarea>
+            </li>
+          </ul>
+          <div class="section_bot">
+            <div class="tool">
+              <button type="button" class="btn_gray_line">초기화</button>
+              <button type="submit" class="btn_default">시험발령</button>
+            </div>
           </div>
         </div>
-      </div>
+      </form>
     </div>  
   </main>
   <footer class="footer">

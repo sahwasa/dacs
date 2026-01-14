@@ -16,71 +16,74 @@
           </ul>
         </section>
       </header>
-      <div class="flex_vertical_wrap admin_set">
-        <section class="section">
-          <header class="tit">
-            <h2>사업자 정보</h2>
-          </header>
-          <ul class="ipt_lst">
-            <li>
-              <label for="">사업자 IP :</label>
-              <input type="text">
-            </li>
-            <li>
-              <label for="">이메일 :</label>
-              <input type="text">
-            </li>
-            <li>
-              <label for="">시스템명 :</label>
-              <input type="text">
-            </li>
-            <li>
-              <label for="">라이센스 만기일 :</label>
-              <input type="text" value="2026-01-07" readonly>
-            </li>
-          </ul>          
-        </section>
-        <section class="section">
-          <header class="tit">
-            <h2>설치 정보</h2>
-          </header>
-          <ul class="ipt_lst">
-            <li>
-              <label for="">로컬 IP :</label>
-              <input type="text">
-            </li>            
-          </ul>
-        </section>
-        <section class="section">
-          <header class="tit">
-            <h2>접속정보</h2>
-          </header>
-          <ul class="ipt_lst">
-            <li>
-              <label for="">서버 IP :</label>
-              <input type="text">
-            </li> 
-            <li>
-              <label for="">Port :</label>
-              <input type="text">
-            </li> 
-            <li>
-              <label for="">ID :</label>
-              <input type="text">
-            </li> 
-            <li>
-              <label for="">비밀번호 :</label>
-              <input type="text">
-            </li>            
-          </ul>
-        </section>
-        <div class="section_bot">
-          <div class="tool">
-            <button type="button" class="btn_gray_line">초기화</button>
-            <button type="button" class="btn_default">저장</button>
-          </div>
-        </div>       
-      </div>
+      <form action="">
+        <div class="flex_vertical_wrap admin_set">
+          <section class="section">
+            <header class="tit">
+              <h2>사업자 정보</h2>
+            </header>
+            <ul class="ipt_lst">
+              <li>
+                <label for="">사업자 IP :</label>
+                <input type="text" class="is-invalid"> 
+                <!-- invalid class에 대해 의논 필요 -->
+              </li>
+              <li>
+                <label for="">이메일 :</label>
+                <input type="text">
+              </li>
+              <li>
+                <label for="">시스템명 :</label>
+                <input type="text">
+              </li>
+              <li>
+                <label for="">라이센스 만기일 :</label>
+                <input type="text" value="2026-01-07" readonly>
+              </li>
+            </ul>          
+          </section>
+          <section class="section">
+            <header class="tit">
+              <h2>설치 정보</h2>
+            </header>
+            <ul class="ipt_lst">
+              <li>
+                <label for="">로컬 IP :</label>
+                <input type="text">
+              </li>            
+            </ul>
+          </section>
+          <section class="section">
+            <header class="tit">
+              <h2>접속정보</h2>
+            </header>
+            <ul class="ipt_lst">
+              <li>
+                <label for="">서버 IP :</label>
+                <input type="text">
+              </li> 
+              <li>
+                <label for="">Port :</label>
+                <input type="text">
+              </li> 
+              <li>
+                <label for="">ID :</label>
+                <input type="text">
+              </li> 
+              <li>
+                <label for="">비밀번호 :</label>
+                <input type="text">
+              </li>            
+            </ul>
+          </section>
+          <div class="section_bot">
+            <div class="tool">
+              <button type="button" class="btn_gray_line">초기화</button>
+              <button type="submit" class="btn_default">저장</button>
+            </div>
+          </div>       
+        </div>
+      </form>
     </div>  
   </main>
   @@include('inc/footer.html')

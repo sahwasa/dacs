@@ -16,62 +16,64 @@
           </ul>
         </section>
       </header>
-      <div>
-        <ul class="ipt_lst">
-          <li>
-            <label for="">발령기관(source):</label>
-            <input type="text" value="ㅇㅇ시청 (아마도 고정값)" readonly />
-          </li>
-          <li class="span2">
-            <span class="label">재난유형(event / eventCode):</span>
-            <ul class="ipt_group">
-              <li><select name="" id="" title="재난유형 대분류"><option value="">자연재난</option></select></li>
-              <li><select name="" id="" title="재난유형 중분류"><option value="">홍수</option></select></li>
-              <li><select name="" id="" title="재난유형 소분류"><option value="">홍수주의보</option></select></li>
-              <li>&sol; <input type="text" placeholder="CODE명을 보여줄까요?"></li>
-            </ul>            
-          </li>
-          <li class="full">
-            <label for="">제목(headline.ko-KR):</label>
-            <input type="text">
-          </li>   
-          <li class="full inline">
-            <span class="label">수신유형(다중선택):</span>
-            <ul class="device_type">
-              <li><label for=""><input type="checkbox">전체</label></li>
-              <li><label for=""><input type="checkbox">자동음성통보</label></li>
-              <li><label for=""><input type="checkbox">재해문자전광판</label></li>
-            </ul>
-          </li>
-          <li class="full">
-            <span class="label">개별 단말장치</span>
-            <button type="button" class="btn_default_line" popovertarget="p_select_device">단말장치 선택</button>
-            <div class="selected tbl_wrap">
-              <table id="selected_lst" class="jq-grid"></table>
-            </div>                       
-          </li>
-        </ul>
-        <ul class="ipt_lst">
-          <li class="full">
-            <label for="">재해문자전광판 40(Text40.ko-KR)</label>
-            <textarea name="" id="" wrap="hard" cols="90" rows="1"></textarea>
-          </li>
-          <li class="full">
-            <label for="">재해문자전광판 80(Text80.ko-KR)</label>
-            <textarea name="" id="" wrap="hard" cols="90" rows="1"></textarea>
-          </li>
-          <li class="full">
-            <label for="">마을방송(VoiceText.ko-KR)</label>
-            <textarea name="" id="" wrap="hard" cols="90" rows="1"></textarea>
-          </li>
-        </ul>
-        <div class="section_bot">
-          <div class="tool">
-            <button type="button" class="btn_gray_line">초기화</button>
-            <button type="button" class="btn_default">시험발령</button>
+      <form action="">
+        <div>
+          <ul class="ipt_lst">
+            <li>
+              <label for="">발령기관(source):</label>
+              <input type="text" value="ㅇㅇ시청 (아마도 고정값)" readonly />
+            </li>
+            <li class="span2">
+              <span class="label">재난유형(event / eventCode):</span>
+              <ul class="ipt_group">
+                <li><select name="" id="" title="재난유형 대분류"><option value="">자연재난</option></select></li>
+                <li><select name="" id="" title="재난유형 중분류"><option value="">홍수</option></select></li>
+                <li><select name="" id="" title="재난유형 소분류"><option value="">홍수주의보</option></select></li>
+                <li>&sol; <input type="text" placeholder="CODE명을 보여줄까요?"></li>
+              </ul>            
+            </li>
+            <li class="full">
+              <label for="">제목(headline.ko-KR):</label>
+              <input type="text">
+            </li>   
+            <li class="full inline">
+              <span class="label">수신유형(다중선택):</span>
+              <ul class="device_type">
+                <li><label for=""><input type="checkbox">전체</label></li>
+                <li><label for=""><input type="checkbox">자동음성통보</label></li>
+                <li><label for=""><input type="checkbox">재해문자전광판</label></li>
+              </ul>
+            </li>
+            <li class="full">
+              <span class="label">개별 단말장치</span>
+              <button type="button" class="btn_default_line" popovertarget="p_select_device">단말장치 선택</button>
+              <div class="selected tbl_wrap">
+                <table id="selected_lst" class="jq-grid"></table>
+              </div>                       
+            </li>
+          </ul>
+          <ul class="ipt_lst">
+            <li class="full">
+              <label for="">재해문자전광판 40(Text40.ko-KR)</label>
+              <textarea name="" id="" wrap="hard" cols="90" rows="1"></textarea>
+            </li>
+            <li class="full">
+              <label for="">재해문자전광판 80(Text80.ko-KR)</label>
+              <textarea name="" id="" wrap="hard" cols="90" rows="1"></textarea>
+            </li>
+            <li class="full">
+              <label for="">마을방송(VoiceText.ko-KR)</label>
+              <textarea name="" id="" wrap="hard" cols="90" rows="1"></textarea>
+            </li>
+          </ul>
+          <div class="section_bot">
+            <div class="tool">
+              <button type="button" class="btn_gray_line">초기화</button>
+              <button type="submit" class="btn_default">시험발령</button>
+            </div>
           </div>
         </div>
-      </div>
+      </form>
     </div>  
   </main>
   @@include('inc/footer.html')
@@ -87,23 +89,25 @@
   <section class="pop_body flex_vertical_wrap">
     <section>
       <div class="search">
-        <ul class="search_lst">              
-          <li>
-            <select name="" id="" title="단말기 그룹">
-              <option value="">단말기 그룹(공통코드)</option>
-            </select>
-          </li>
-          <li>
-            <select name="" id="" title="지역 대분류">
-              <option value="">시군구</option>
-            </select>
-            <select name="" id="" title="지역 중분류">
-              <option value="">읍면동</option>
-            </select>                
-          </li>
-          <li><input type="text" placeholder="발령지역" title="발령지역"></li>
-        </ul>
-        <button type="button" class="btn_default">검색</button>           
+        <form action="" class="search_form">
+          <ul class="search_lst">              
+            <li>
+              <select name="" id="" title="단말기 그룹">
+                <option value="">단말기 그룹(공통코드)</option>
+              </select>
+            </li>
+            <li>
+              <select name="" id="" title="지역 대분류">
+                <option value="">시군구</option>
+              </select>
+              <select name="" id="" title="지역 중분류">
+                <option value="">읍면동</option>
+              </select>                
+            </li>
+            <li><input type="text" placeholder="발령지역" title="발령지역"></li>
+          </ul>
+          <button type="submit" class="btn_default">검색</button>
+        </form>          
       </div>
       <div class="tbl_wrap">
         <table id="group1" class="jq-grid"></table>
@@ -116,7 +120,7 @@
     </section>
   </section>
   <section class="pop_foot">
-    <button type="submit" class="btn_gray_line">초기화</button>
+    <button type="button" class="btn_gray_line">초기화</button>
     <button type="submit" class="btn_default">적용</button>
     <button type="button" class="btn_cancel" popovertarget="p_select_device" popvertargetaction="hide">취소</button>
   </section>
@@ -127,6 +131,12 @@
 var mydata = [
     {'t1': '-'},
     {'t1': '-'},
+    {'t1': '-'},
+    {'t1': '-'},
+    {'t1': '-'},
+    {'t1': '-'},
+    {'t1': '-'},
+    {'t1': '-'}
 ] 
 var grid0 = $("#selected_lst").jqGrid({
     data: mydata,
@@ -138,12 +148,13 @@ var grid0 = $("#selected_lst").jqGrid({
       { label: '설치지역', name: 't4' },
       { label: '설치주소', name: 't5' },
     ],
-    height: 'auto',
-   rowNum: mydata.length,
+    rowNum: mydata.length,
     rownumbers:true,    
     rownumWidth:60,
-    autowidth:true,
+    _autoHeight:true,
+    _maxAutoHeight:140,
     gridComplete: function () {
+      $(this).gridResize();
       // rownumber 헤더에 제목 추가
       $("#selected_lst")
         .closest(".ui-jqgrid")
@@ -162,10 +173,13 @@ var grid0 = $("#selected_lst").jqGrid({
       { label: '설치주소', name: 't5' },
     ],
     height:198,
-   rowNum: mydata.length,
+    rowNum: mydata.length,
     rownumber:true,
     multiselect:true,
-    autowidth:true,
+    _resizeInPopover:true, //popup 안에 있는 그리드일 때 true
+    gridComplete:function(){
+      $(this).gridResize();
+    }
   })
   var mydata2 = [
     {'btn': 'Del'},
@@ -187,9 +201,9 @@ var grid0 = $("#selected_lst").jqGrid({
     height:197,
     rowNum: mydata.length,
     rownumber:true,
-    autowidth:true,
+    _resizeInPopover:true, //popup 안에 있는 그리드일 때 true
     gridComplete:function(){
-      $(this).gridResizing();
+      $(this).gridResize();
     }
   })
 </script>

@@ -132,3 +132,7 @@ border:1px solid transparent;}
   }
   @if ($icoBg){&::before{background-color:$color;color:#fff;}}
 }
+@mixin stickyTit($sticky:true){
+  @if($sticky){position:sticky;left:0;top:0;}@else{}
+  background-color:#fff;box-shadow:0 4px 6px -4px rgba(0,0,0,0.16);padding-bottom:5px;margin-bottom:0;z-index:100;
+}

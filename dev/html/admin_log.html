@@ -18,26 +18,28 @@
       </header>      
       <div>        
         <div class="search">
-          <ul class="search_lst">            
-            <li>
-              <div class="ipt_range">
-                <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31" lang="en">
-                <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
-              </div>
-            </li>
-            <li>
-              <select name="" id="" title="범주">
-                <option value="">범주</option>
-              </select>
-            </li>          
-            <li>
-              <select name="" id="" title="종류">
-                <option value="">종류</option>
-              </select>
-            </li>          
-            <li><input type="text" placeholder="내용" title="검색어"></li>
-          </ul>
-          <button type="button" class="btn_default">검색</button>
+          <form action="" class="search_form">
+            <ul class="search_lst">            
+              <li>
+                <div class="ipt_range">
+                  <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31" lang="en">
+                  <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
+                </div>
+              </li>
+              <li>
+                <select name="" id="" title="범주">
+                  <option value="">범주</option>
+                </select>
+              </li>          
+              <li>
+                <select name="" id="" title="종류">
+                  <option value="">종류</option>
+                </select>
+              </li>          
+              <li><input type="text" placeholder="내용" title="검색어"></li>
+            </ul>
+            <button type="submit" class="btn_default">검색</button>
+          </form>
         </div>
         <div class="tbl_wrap grid_wrap">
           <table id="jqgrid" class="jq-grid"></table>
@@ -55,6 +57,30 @@
     { 'type':'info','t1': '7. 26. 오후 1:59:58', 't4': '[122.199.200.254:9320] 서버 로그인 실패. ID:onsite1 비밀번호 오류입니다. 비밀번호를 확인하여 주십시오.' },
     { 'type':'error','t1': '7. 26. 오후 1:59:58', 't4': '[122.199.200.254:9320] 서버 로그인 실패. ID:onsite1 비밀번호 오류입니다. 비밀번호를 확인하여 주십시오.' },
     { 'type':'','t1': '7. 26. 오후 1:59:58', 't4': '[122.199.200.254:9320] 서버 로그인 실패. ID:onsite1 비밀번호 오류입니다. 비밀번호를 확인하여 주십시오.' },
+    { 'type':'warn','t1': '12. 26. 오후 1:59:58', 't4': '[122.199.200.254:9320] 서버 로그인 실패. ID:onsite1 비밀번호 오류입니다. 비밀번호를 확인하여 주십시오.' },
+    { 'type':'info','t1': '7. 26. 오후 1:59:58', 't4': '[122.199.200.254:9320] 서버 로그인 실패. ID:onsite1 비밀번호 오류입니다. 비밀번호를 확인하여 주십시오.' },
+    { 'type':'error','t1': '7. 26. 오후 1:59:58', 't4': '[122.199.200.254:9320] 서버 로그인 실패. ID:onsite1 비밀번호 오류입니다. 비밀번호를 확인하여 주십시오.' },
+    { 'type':'','t1': '7. 26. 오후 1:59:58', 't4': '[122.199.200.254:9320] 서버 로그인 실패. ID:onsite1 비밀번호 오류입니다. 비밀번호를 확인하여 주십시오.' },
+    { 'type':'warn','t1': '12. 26. 오후 1:59:58', 't4': '[122.199.200.254:9320] 서버 로그인 실패. ID:onsite1 비밀번호 오류입니다. 비밀번호를 확인하여 주십시오.' },
+    { 'type':'info','t1': '7. 26. 오후 1:59:58', 't4': '[122.199.200.254:9320] 서버 로그인 실패. ID:onsite1 비밀번호 오류입니다. 비밀번호를 확인하여 주십시오.' },
+    { 'type':'error','t1': '7. 26. 오후 1:59:58', 't4': '[122.199.200.254:9320] 서버 로그인 실패. ID:onsite1 비밀번호 오류입니다. 비밀번호를 확인하여 주십시오.' },
+    { 'type':'','t1': '7. 26. 오후 1:59:58', 't4': '[122.199.200.254:9320] 서버 로그인 실패. ID:onsite1 비밀번호 오류입니다. 비밀번호를 확인하여 주십시오.' },
+    { 'type':'warn','t1': '12. 26. 오후 1:59:58', 't4': '[122.199.200.254:9320] 서버 로그인 실패. ID:onsite1 비밀번호 오류입니다. 비밀번호를 확인하여 주십시오.' },
+    { 'type':'info','t1': '7. 26. 오후 1:59:58', 't4': '[122.199.200.254:9320] 서버 로그인 실패. ID:onsite1 비밀번호 오류입니다. 비밀번호를 확인하여 주십시오.' },
+    { 'type':'error','t1': '7. 26. 오후 1:59:58', 't4': '[122.199.200.254:9320] 서버 로그인 실패. ID:onsite1 비밀번호 오류입니다. 비밀번호를 확인하여 주십시오.' },
+    { 'type':'','t1': '7. 26. 오후 1:59:58', 't4': '[122.199.200.254:9320] 서버 로그인 실패. ID:onsite1 비밀번호 오류입니다. 비밀번호를 확인하여 주십시오.' },
+    { 'type':'warn','t1': '12. 26. 오후 1:59:58', 't4': '[122.199.200.254:9320] 서버 로그인 실패. ID:onsite1 비밀번호 오류입니다. 비밀번호를 확인하여 주십시오.' },
+    { 'type':'info','t1': '7. 26. 오후 1:59:58', 't4': '[122.199.200.254:9320] 서버 로그인 실패. ID:onsite1 비밀번호 오류입니다. 비밀번호를 확인하여 주십시오.' },
+    { 'type':'error','t1': '7. 26. 오후 1:59:58', 't4': '[122.199.200.254:9320] 서버 로그인 실패. ID:onsite1 비밀번호 오류입니다. 비밀번호를 확인하여 주십시오.' },
+    { 'type':'','t1': '7. 26. 오후 1:59:58', 't4': '[122.199.200.254:9320] 서버 로그인 실패. ID:onsite1 비밀번호 오류입니다. 비밀번호를 확인하여 주십시오.' },
+    { 'type':'warn','t1': '12. 26. 오후 1:59:58', 't4': '[122.199.200.254:9320] 서버 로그인 실패. ID:onsite1 비밀번호 오류입니다. 비밀번호를 확인하여 주십시오.' },
+    { 'type':'info','t1': '7. 26. 오후 1:59:58', 't4': '[122.199.200.254:9320] 서버 로그인 실패. ID:onsite1 비밀번호 오류입니다. 비밀번호를 확인하여 주십시오.' },
+    { 'type':'error','t1': '7. 26. 오후 1:59:58', 't4': '[122.199.200.254:9320] 서버 로그인 실패. ID:onsite1 비밀번호 오류입니다. 비밀번호를 확인하여 주십시오.' },
+    { 'type':'','t1': '7. 26. 오후 1:59:58', 't4': '[122.199.200.254:9320] 서버 로그인 실패. ID:onsite1 비밀번호 오류입니다. 비밀번호를 확인하여 주십시오.' },
+    { 'type':'warn','t1': '12. 26. 오후 1:59:58', 't4': '[122.199.200.254:9320] 서버 로그인 실패. ID:onsite1 비밀번호 오류입니다. 비밀번호를 확인하여 주십시오.' },
+    { 'type':'info','t1': '7. 26. 오후 1:59:58', 't4': '[122.199.200.254:9320] 서버 로그인 실패. ID:onsite1 비밀번호 오류입니다. 비밀번호를 확인하여 주십시오.' },
+    { 'type':'error','t1': '7. 26. 오후 1:59:58', 't4': '[122.199.200.254:9320] 서버 로그인 실패. ID:onsite1 비밀번호 오류입니다. 비밀번호를 확인하여 주십시오.' },
+    { 'type':'','t1': '7. 26. 오후 1:59:58', 't4': '[122.199.200.254:9320] 서버 로그인 실패. ID:onsite1 비밀번호 오류입니다. 비밀번호를 확인하여 주십시오.' },
     {'type':'', 't1': '7. 26. 오후 1:59:58', 't4': '[122.199.200.254:9320] 서버 로그인 실패. ID:onsite1 비밀번호 오류입니다. 비밀번호를 확인하여 주십시오.' }
   ] 
   var grid = $("#jqgrid").jqGrid({
@@ -68,13 +94,15 @@
       { label: '내용', name: 't4' }
     ],
     height: 'auto',
-    viewrecords: true,
-    rowTotal: 30,
-    rowNum:8,
+    viewrecords: true,  
+    rowNum:15,
     rownumbers: true,
     autowidth:true,
     pager: "#gridPager",      
-    rownumWidth:30   
+    rownumWidth:60,
+    gridComplete:function(){
+      $(this).gridResize();
+    } 
   });       
 </script>
 </body>

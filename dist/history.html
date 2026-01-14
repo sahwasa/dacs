@@ -44,65 +44,67 @@
 </nav>
 <!-- 내정보 팝업 -->
 <dialog id="p_userInfo" class="pop_wrap" popover="manual">
-  <header class="pop_tit">
-    <h1>내정보</h1>
-    <div class="tool_wrap">
-      <button type="button" class="btn_cross" popovertarget="p_userInfo" popvertargetaction="hide">닫기</button>
-    </div>
-  </header>
-  <section class="pop_body">
-    <table class="tbl_ipt full_ipt">
-      <caption>예경보 종합 플랫폼 연결정보</caption>
-      <tbody>
-      <tr>
-        <th scope="row"><label for="" class="required">사용자ID</label></th>
-        <td>Admin</td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="" class="required">사용자명</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="" class="required">비밀번호</label></th>
-        <td><input type="password"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="" class="required">비밀번호 확인</label></th>
-        <td><input type="password">
-          <p class="is-invalid on">비밀번호가 일치하지 않습니다.</p>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="">소속기관</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="">부서</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="">직급</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="" class="required">핸드폰</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="">이메일</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="">권한</label></th>
-        <td>사용자</td>
-      </tr>
-      </tbody>
-    </table>
-  </section>
-  <section class="pop_foot">
-    <button type="submit" class="btn_default hidetest" onclick="hide();">저장</button>    
-    <button type="button" class="btn_cancel" popovertarget="p_userInfo" popvertargetaction="hide">닫기</button>
-  </section>
+  <form action="">
+    <header class="pop_tit">
+      <h1>내정보</h1>
+      <div class="tool_wrap">
+        <button type="button" class="btn_cross" popovertarget="p_userInfo" popvertargetaction="hide">닫기</button>
+      </div>
+    </header>
+    <section class="pop_body">
+      <table class="tbl_ipt full_ipt">
+        <caption>예경보 종합 플랫폼 연결정보</caption>
+        <tbody>
+        <tr>
+          <th scope="row"><label for="" class="required">사용자ID</label></th>
+          <td>Admin</td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="" class="required">사용자명</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="" class="required">비밀번호</label></th>
+          <td><input type="password"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="" class="required">비밀번호 확인</label></th>
+          <td><input type="password">
+            <p class="is-invalid on">비밀번호가 일치하지 않습니다.</p>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">소속기관</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">부서</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">직급</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="" class="required">핸드폰</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">이메일</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">권한</label></th>
+          <td>사용자</td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="pop_foot">
+      <button type="submit" class="btn_default hidetest" onclick="hide();">저장</button>    
+      <button type="button" class="btn_cancel" popovertarget="p_userInfo" popvertargetaction="hide">닫기</button>
+    </section>
+  </form>
 </dialog>
 <!-- 내정보 팝업__e -->    
   <main id="content" class="main_container">
@@ -124,34 +126,36 @@
             <h2>재난 발령이력</h2>            
           </header>
           <div class="search">
-            <ul class="search_lst">
-              <li>
-                <div class="ipt_range">
-                  <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31" lang="en">
-                  <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
-                </div>
-              </li>
-              <li>
-                <select name="" id="" title="자동,수동선택">
-                  <option value="">자동</option><option value="">수동</option>
-                </select>
-              </li>
-              <li>
-                <select name="" id="" title="자동,수동선택">
-                  <option value="">실제</option><option value="">훈련</option><option value="">시험</option>
-                </select>
-              </li>
-              <li>
-                <select name="" id="" title="재난 대분류">
-                  <option value="">자연재난</option><option value="">사회재난</option>
-                </select>
-                <select name="" id="" title="재난 중분류">
-                  <option value="">강풍</option>
-                </select>                
-              </li>
-              <li><input type="text" placeholder="발령지역" title="발령지역"></li>
-            </ul>
-            <button type="button" class="btn_default">검색</button>
+            <form action="" class="search_form">            
+              <ul class="search_lst">
+                <li>
+                  <div class="ipt_range">
+                    <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31" lang="en">
+                    <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
+                  </div>
+                </li>
+                <li>
+                  <select name="" id="" title="자동,수동선택">
+                    <option value="">자동</option><option value="">수동</option>
+                  </select>
+                </li>
+                <li>
+                  <select name="" id="" title="자동,수동선택">
+                    <option value="">실제</option><option value="">훈련</option><option value="">시험</option>
+                  </select>
+                </li>
+                <li>
+                  <select name="" id="" title="재난 대분류">
+                    <option value="">자연재난</option><option value="">사회재난</option>
+                  </select>
+                  <select name="" id="" title="재난 중분류">
+                    <option value="">강풍</option>
+                  </select>                
+                </li>
+                <li><input type="text" placeholder="발령지역" title="발령지역"></li>
+              </ul>
+              <button type="submit" class="btn_default">검색</button>
+            </form>
             <div class="tool">
               <button type="button" class="btn_excel">엑셀다운</button>
             </div>
@@ -165,23 +169,25 @@
             <h2>단말기 발송 결과</h2>            
           </header>
           <div class="search">
-            <ul class="search_lst">            
-              <li>
-                <select name="" id="" title="단말기 그룹">
-                  <option value="">단말기 그룹</option>
-                </select>
-              </li>          
-              <li>
-                <select name="" id="" title="지역 대분류">
-                  <option value="">시군구</option>
-                </select>
-                <select name="" id="" title="지역 중분류">
-                  <option value="">읍면동</option>
-                </select>                
-              </li>
-              <li><input type="text" placeholder="장비명/지역명" title="검색어"></li>
-            </ul>
-            <button type="button" class="btn_default">검색</button>
+            <form action="" class="search_form">
+              <ul class="search_lst">
+                <li>
+                  <select name="" id="" title="단말기 그룹">
+                    <option value="">단말기 그룹</option>
+                  </select>
+                </li>          
+                <li>
+                  <select name="" id="" title="지역 대분류">
+                    <option value="">시군구</option>
+                  </select>
+                  <select name="" id="" title="지역 중분류">
+                    <option value="">읍면동</option>
+                  </select>                
+                </li>
+                <li><input type="text" placeholder="장비명/지역명" title="검색어"></li>
+              </ul>
+              <button type="submit" class="btn_default">검색</button>
+            </form>
             <div class="tool">
               <button type="button" class="btn_excel">엑셀다운</button>
             </div>
@@ -232,11 +238,10 @@ Copyright © KITValley. All Rights RESERVED
       },
     ],
     height: 167.5,
-   rowNum: mydata.length,
+    rowNum: mydata.length,
     rownumber:true,    
-    autowidth:true,
     gridComplete:function(){
-      $(this).gridResizing();
+      $(this).gridResize();
     }
   });       
   var grid2 = $("#group2").jqGrid({
@@ -282,7 +287,7 @@ Copyright © KITValley. All Rights RESERVED
           </ul>
         `);
       } 
-      $(this).gridResizing();
+      $(this).gridResize();
     }
   });       
 </script>

@@ -44,65 +44,67 @@
 </nav>
 <!-- 내정보 팝업 -->
 <dialog id="p_userInfo" class="pop_wrap" popover="manual">
-  <header class="pop_tit">
-    <h1>내정보</h1>
-    <div class="tool_wrap">
-      <button type="button" class="btn_cross" popovertarget="p_userInfo" popvertargetaction="hide">닫기</button>
-    </div>
-  </header>
-  <section class="pop_body">
-    <table class="tbl_ipt full_ipt">
-      <caption>예경보 종합 플랫폼 연결정보</caption>
-      <tbody>
-      <tr>
-        <th scope="row"><label for="" class="required">사용자ID</label></th>
-        <td>Admin</td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="" class="required">사용자명</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="" class="required">비밀번호</label></th>
-        <td><input type="password"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="" class="required">비밀번호 확인</label></th>
-        <td><input type="password">
-          <p class="is-invalid on">비밀번호가 일치하지 않습니다.</p>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="">소속기관</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="">부서</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="">직급</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="" class="required">핸드폰</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="">이메일</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="">권한</label></th>
-        <td>사용자</td>
-      </tr>
-      </tbody>
-    </table>
-  </section>
-  <section class="pop_foot">
-    <button type="submit" class="btn_default hidetest" onclick="hide();">저장</button>    
-    <button type="button" class="btn_cancel" popovertarget="p_userInfo" popvertargetaction="hide">닫기</button>
-  </section>
+  <form action="">
+    <header class="pop_tit">
+      <h1>내정보</h1>
+      <div class="tool_wrap">
+        <button type="button" class="btn_cross" popovertarget="p_userInfo" popvertargetaction="hide">닫기</button>
+      </div>
+    </header>
+    <section class="pop_body">
+      <table class="tbl_ipt full_ipt">
+        <caption>예경보 종합 플랫폼 연결정보</caption>
+        <tbody>
+        <tr>
+          <th scope="row"><label for="" class="required">사용자ID</label></th>
+          <td>Admin</td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="" class="required">사용자명</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="" class="required">비밀번호</label></th>
+          <td><input type="password"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="" class="required">비밀번호 확인</label></th>
+          <td><input type="password">
+            <p class="is-invalid on">비밀번호가 일치하지 않습니다.</p>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">소속기관</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">부서</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">직급</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="" class="required">핸드폰</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">이메일</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">권한</label></th>
+          <td>사용자</td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="pop_foot">
+      <button type="submit" class="btn_default hidetest" onclick="hide();">저장</button>    
+      <button type="button" class="btn_cancel" popovertarget="p_userInfo" popvertargetaction="hide">닫기</button>
+    </section>
+  </form>
 </dialog>
 <!-- 내정보 팝업__e -->    
   <main id="content" class="main_container">
@@ -121,23 +123,25 @@
       <div class="flex_wrap">
         <section>
           <div class="search">
-            <ul class="search_lst">              
-              <li>
-                <select name="" id="" title="단말기 그룹">
-                  <option value="">단말기 그룹(공통코드)</option>
-                </select>
-              </li>
-              <li>
-                <select name="" id="" title="지역 대분류">
-                  <option value="">시군구</option>
-                </select>
-                <select name="" id="" title="지역 중분류">
-                  <option value="">읍면동</option>
-                </select>                
-              </li>
-              <li><input type="text" placeholder="발령지역" title="발령지역"></li>
-            </ul>
-            <button type="button" class="btn_default">검색</button>           
+            <form action="" class="search_form">
+              <ul class="search_lst">              
+                <li>
+                  <select name="" id="" title="단말기 그룹">
+                    <option value="">단말기 그룹(공통코드)</option>
+                  </select>
+                </li>
+                <li>
+                  <select name="" id="" title="지역 대분류">
+                    <option value="">시군구</option>
+                  </select>
+                  <select name="" id="" title="지역 중분류">
+                    <option value="">읍면동</option>
+                  </select>                
+                </li>
+                <li><input type="text" placeholder="발령지역" title="발령지역"></li>
+              </ul>
+              <button type="submit" class="btn_default">검색</button>           
+            </form>
           </div>
           <div class="tbl_top">
             <div class="tool">
@@ -218,125 +222,127 @@ Copyright © KITValley. All Rights RESERVED
 </div>
 <!-- 단말 장치관리 팝업 -->
 <dialog id="p_deviceAdmin" class="pop_wrap" popover="manual">
-  <header class="pop_tit">
-    <h1>단말장치 추가 or 수정</h1>
-    <div class="tool_wrap">
-      <button type="button" class="btn_cross" popovertarget="p_deviceAdmin" popvertargetaction="hide">닫기</button>
-    </div>
-  </header>
-  <section class="pop_body">
-    <table class="tbl_ipt full_ipt">
-      <caption>예경보 종합 플랫폼 연결정보</caption>
-      <tbody>
-      <tr>
-        <th scope="row"><label for="" class="required">단말장치 그룹</label></th>
-        <td>
-          <select name="" id="">
-            <option value="">공통코드에서 불러옴</option>
-          </select>
-        </td>
-        <th scope="row"><label for="" class="required">장치구분</label></th>
-        <td>
-          <select name="" id="">
-            <option value="">공통코드에서 불러옴</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="">단말장치명</label></th>
-        <td colspan="3"><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="" class="required">단말장치 번호</label></th>
-        <td colspan="3">
-          <div class="ipt_group">
+  <form action="">
+    <header class="pop_tit">
+      <h1>단말장치 추가 or 수정</h1>
+      <div class="tool_wrap">
+        <button type="button" class="btn_cross" popovertarget="p_deviceAdmin" popvertargetaction="hide">닫기</button>
+      </div>
+    </header>
+    <section class="pop_body">
+      <table class="tbl_ipt full_ipt">
+        <caption>예경보 종합 플랫폼 연결정보</caption>
+        <tbody>
+        <tr>
+          <th scope="row"><label for="" class="required">단말장치 그룹</label></th>
+          <td>
+            <select name="" id="">
+              <option value="">공통코드에서 불러옴</option>
+            </select>
+          </td>
+          <th scope="row"><label for="" class="required">장치구분</label></th>
+          <td>
+            <select name="" id="">
+              <option value="">공통코드에서 불러옴</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">단말장치명</label></th>
+          <td colspan="3"><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="" class="required">단말장치 번호</label></th>
+          <td colspan="3">
+            <div class="ipt_group">
+              <input type="text">
+              <button type="button" class="btn_gray">중복확인</button>
+            </div>
+            <p class="is-invalid">중복</p>
+          </td>
+        </tr>           
+        <tr>
+          <th scope="row"><label for="" class="required">설치지역</label></th>
+          <td colspan="3">
+            <ul class="ipt_group">
+              <li><select name="" id="" title="시군구 선택"><option value="">시군구</option></select></li>
+              <li><select name="" id="" title="읍면동 선택"><option value="">읍면동</option></select></li>
+              <li><select name="" id="" title="리 선택"><option value="">리</option></select></li>
+            </ul>         
+          </td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="" class="required">설치주소</label></th>
+          <td colspan="3"><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="" class="required">위도</label></th>
+          <td><input type="text"></td>
+          <th scope="row"><label for="" class="required">경도</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">모델명</label></th>
+          <td><input type="text"></td>
+          <th scope="row"><label for="">출력방식</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">연결타입</label></th>
+          <td><input type="text"></td>
+          <th scope="row"><label for="">단말장치 IP</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">최대 허용거리</label></th>
+          <td><input type="text"></td>
+          <td colspan="2">&nbsp;</td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">계정ID</label></th>
+          <td><input type="text"></td>
+          <th scope="row"><label for="">비밀번호</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">제조사</label></th>
+          <td><input type="text"></td>
+          <th scope="row"><label for="">전화번호</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">시작일자</label></th>
+          <td><input type="date" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31"></td>
+          <th scope="row"><label for="">종료일자</label></th>
+          <td><input type="date" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">설치일자</label></th>
+          <td><input type="date" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31"></td>
+          <th scope="row"><span class="label">사용여부</span></th>
+          <td>
+            <div class="switch_toggle">
+              <label for="">
+                <input type="checkbox" class="type_check" id=""> 사용여부
+              </label>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">메모</label></th>
+          <td colspan="3">
             <input type="text">
-            <button type="button" class="btn_gray">중복확인</button>
-          </div>
-          <p class="is-invalid">중복</p>
-        </td>
-      </tr>           
-      <tr>
-        <th scope="row"><label for="" class="required">설치지역</label></th>
-        <td colspan="3">
-          <ul class="ipt_group">
-            <li><select name="" id="" title="시군구 선택"><option value="">시군구</option></select></li>
-            <li><select name="" id="" title="읍면동 선택"><option value="">읍면동</option></select></li>
-            <li><select name="" id="" title="리 선택"><option value="">리</option></select></li>
-          </ul>         
-        </td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="" class="required">설치주소</label></th>
-        <td colspan="3"><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="" class="required">위도</label></th>
-        <td><input type="text"></td>
-        <th scope="row"><label for="" class="required">경도</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="">모델명</label></th>
-        <td><input type="text"></td>
-        <th scope="row"><label for="">출력방식</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="">연결타입</label></th>
-        <td><input type="text"></td>
-        <th scope="row"><label for="">단말장치 IP</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="">최대 허용거리</label></th>
-        <td><input type="text"></td>
-        <td colspan="2">&nbsp;</td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="">계정ID</label></th>
-        <td><input type="text"></td>
-        <th scope="row"><label for="">비밀번호</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="">제조사</label></th>
-        <td><input type="text"></td>
-        <th scope="row"><label for="">전화번호</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="">시작일자</label></th>
-        <td><input type="date" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31"></td>
-        <th scope="row"><label for="">종료일자</label></th>
-        <td><input type="date" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="">설치일자</label></th>
-        <td><input type="date" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31"></td>
-        <th scope="row"><span class="label">사용여부</span></th>
-        <td>
-          <div class="switch_toggle">
-            <label for="">
-              <input type="checkbox" class="type_check" id=""> 사용여부
-            </label>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="">메모</label></th>
-        <td colspan="3">
-          <input type="text">
-        </td>
-      </tr>    
-      </tbody>
-    </table>
-  </section>
-  <section class="pop_foot">
-    <button type="submit" class="btn_default">저장</button>
-    <button type="submit" class="btn_gray">수정</button>
-    <button type="button" class="btn_cancel" popovertarget="p_deviceAdmin" popvertargetaction="hide">닫기</button>
-  </section>
+          </td>
+        </tr>    
+        </tbody>
+      </table>
+    </section>
+    <section class="pop_foot">
+      <button type="submit" class="btn_default">저장</button>
+      <button type="submit" class="btn_gray">수정</button>
+      <button type="button" class="btn_cancel" popovertarget="p_deviceAdmin" popvertargetaction="hide">닫기</button>
+    </section>
+  </form>
 </dialog>
 <!-- 단말 장치관리 팝업__e -->
 <script src="plugins/jquery.min.js"></script>
@@ -347,6 +353,26 @@ Copyright © KITValley. All Rights RESERVED
 <script>
 var mydata = [
     {'status': 'normal','btn':'Modify'},
+    {'status': 'error','btn':'Modify'},
+    {'status': 'error','btn':'Modify'},
+    {'status': 'error','btn':'Modify'},
+    {'status': 'error','btn':'Modify'},
+    {'status': 'error','btn':'Modify'},
+    {'status': 'error','btn':'Modify'},
+    {'status': 'error','btn':'Modify'},
+    {'status': 'error','btn':'Modify'},
+    {'status': 'error','btn':'Modify'},
+    {'status': 'error','btn':'Modify'},
+    {'status': 'error','btn':'Modify'},
+    {'status': 'error','btn':'Modify'},
+    {'status': 'error','btn':'Modify'},
+    {'status': 'error','btn':'Modify'},
+    {'status': 'error','btn':'Modify'},
+    {'status': 'error','btn':'Modify'},
+    {'status': 'error','btn':'Modify'},
+    {'status': 'error','btn':'Modify'},
+    {'status': 'error','btn':'Modify'},
+    {'status': 'error','btn':'Modify'},
     {'status': 'error','btn':'Modify'},
   ] 
 var grid = $("#device_lst").jqGrid({
@@ -366,8 +392,11 @@ var grid = $("#device_lst").jqGrid({
       },
     ],
     height: 'calc(100vh - 377px)',
-   rowNum: mydata.length,
+    rowNum: mydata.length,
     autowidth:true,
+    gridComplete:function(){
+      $(this).gridResize();
+    }
 } );
 $(grid).on('click','[data-action="Modify"]', function(){
   const popoverId = 'p_deviceAdmin';

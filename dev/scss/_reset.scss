@@ -59,7 +59,7 @@ input[list]::-webkit-calendar-picker-indicator{-webkit-appearance:none;-moz-appe
   option:nth-of-type(1){color:#989898;}
 }
 input:is([type="radio"],[type="checkbox"]).is-invalid,
-input:invalid{position:relative;outline:2px solid var.$error;background-color:#faebe9;color:var.$error;}
+input.is-invalid{position:relative;box-shadow: 0 0 0 2px var.$error;background-color:#faebe9;color:var.$error;}
 .is-invalid{color:var.$error;
   // &.on{display:block;visibility:visible;}
 }

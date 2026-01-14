@@ -44,65 +44,67 @@
 </nav>
 <!-- 내정보 팝업 -->
 <dialog id="p_userInfo" class="pop_wrap" popover="manual">
-  <header class="pop_tit">
-    <h1>내정보</h1>
-    <div class="tool_wrap">
-      <button type="button" class="btn_cross" popovertarget="p_userInfo" popvertargetaction="hide">닫기</button>
-    </div>
-  </header>
-  <section class="pop_body">
-    <table class="tbl_ipt full_ipt">
-      <caption>예경보 종합 플랫폼 연결정보</caption>
-      <tbody>
-      <tr>
-        <th scope="row"><label for="" class="required">사용자ID</label></th>
-        <td>Admin</td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="" class="required">사용자명</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="" class="required">비밀번호</label></th>
-        <td><input type="password"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="" class="required">비밀번호 확인</label></th>
-        <td><input type="password">
-          <p class="is-invalid on">비밀번호가 일치하지 않습니다.</p>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="">소속기관</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="">부서</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="">직급</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="" class="required">핸드폰</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="">이메일</label></th>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row"><label for="">권한</label></th>
-        <td>사용자</td>
-      </tr>
-      </tbody>
-    </table>
-  </section>
-  <section class="pop_foot">
-    <button type="submit" class="btn_default hidetest" onclick="hide();">저장</button>    
-    <button type="button" class="btn_cancel" popovertarget="p_userInfo" popvertargetaction="hide">닫기</button>
-  </section>
+  <form action="">
+    <header class="pop_tit">
+      <h1>내정보</h1>
+      <div class="tool_wrap">
+        <button type="button" class="btn_cross" popovertarget="p_userInfo" popvertargetaction="hide">닫기</button>
+      </div>
+    </header>
+    <section class="pop_body">
+      <table class="tbl_ipt full_ipt">
+        <caption>예경보 종합 플랫폼 연결정보</caption>
+        <tbody>
+        <tr>
+          <th scope="row"><label for="" class="required">사용자ID</label></th>
+          <td>Admin</td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="" class="required">사용자명</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="" class="required">비밀번호</label></th>
+          <td><input type="password"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="" class="required">비밀번호 확인</label></th>
+          <td><input type="password">
+            <p class="is-invalid on">비밀번호가 일치하지 않습니다.</p>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">소속기관</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">부서</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">직급</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="" class="required">핸드폰</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">이메일</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">권한</label></th>
+          <td>사용자</td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="pop_foot">
+      <button type="submit" class="btn_default hidetest" onclick="hide();">저장</button>    
+      <button type="button" class="btn_cancel" popovertarget="p_userInfo" popvertargetaction="hide">닫기</button>
+    </section>
+  </form>
 </dialog>
 <!-- 내정보 팝업__e -->    
   <main id="content" class="main_container">
@@ -183,9 +185,9 @@
           <!-- <ul class="disaster_lst flex_vertical_wrap" data-empty="최근 발령된 재난 알림이 없습니다."></ul> -->
           <ul class="disaster_lst flex_vertical_wrap" data-empty="최근 발령된 재난 알림이 없습니다.">
             <li>
-              <a href="../html/history.html">
+              <a href="history.html">
                 <div class="disaster_info">
-                  <img src="../images/symbol/FLN.png" class="disaster_symbol" alt="홍수경보">
+                  <img src="images/symbol/FLN.png" class="disaster_symbol" alt="홍수경보">
                   <dl class="desc">
                     <dt>
                       <b>자연재난  >  강풍  >  강풍주의보</b>
@@ -222,9 +224,126 @@
               </a>
             </li>
             <li>
-              <a href="../html/history.html">
+              <a href="history.html">
                 <div class="disaster_info">
-                  <img src="../images/symbol/FLN.png" class="disaster_symbol" alt="홍수경보">
+                  <img src="images/symbol/FLN.png" class="disaster_symbol" alt="홍수경보">
+                  <dl class="desc">
+                    <dt>
+                      <b>자연재난  >  강풍  >  강풍주의보</b>
+                      <strong>25년 7월 안양천 범람 재난대응</strong>
+                    </dt>
+                    <dd><strong>재난위치</strong>서울시(양천구)</dd>
+                    <dd><strong>발생일시</strong>2025-10-10 12:34:56</dd>
+                    <dd><strong>통보일시</strong>2025-10-10 12:34:56</dd>                    
+                  </dl>
+                  <div class="type">
+                    <i class="manual">수동</i><i class="test">시험</i>
+                  </div>
+                </div>
+                <ul class="group_result">
+                  <li><strong>단말기 그룹명1</strong>
+                    <div class="tool">
+                      <ul class="device_result">
+                        <li><button type="button" class="stt_all">전체<strong>3</strong></button></li>
+                        <li><button type="button" class="stt_success">성공<strong>1</strong></button></li>
+                        <li><button type="button" class="stt_fail">실패<strong>2</strong></button></li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li><strong>단말기 그룹명2</strong>
+                    <div class="tool">
+                      <ul class="device_result">
+                        <li><button type="button" class="stt_all">전체<strong>3</strong></button></li>
+                        <li><button type="button" class="stt_success">성공<strong>1</strong></button></li>
+                        <li><button type="button" class="stt_fail">실패<strong>2</strong></button></li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </a>
+            </li>
+            <li>
+              <a href="history.html">
+                <div class="disaster_info">
+                  <img src="images/symbol/FLN.png" class="disaster_symbol" alt="홍수경보">
+                  <dl class="desc">
+                    <dt>
+                      <b>자연재난  >  강풍  >  강풍주의보</b>
+                      <strong>25년 7월 안양천 범람 재난대응</strong>
+                    </dt>
+                    <dd><strong>재난위치</strong>서울시(양천구)</dd>
+                    <dd><strong>발생일시</strong>2025-10-10 12:34:56</dd>
+                    <dd><strong>통보일시</strong>2025-10-10 12:34:56</dd>                    
+                  </dl>
+                  <div class="type">
+                    <i class="manual">수동</i><i class="test">시험</i>
+                  </div>
+                </div>
+                <ul class="group_result">
+                  <li><strong>단말기 그룹명1</strong>
+                    <div class="tool">
+                      <ul class="device_result">
+                        <li><button type="button" class="stt_all">전체<strong>3</strong></button></li>
+                        <li><button type="button" class="stt_success">성공<strong>1</strong></button></li>
+                        <li><button type="button" class="stt_fail">실패<strong>2</strong></button></li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li><strong>단말기 그룹명2</strong>
+                    <div class="tool">
+                      <ul class="device_result">
+                        <li><button type="button" class="stt_all">전체<strong>3</strong></button></li>
+                        <li><button type="button" class="stt_success">성공<strong>1</strong></button></li>
+                        <li><button type="button" class="stt_fail">실패<strong>2</strong></button></li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </a>
+            </li>
+            <li>
+              <a href="history.html">
+                <div class="disaster_info">
+                  <img src="images/symbol/FLN.png" class="disaster_symbol" alt="홍수경보">
+                  <dl class="desc">
+                    <dt>
+                      <b>자연재난  >  강풍  >  강풍주의보</b>
+                      <strong>25년 7월 안양천 범람 재난대응</strong>
+                    </dt>
+                    <dd><strong>재난위치</strong>서울시(양천구)</dd>
+                    <dd><strong>발생일시</strong>2025-10-10 12:34:56</dd>
+                    <dd><strong>통보일시</strong>2025-10-10 12:34:56</dd>                    
+                  </dl>
+                  <div class="type">
+                    <i class="manual">수동</i><i class="test">시험</i>
+                  </div>
+                </div>
+                <ul class="group_result">
+                  <li><strong>단말기 그룹명1</strong>
+                    <div class="tool">
+                      <ul class="device_result">
+                        <li><button type="button" class="stt_all">전체<strong>3</strong></button></li>
+                        <li><button type="button" class="stt_success">성공<strong>1</strong></button></li>
+                        <li><button type="button" class="stt_fail">실패<strong>2</strong></button></li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li><strong>단말기 그룹명2</strong>
+                    <div class="tool">
+                      <ul class="device_result">
+                        <li><button type="button" class="stt_all">전체<strong>3</strong></button></li>
+                        <li><button type="button" class="stt_success">성공<strong>1</strong></button></li>
+                        <li><button type="button" class="stt_fail">실패<strong>2</strong></button></li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </a>
+            </li>
+            <li>
+              <a href="history.html">
+                <div class="disaster_info">
+                  <img src="images/symbol/FLN.png" class="disaster_symbol" alt="홍수경보">
                   <dl class="desc">
                     <dt>
                       <b>자연재난  >  강풍  >  강풍주의보</b>
@@ -279,7 +398,15 @@ Copyright © KITValley. All Rights RESERVED
     {'status': 'connection', 't2': '교내방송', 't3':'단말장치', 't4':'설치지역' },
     {'status': 'connection', 't2': '교내방송', 't3':'단말장치', 't4':'설치지역' },
     {'status': 'connection', 't2': '교내방송', 't3':'단말장치', 't4':'설치지역' },
-    {'status': 'disconnection', 't2': '교내방송', 't3':'단말장치', 't4':'설치지역' },
+    {'status': 'connection', 't2': '교내방송', 't3':'단말장치', 't4':'설치지역' },
+    {'status': 'connection', 't2': '교내방송', 't3':'단말장치', 't4':'설치지역' },
+    {'status': 'connection', 't2': '교내방송', 't3':'단말장치', 't4':'설치지역' },
+    {'status': 'connection', 't2': '교내방송', 't3':'단말장치', 't4':'설치지역' },
+    {'status': 'connection', 't2': '교내방송', 't3':'단말장치', 't4':'설치지역' },
+    {'status': 'connection', 't2': '교내방송', 't3':'단말장치', 't4':'설치지역' },
+    {'status': 'connection', 't2': '교내방송', 't3':'단말장치', 't4':'설치지역' },
+    {'status': 'connection', 't2': '교내방송', 't3':'단말장치', 't4':'설치지역' },
+    {'status': 'connection', 't2': '교내방송', 't3':'단말장치', 't4':'설치지역' },
     {'status': 'disconnection', 't2': '교내방송', 't3':'단말장치', 't4':'설치지역' }
   ] 
   var grid1 = $("#group1").jqGrid({
@@ -292,25 +419,30 @@ Copyright © KITValley. All Rights RESERVED
       { label: '연결상태', name: 'status', align:'center',width:50, 
       formatter : formatStatus //ui_temp.js 참고
       },
-    ],
-    height: 'auto',
-   rowNum: mydata.length,
-    autowidth:true,
+    ],    
+    rowNum: mydata.length,
+    _autoHeight: true,
+    gridComplete:function(){
+      $(this).gridResize();
+    }
   });       
   var grid2 = $("#group2").jqGrid({
     data: mydata,
     datatype: "local",      
     colModel: [
+      { label: '장치구분(매체)', name: 't2', align:'center',width:50 },
+      { label: '단말장치명', name: 't3', align:'center',width:50 },
+      { label: '설치지역', name: 't4' },
       { label: '연결상태', name: 'status', align:'center',width:50, 
         formatter : formatStatus //ui_temp.js 참고
       },
-      { label: '장치구분(매체)', name: 't2', align:'center',width:50 },
-      { label: '단말장치명', name: 't3', align:'center',width:50 },
-      { label: '설치지역', name: 't4' }
-    ],
-    height: 'auto',
-   rowNum: mydata.length,
+    ],    
+    rowNum: mydata.length,
     autowidth:true,
+    _autoHeight: true,
+    gridComplete:function(){
+      $(this).gridResize();
+    }
   });       
 </script>
 </body>
