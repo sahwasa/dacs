@@ -26,7 +26,6 @@
  $.extend(true, $.jgrid.defaults, {
    _resizeParent: '.tbl_wrap', //그리드를 감싼 부모 DIV를 지정
    _resizeInPopover: false, // popup 안에 있는 그리드 일 때 on/off
-   _autoResize: true, //자동 리사이즈 on/off
    _autoHeight: false,      // 높이 자동 조절 on/off
    _maxAutoHeight: null,    // 최대 높이 (px) – 필요 없으면 null
 });
