@@ -2,6 +2,7 @@
  * @file jqGrid UI Extension API
  * @description
  *  - jqGrid 공통 확장 유틸
+    - jqGrid JS - v5.4.0 - 2019-08-21 버전까지 테스트 완료
  *  - 고정형 레이아웃에서 그리드 width/height 자동 조절
  *  - popup(popover) 내부 그리드 자동 리사이즈 지원
  *
@@ -11,9 +12,6 @@
  *
  * @lastModified 2026-01-15
  * @lastModifiedBy 반미선
- *
- * @changeLog
- *  - 2026-01-15 | 반미선 | 최초 작성
  *
  * @usage
  *  - gridComplete 시 $(this).gridResize() 호출
@@ -46,10 +44,10 @@ $.jgrid.extend({
         const $firstRow = $uiGrid.find('tr.jqgrow:first');
         if ($firstRow.length) {
          const rowHeight = $firstRow.outerHeight(true);
-         const headerH = $uiGrid.find('.ui-jqgrid-hdiv').outerHeight(true) || 0;
-         const pagerH  = $uiGrid.find('.ui-jqgrid-pager').outerHeight(true) || 0;
+         //const headerH = $uiGrid.find('.ui-jqgrid-hdiv').outerHeight(true) || 0;
+         //const pagerH  = $uiGrid.find('.ui-jqgrid-pager').outerHeight(true) || 0;
 
-         let totalHeight = rowCount * rowHeight + headerH + pagerH;
+         let totalHeight = rowCount * rowHeight;
 
           // 최대 높이 제한
           const maxHeight = $grid.jqGrid('getGridParam', '_maxAutoHeight');
