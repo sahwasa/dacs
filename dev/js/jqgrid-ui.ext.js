@@ -1,24 +1,36 @@
 /**
-   jquery extension api 정의
-   고정형 레이아웃 일때 사용
-   gridComplete 시 gridResize(), popup 안에 있는 그리드 일 때 gridInPopResize()
+ * @file jqGrid UI Extension API
+ * @description
+ *  - jqGrid 공통 확장 유틸
+ *  - 고정형 레이아웃에서 그리드 width/height 자동 조절
+ *  - popup(popover) 내부 그리드 자동 리사이즈 지원
+ *
+ * @author 반미선
+ *
+ * @created 2026-01-15
+ *
+ * @lastModified 2026-01-15
+ * @lastModifiedBy 반미선
+ *
+ * @changeLog
+ *  - 2026-01-15 | 반미선 | 최초 작성
+ *
+ * @usage
+ *  - gridComplete 시 $(this).gridResize() 호출
+ *  - jqGrid option:
+ *      _resizeParent     : 그리드를 감싸는 부모 selector
+ *      _resizeInPopover  : popover 내부 그리드 여부
+ *      _autoHeight       : row 수 기반 height 자동 조절
+ *      _maxAutoHeight    : 자동 height 최대값(px)
  */
  $.extend(true, $.jgrid.defaults, {
    _resizeParent: '.tbl_wrap', //그리드를 감싼 부모 DIV를 지정
    _resizeInPopover: false, // popup 안에 있는 그리드 일 때 on/off
+   _autoResize: true, //자동 리사이즈 on/off
    _autoHeight: false,      // 높이 자동 조절 on/off
-   _maxAutoHeight: null    // 최대 높이 (px) – 필요 없으면 null
+   _maxAutoHeight: null,    // 최대 높이 (px) – 필요 없으면 null
 });
 $.jgrid.extend({
-   refreshGrid: function(data) {
-      this.jqGrid('clearGridData');
-      this.jqGrid('setGridParam', { data: data });
-      this.trigger('reloadGrid');
-   },
-   reloadGrid: function() {
-      this.trigger('reloadGrid');
-   },
-   // Resizes the specific grid based on its parent container
    gridResize: function () {
     return this.each(function () {
       const $grid = $(this);
@@ -28,11 +40,18 @@ $.jgrid.extend({
        * ====================== */
       if ($grid.jqGrid('getGridParam', '_autoHeight')) {
         const rowCount = $grid.jqGrid('getGridParam', 'reccount');
-
+        if (rowCount === 0) {
+            $grid.jqGrid('setGridHeight', 'auto');
+            return;
+         }
         const $firstRow = $uiGrid.find('tr.jqgrow:first');
         if ($firstRow.length) {
-          const rowHeight = $firstRow.outerHeight(true);
-          let totalHeight = rowCount * rowHeight;
+         const rowHeight = $firstRow.outerHeight(true);
+         const headerH = $uiGrid.find('.ui-jqgrid-hdiv').outerHeight(true) || 0;
+         const pagerH  = $uiGrid.find('.ui-jqgrid-pager').outerHeight(true) || 0;
+
+         let totalHeight = rowCount * rowHeight + headerH + pagerH;
+
           // 최대 높이 제한
           const maxHeight = $grid.jqGrid('getGridParam', '_maxAutoHeight');
           if (maxHeight && totalHeight > maxHeight) {
@@ -47,11 +66,11 @@ $.jgrid.extend({
        * ====================== */
       const parentSel = $grid.jqGrid('getGridParam', '_resizeParent');
       if (parentSel) {
-        const parent = $grid.closest(parentSel)[0];
+        const parent = $uiGrid.closest(parentSel)[0];
         if (parent) {
           const width = parent.getBoundingClientRect().width;
           if (width > 0) {
-            $grid.jqGrid('setGridWidth', Math.floor(width));
+            $grid.jqGrid('setGridWidth', Math.floor(width), true);
           }
         }
       }
@@ -91,43 +110,4 @@ $.jgrid.extend({
       });
   },
 
-  //기존 리사이즈 코드
-   gridResizing: function(width) {
-      return this.each(function() {
-         var $grid = $(this);
-         var $parent = $grid.parents('.tbl_wrap');
-        
-
-         // 1. Calculate Width
-        var newWidth = $parent.width() - 2;
-        var newWidth = width;
-
-         // 2. Calculate Height dynamically
-         // Find the wrapper created by jqGrid (usually named gbox_gridId)
-         var gridId = $grid.attr('id');
-         var $gbox = $("#gbox_" + gridId);
-
-         // Find heights of header and pager to subtract them from the total
-         var headerHeight = $gbox.find('.ui-jqgrid-hdiv').outerHeight() || 30;
-         var pagerHeight = $gbox.find('.ui-jqgrid-pager').outerHeight() || 35;
-
-         // Final height calculation
-         var newHeight = $parent.height() - headerHeight - pagerHeight - 10;
-
-         $grid.jqGrid('setGridWidth', newWidth);
-         $grid.jqGrid('setGridHeight', newHeight);
-      });
-   },
-
-   // Binds a global window resize event to all jqGrids
-   gridOnResize: function() {
-      var self = this;
-      $(window).on('resize', function() {
-         // Target elements with the 'ui-jqgrid-btable' class (standard jqGrid class)
-         $('.ui-jqgrid-btable').each(function() {         
-            $(this).gridResize();
-         });
-      });
-      return self;
-   }
 });
