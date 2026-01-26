@@ -132,13 +132,13 @@
 </nav>
     <div class="cont_body">
       <header class="tit">
-        <h1>지역단위 발령<span>시험발령</span></h1>        
+        <h1>지역단위 발령<span>수동발령</span></h1>        
         <section class="bredcrumb">
           <ul>
             <li>
               <a href="#">Home</a>
             </li>
-            <li>시험발령</li>
+            <li>수동발령</li>
             <li>지역단위 발령</li>
           </ul>
         </section>
@@ -146,36 +146,35 @@
       <form action="">
         <div>
           <ul class="ipt_lst">         
-            <li class="full inline">
+            <li class="inline full">
               <span class="label">재난상황</span>
               <ul class="ipt_groupCheck">
-                <li><label for="status_Exercise"><input type="radio" id="status_Exercise" name="status" checked>시험</label></li>
-                <li><label for="status_Training"><input type="radio" id="status_Training" name="status">훈련</label></li>
-                <li><label for="status_Actual"><input type="radio" id="status_Actual" name="status">실제</label></li>
+                <li><label for=""><input type="radio">시험</label></li>
+                <li><label for=""><input type="radio">훈련</label></li>
+                <li><label for=""><input type="radio">실제</label></li>
               </ul>
             </li>
             <li>
               <label for="">발령기관(source):</label>
               <input type="text" value="ㅇㅇ시청 (아마도 고정값)" readonly />
             </li>
-            <li class="span2">
+            <li>
               <span class="label">재난유형(event / eventCode)</span>
               <ul class="ipt_group">
-                <li><select name="" id="" title="재난유형 대분류"><option value="">자연재난</option></select></li>
+                <li><select name="" id="" style="--select-width:90px" title="재난유형 대분류"><option value="">자연재난</option></select></li>
                 <li><select name="" id="" title="재난유형 중분류"><option value="">홍수</option></select></li>
                 <li><select name="" id="" title="재난유형 소분류"><option value="">홍수주의보</option></select></li>
-                <li>&sol; <input type="text" placeholder="CODE명을 보여줄까요?"></li>
+                <li>&sol; <input type="text" size="1" placeholder="CODE"></li>
               </ul>            
             </li>
-            
-            <li class="full">
+            <li>
               <label for="">제목(headline.ko-KR):</label>
               <input type="text">
             </li>               
-            <li class="full inline">
+            <li class="span2">
               <span class="label">수신유형(다중선택)</span>
               <ul class="device_type">
-                <li><label for=""><input type="checkbox">전체</label></li>
+                <!-- <li><label for=""><input type="checkbox">전체</label></li> -->
                 <li><label for=""><input type="checkbox">자동음성통보</label></li>
                 <li><label for=""><input type="checkbox">재해문자전광판</label></li>
               </ul>
@@ -196,11 +195,11 @@
             </li>
           </ul>
           <ul class="ipt_lst">
-            <li class="full">
+            <li>
               <label for="">재해문자전광판 40(Text40.ko-KR)</label>
               <textarea name="" id="" wrap="hard" cols="90" rows="1"></textarea>
             </li>
-            <li class="full">
+            <li>
               <label for="">재해문자전광판 80(Text80.ko-KR)</label>
               <textarea name="" id="" wrap="hard" cols="90" rows="1"></textarea>
             </li>
