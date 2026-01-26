@@ -37,7 +37,7 @@
   <ul class="nav_lst">
     <li><a href="connect_stat.html" class="on">연계현황</a></li>
     <li><a href="history.html">발령이력</a></li>
-    <li><a href="test_area.html">시험발령</a></li>
+    <li><a href="test_area.html">수동발령</a></li>
     <li><a href="admin_device.html">단말 장치관리</a></li>
     <li><a href="admin_user.html">시스템관리</a></li>
   </ul>
@@ -124,7 +124,7 @@
 <!-- 재난정보 토스트알람__e -->    
   <main id="content" class="main_container">
     <nav class="lnb">
-  <h1>시험발령</h1>
+  <h1>수동발령</h1>
   <ul class="lnb_lst">
     <li class="on"><a href="test_area.html">지역단위 발령</a></li>
     <li><a href="test_device.html">개별단말 발령</a></li>
@@ -146,6 +146,14 @@
       <form action="">
         <div>
           <ul class="ipt_lst">         
+            <li class="full inline">
+              <span class="label">재난상황</span>
+              <ul class="ipt_groupCheck">
+                <li><label for="status_Exercise"><input type="radio" id="status_Exercise" name="status" checked>시험</label></li>
+                <li><label for="status_Training"><input type="radio" id="status_Training" name="status">훈련</label></li>
+                <li><label for="status_Actual"><input type="radio" id="status_Actual" name="status">실제</label></li>
+              </ul>
+            </li>
             <li>
               <label for="">발령기관(source):</label>
               <input type="text" value="ㅇㅇ시청 (아마도 고정값)" readonly />
@@ -159,6 +167,7 @@
                 <li>&sol; <input type="text" placeholder="CODE명을 보여줄까요?"></li>
               </ul>            
             </li>
+            
             <li class="full">
               <label for="">제목(headline.ko-KR):</label>
               <input type="text">

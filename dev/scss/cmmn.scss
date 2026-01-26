@@ -296,6 +296,7 @@ $defaultTblH:453px;
 }
 .device_type{flex:1;display:grid;grid-template-columns:repeat(auto-fill, minmax(160px, auto));}
 .ipt_group{@include mixin.flex;}
+.ipt_groupCheck{@include mixin.flex;gap:20px;}
 .selected{margin-top:7px;}
 .tag_lst{@include mixin.flex;gap:8px;flex-wrap:wrap;color:#777;padding:8px;border:1px solid var.$border-ipt;
   li{@include mixin.flex($align:center);gap:8px;border:1px solid var.$blue-150;border-radius:11px;line-height:1;padding:4px 7px 4px 9px;font-size:12px;}
