@@ -79,7 +79,9 @@
   &::before{@include mixin.fontello('\e892');display:block;width:65px;font-size:24px;text-align:center;margin:0 auto;color:#92a4b8;border:1px solid #c6d6e7;border-radius:8px;padding:5px 20px;}
   & > .tbl_wrap{margin-top:20px;}
 }
-.gis_area{position:relative;background-color:var.$bg-soft;}
+.gis_area{position:relative;background-color:var.$bg-soft;
+  .gis_wrap{height:100%;}
+}
 .flex_wrap > .gis_area{flex:.7;}
 .symbols{position:absolute;left:0;top:0;width:100%;height:100%;}
 .symbol,.marker{position:absolute;left:var(--left);top:var(--top);}
@@ -267,7 +269,7 @@ $defaultTblH:453px;
   th{background-color:var.$bg-light;}
   th,td{padding:8px;}
 }
-.full_ipt :is(input:not(:is([type="radio"],[type="checkbox"])),select){width:100%;}
+.full_ipt :is(input:not(:is([type="radio"],[type="checkbox"]))){width:100%;}
 //box
 .box_default{@include mixin.box;
   textarea{padding:10px 15px;font-size:14px;color: #464c53;border:none;}
