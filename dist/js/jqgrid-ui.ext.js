@@ -46,10 +46,10 @@ $.jgrid.extend({
         const $firstRow = $uiGrid.find('tr.jqgrow:first');
         if ($firstRow.length) {
          const rowHeight = $firstRow.outerHeight(true);
-         const headerH = $uiGrid.find('.ui-jqgrid-hdiv').outerHeight(true) || 0;
-         const pagerH  = $uiGrid.find('.ui-jqgrid-pager').outerHeight(true) || 0;
-
-         let totalHeight = rowCount * rowHeight + headerH + pagerH;
+        // const headerH = $uiGrid.find('.ui-jqgrid-hdiv').outerHeight(true) || 0;
+        //  const pagerH  = $uiGrid.find('.ui-jqgrid-pager').outerHeight(true) || 0;
+        //  let totalHeight = rowCount * rowHeight + headerH + pagerH;
+         let totalHeight = rowCount * rowHeight;
 
           // 최대 높이 제한
           const maxHeight = $grid.jqGrid('getGridParam', '_maxAutoHeight');
