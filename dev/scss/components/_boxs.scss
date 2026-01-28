@@ -1,0 +1,26 @@
+@use "./var";
+@use "./mixin";
+
+// ============================================
+// Box Components
+// ============================================
+
+.box_default {
+  @include mixin.box;
+  
+  textarea {
+    padding: var.$spacing-lg var.$spacing-xl;
+    font-size: var.$input-font-size;
+    color: #464c53;
+    border: none;
+  }
+  
+  .tool {
+    justify-content: flex-end;
+    margin-top: var.$spacing-lg;
+  }
+}
+
+.box_grey {
+  @include mixin.box($bgColor: var.$bg-default);
+}

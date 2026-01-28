@@ -1,0 +1,40 @@
+@use "./var";
+@use "./mixin";
+
+// ============================================
+// Tabs
+// ============================================
+
+.tabs {
+  border-bottom: 2px solid var.$primary;
+  
+  ul {
+    display: flex;
+    gap: var.$gap-xs;
+    
+    li {
+      min-width: 70px;
+      border: 1px solid var.$border-default;
+      border-bottom-width: 0;
+      border-radius: 4px 4px 0 0;
+      background-color: #fff;
+    }
+    
+    a {
+      display: block;
+      text-align: center;
+      padding: var.$spacing-xxs var.$spacing-sm;
+      color: #55606e;
+    }
+    
+    .on {
+      background-color: var.$primary;
+      border-color: transparent;
+      
+      a {
+        color: #fff;
+        font-weight: 700;
+      }
+    }
+  }
+}

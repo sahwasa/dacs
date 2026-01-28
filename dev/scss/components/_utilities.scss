@@ -1,0 +1,35 @@
+@use "./var";
+@use "./mixin";
+@use 'sass:map';
+
+// Text Utilities
+.txt_success {
+  color: map.get(var.$result, success);
+}
+
+.txt_fail {
+  color: map.get(var.$result, fail);
+}
+
+.txt_notuse {
+  color: map.get(var.$result, notuse);
+}
+
+.txt_normal {
+  color: map.get(map.get(var.$connection, connection), color);
+}
+
+.txt_error {
+  color: map.get(map.get(var.$connection, disconnection), color);
+}
+
+// Ellipsis Text
+.ext {
+  @include mixin.text_ellipsis();
+  display: inline-block;
+  font-weight: normal;
+  color: var.$text-primary;
+  text-align: left;
+  max-width: 200px;
+  vertical-align: middle;
+}

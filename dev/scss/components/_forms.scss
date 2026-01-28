@@ -1,0 +1,280 @@
+@use "./var";
+@use "./mixin";
+
+// ============================================
+// Switch Components
+// ============================================
+
+.switch {
+  
+  // Switch Set
+  &_set {
+    display: flex;
+    gap: var.$spacing-xxs;
+    
+    label {
+      @include mixin.label_item;
+    }
+  }
+  
+  // Single Switch
+  &_single {
+    text-align: center;
+    
+    & > label {
+      position: relative;
+      display: block;
+      width: 100%;
+      line-height: 26px;
+      font-size: var.$btn-font-size;
+      
+      &:has(input[type=checkbox]:checked) {
+        background-color: var.$gray-200;
+        color: #fff;
+      }
+    }
+    
+    input {
+      @include mixin.ipt_hidden;
+    }
+    
+    & + button {
+      width: 100%;
+      margin-top: var.$spacing-sm;
+    }
+    
+    & + .period_custom {
+      display: none;
+    }
+  }
+  
+  // Toggle Switch
+  &_toggle {
+    display: inline-flex;
+    flex-shrink: 0;
+    justify-content: center;
+    vertical-align: middle;
+    
+    $unselectedColor: #dfdfdf;
+    $hoverColor: #868686;
+    $selectColor: var.$primary;
+    
+    label {
+      position: relative;
+      left: -1px;
+      width: var.$switch-width;
+      height: var.$switch-height;
+      cursor: pointer;
+      z-index: var.$z-header;
+      background-color: #fff;
+      border-radius: var.$switch-border-radius;
+      word-break: keep-all;
+      white-space: nowrap;
+      border: 1px solid $unselectedColor;
+      vertical-align: middle;
+      outline: none;
+      letter-spacing: -0.05em;
+      font-size: 0;
+      
+      &::after {
+        position: absolute;
+        top: 1px;
+        right: 22px;
+        display: inline-block;
+        content: "";
+        width: var.$switch-toggle-size;
+        height: var.$switch-toggle-size;
+        background-color: $unselectedColor;
+        border-radius: 50%;
+        transition: var.$transition-fast;
+      }
+      
+      &:hover + label {
+        box-shadow: 0 0 3px $unselectedColor;
+      }
+      
+      &:has(:checked) {
+        transition: var.$transition-normal;
+        border-color: $selectColor;
+        
+        &:hover {
+          box-shadow: 0 0 3px $selectColor;
+        }
+        
+        &::after {
+          right: 2px;
+          background-color: $selectColor;
+        }
+        
+        &[data-labelon]::before {
+          content: attr(data-labelon);
+        }
+      }
+    }
+    
+    input {
+      @include mixin.ipt_hidden;
+    }
+    
+    [data-label],
+    [data-labelon],
+    [data-labeloff] {
+      margin-left: 45px;
+      
+      &::before {
+        position: absolute;
+        right: calc(100% + var.$spacing-md);
+        display: block;
+        text-align: right;
+        font-size: var.$input-font-size;
+        line-height: 22px;
+      }
+    }
+    
+    [data-label]::before {
+      content: attr(data-label);
+    }
+    
+    [data-labeloff]::before {
+      content: attr(data-labeloff);
+    }
+  }
+  
+  // Icon Switch
+  &_ico {
+    label {
+      cursor: pointer;
+    }
+    
+    input {
+      @include mixin.ipt_hidden;
+    }
+  }
+  
+  // Password Toggle
+  &_pw {
+    position: absolute;
+    right: var.$spacing-2xl;
+    top: 50%;
+    margin-top: -10px;
+    
+    & > label {
+      display: flex;
+      width: var.$icon-size-xl;
+      height: var.$spacing-2xl;
+      font-size: 0;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      
+      &::before {
+        @include mixin.fontello('\eb83');
+        font-size: var.$spacing-2xl;
+        color: #B5B5B5;
+      }
+      
+      &:has(input[type=checkbox]:checked)::before {
+        content: "\eb82";
+      }
+    }
+    
+    input[type=checkbox] {
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+      opacity: 0;
+    }
+  }
+}
+
+// ============================================
+// Input Groups
+// ============================================
+
+.ipt_group {
+  @include mixin.flex;
+}
+
+.ipt_groupCheck {
+  @include mixin.flex;
+  gap: var.$spacing-2xl;
+}
+
+.selected {
+  margin-top: 7px;
+}
+
+// Input List
+.ipt_lst {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: var.$spacing-xl;
+  column-gap: var.$spacing-6xl;
+  
+  &:not(:first-of-type) {
+    border-top: 1px solid #f3f3f3;
+    padding-top: var.$spacing-xl;
+    margin-top: var.$spacing-3xl;
+  }
+  
+  label,
+  .label {
+    width: 100%;
+    flex-shrink: 0;
+    line-height: 30px;
+    
+    & + button {
+      margin-left: var.$spacing-2xl;
+    }
+  }
+  
+  .full {
+    grid-column: 1 / span 2;
+  }
+  
+  & > li {
+    & > input {
+      width: 100%;
+    }
+  }
+  
+  .inline {
+    @include mixin.flex($align: flex-start);
+    gap: var.$spacing-6xl;
+    border: 1px solid #f3f3f3;
+    border-width: 1px 0;
+    padding: var.$spacing-lg 0;
+    
+    label,
+    .label {
+      width: auto;
+    }
+  }
+  
+  &.divide3 {
+    grid-template-columns: repeat(3, 1fr);
+    
+    .full {
+      grid-column: 1 / span 3;
+    }
+    
+    .span2 {
+      grid-column: span 2;
+    }
+  }
+}
+
+// Device Type Grid
+.device_type {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, auto));
+}
+
+// Full Input Style
+.full_ipt {
+  :is(input:not(:is([type="radio"], [type="checkbox"]))) {
+    width: 100%;
+  }
+}

@@ -1,0 +1,102 @@
+@use "./var";
+@use "./mixin";
+
+// ============================================
+// Modal/Popup Components
+// ============================================
+
+::backdrop {
+  position: fixed;
+  z-index: var.$z-toast;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.pop_wrap {
+  min-width: 700px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  padding: var.$spacing-3xl 35px;
+  border: 1px solid #2a3652;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.49);
+  background-color: #fff;
+  z-index: var.$z-modal;
+}
+
+.pop_body {
+  max-height: calc(100vh - 200px);
+  margin: 1px;
+  overflow-y: auto;
+  background-color: #fff;
+  
+  .tit:has(h2) {
+    border-bottom: 1px solid #005aab;
+    margin-bottom: var.$spacing-lg;
+    padding-bottom: var.$spacing-sm;
+    
+    h2 {
+      font-size: 16px;
+      color: #005aab;
+    }
+  }
+}
+
+.pop_tit {
+  display: flex;
+  gap: var.$spacing-lg;
+  border-bottom: 1px solid var.$primary;
+  margin-bottom: var.$spacing-xl;
+  padding-bottom: var.$spacing-lg;
+  
+  h1 {
+    font-size: var.$spacing-2xl;
+    letter-spacing: -0.9px;
+    color: var.$primary;
+    font-weight: 700;
+  }
+  
+  .btn_cross {
+    position: absolute;
+    right: 13px;
+    top: 14px;
+    
+    &::before {
+      font-size: 19px;
+      @include mixin.fontello("\eb6e");
+      -webkit-text-stroke: 4px #fff;
+    }
+  }
+}
+
+.pop_foot {
+  @include mixin.flex($justify: flex-end);
+  gap: var.$gap-xs;
+  margin-top: var.$maingap;
+}
+
+// Connection Test Section
+.connect_test {
+  margin-top: 12px;
+  
+  .success {
+    color: var.$text-success;
+  }
+  
+  .error {
+    color: var.$text-error;
+  }
+}
+
+// Specific Popup Styles
+.p_codeAdmin {
+  width: 500px;
+  
+  .pop_foot {
+    padding-top: 1px;
+  }
+}

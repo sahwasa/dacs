@@ -1,0 +1,31 @@
+// ============================================
+// Main SCSS Entry Point
+// ============================================
+// 리팩토링된 SCSS 구조
+// 모든 컴포넌트를 모듈화하여 관리합니다.
+
+// Base
+@use "./var";
+@use "./reset";
+@use "./mixin";
+@use "./gridCustom.scss";
+
+// Layout
+@use "./layout/layout";
+
+// Components
+@use "./components/buttons";
+@use "./components/utilities";
+@use "./components/tabs";
+@use "./components/boxs";
+@use "./components/lists";
+@use "./components/forms";
+@use "./components/tables";
+@use "./components/navigation";
+@use "./components/maps";
+@use "./components/toast";
+@use "./components/modals";
+
+// Pages
+@use "./pages/login";
+@use "./pages/connection-status";

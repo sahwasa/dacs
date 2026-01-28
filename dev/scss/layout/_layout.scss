@@ -1,0 +1,217 @@
+@use "./var";
+@use "./mixin";
+
+// ============================================
+// Main Layout
+// ============================================
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  min-width: var.$mainwidth;
+  height: 100vh;
+  font-size: var.$btn-font-size;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  height: var.$footer-height;
+  background-color: #dcdcdc;
+  font-size: 12px;
+  color: #1b1b1b;
+}
+
+.main_container {
+  flex: 1;
+  @include mixin.flex($align: stretch);
+  gap: var.$spacing-5xl;
+  width: var.$mainwidth;
+  margin: 0 auto;
+  padding: calc(var.$maingap + 10px) var.$maingap calc(var.$maingap + 5px);
+}
+
+.cont_body {
+  flex: 1;
+  width: 100%;
+  
+  & > .flex_wrap {
+    position: relative;
+    gap: var.$sectiongap;
+  }
+  
+  & > .tit {
+    margin-bottom: var.$maingap;
+    
+    h1 {
+      @include mixin.flex;
+      gap: 18px;
+      font-size: var.$icon-size-xl;
+      color: var.$black-900;
+      letter-spacing: -2.25px;
+      font-weight: 600;
+    }
+  }
+}
+
+// ============================================
+// Flex Layouts
+// ============================================
+
+.flex_wrap {
+  @include mixin.flex($align: stretch);
+  
+  & > :is(div, section) {
+    flex: 1 0;
+    position: relative;
+  }
+}
+
+.flex_vertical_wrap {
+  @include mixin.flex($align: stretch, $direction: column) {
+    gap: var.$maingap;
+  }
+}
+
+// ============================================
+// Search Section
+// ============================================
+
+.search {
+  @include mixin.flex;
+  gap: var.$gap-xs;
+  border: 1px solid var.$gray-300;
+  border-width: 1px 0;
+  padding: var.$spacing-lg 0;
+  margin-bottom: var.$spacing-lg;
+}
+
+.search_lst,
+.search_form {
+  @include mixin.flex;
+  gap: var.$gap-xs;
+}
+
+// ============================================
+// Titles
+// ============================================
+
+.tit {
+  @include mixin.flex;
+  margin-bottom: var.$maingap;
+  line-height: 1;
+  
+  h1 {
+    letter-spacing: -0.11px;
+    font-size: 22px;
+  }
+  
+  h2 {
+    @include mixin.flex {
+      gap: 7px;
+    }
+    font-size: 16px;
+    letter-spacing: -0.8px;
+    
+    &::before {
+      @include mixin.shape(11px, 17px);
+      background: url(../images/bullet.png) 0 -33px / 100% no-repeat;
+    }
+  }
+  
+  &:has(h2) {
+    margin-bottom: var.$spacing-lg;
+  }
+  
+  h3 {
+    @include mixin.flex;
+    gap: 9px;
+    color: var.$primary;
+    
+    &::before {
+      @include mixin.shape(6px, 6px);
+      background-color: var.$primary;
+      border-radius: 50%;
+    }
+  }
+}
+
+.section_tit {
+  @extend .tit;
+  color: var.$primary;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.circle_tit {
+  @extend .tit;
+  font-size: 18px;
+  font-weight: 500;
+  color: #222;
+  margin-bottom: var.$spacing-lg;
+  
+  &::before {
+    display: inline-block;
+    @include mixin.shape(14px, 14px);
+    border: 4px solid #408be0;
+    border-radius: 50%;
+    margin-right: 7px;
+    letter-spacing: -0.45px;
+  }
+}
+
+.tool {
+  @include mixin.flex;
+  gap: var.$gap-sm;
+  margin-left: auto;
+}
+
+.section_bot {
+  @include mixin.flex;
+  margin-top: var.$spacing-3xl;
+}
+
+// ============================================
+// Empty State
+// ============================================
+
+[data-empty]:empty {
+  @include mixin.flex($align: center, $justify: center);
+  height: 100%;
+  background-color: var.$bg-default;
+  font-size: var.$input-font-size;
+  gap: 13px;
+  
+  &::before {
+    @include mixin.fontello('\e877');
+    color: #b1c0d0;
+    font-size: 22px;
+  }
+  
+  &::after {
+    content: attr(data-empty);
+    color: var.$mute-blue;
+  }
+}
+
+// Linked Top Section
+.linked_top {
+  &::before {
+    @include mixin.fontello('\e892');
+    display: block;
+    width: 65px;
+    font-size: var.$icon-size-xl;
+    text-align: center;
+    margin: 0 auto;
+    color: #92a4b8;
+    border: 1px solid #c6d6e7;
+    border-radius: var.$spacing-md;
+    padding: var.$spacing-sm var.$spacing-2xl;
+  }
+  
+  & > .tbl_wrap {
+    margin-top: var.$spacing-2xl;
+  }
+}

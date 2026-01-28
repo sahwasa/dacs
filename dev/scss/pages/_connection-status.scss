@@ -1,0 +1,317 @@
+@use "./var";
+@use "./mixin";
+@use 'sass:map';
+@use 'sass:list';
+
+// ============================================
+// Connection Status Components
+// ============================================
+
+// Type Badges
+$_types: (
+  auto: var.$mute-purple,
+  manual: var.$mute-olive,
+  real: var.$mute-red,
+  test: var.$mute-green,
+  training: var.$mute-blue
+);
+
+.type {
+  @include mixin.flex;
+  gap: var.$spacing-sm;
+  margin: var.$spacing-sm 0 0 auto;
+  
+  i {
+    flex: 0 0 43px;
+    line-height: 21px;
+    text-align: center;
+    color: #fff;
+    font-size: var.$btn-font-size;
+    border-radius: var.$spacing-sm;
+    font-weight: 600;
+  }
+  
+  @each $type, $color in $_types {
+    .#{$type} {
+      background-color: $color;
+    }
+  }
+}
+
+// Connection Icons
+.ico_connection,
+.ico_disconnection {
+  @include mixin.ico_only($w: var.$icon-size-2xl, $h: var.$icon-size-2xl);
+}
+
+.ico_disconnection::before {
+  background-position-y: -42px;
+}
+
+// Status Icons
+@each $state, $value in var.$connection {
+  .ico_stt_#{$state} {
+    @include mixin.status($state, $icoBg: true);
+    border-radius: 50%;
+    @include mixin.f-blind;
+    
+    &::before {
+      width: var.$icon-size-md;
+      height: var.$icon-size-md;
+      border-radius: 50%;
+    }
+  }
+}
+
+// ============================================
+// Device Status List
+// ============================================
+
+.stat_device {
+  position: relative;
+  gap: var.$spacing-xl;
+  height: calc(100vh - 335px);
+  overflow-y: auto;
+  
+  .tit {
+    @include mixin.stickyTit;
+    gap: var.$spacing-md;
+    
+    &::before {
+      @include mixin.shape(3px, 3px);
+      border-radius: 50%;
+      background-color: var.$gray-800;
+      margin-left: 2px;
+    }
+  }
+  
+  h1 {
+    font-size: var.$input-font-size;
+  }
+  
+  .tbl_wrap {
+    border-top: 1px solid var.$gray-300;
+  }
+}
+
+// ============================================
+// Dashboard Components
+// ============================================
+
+.connect_dashboard {
+  gap: 12px;
+  
+  & > :is(.warning_platform_stat, .device_dashboard) {
+    @include mixin.flex($align: flex-start);
+    @include mixin.box($padding: var.$spacing-md 17px);
+    flex: 1;
+    font-size: var.$spacing-xl;
+  }
+  
+  strong {
+    margin-top: var.$spacing-md;
+  }
+}
+
+.warning_platform_stat {
+  .tool {
+    align-self: flex-end;
+  }
+}
+
+.device_dashboard {
+  flex: 0 0 335px;
+  
+  ul {
+    @include mixin.flex($direction: column, $align: stretch);
+    margin-left: auto;
+  }
+  
+  li {
+    flex: 1;
+    @include mixin.flex($justify: flex-end);
+    font-size: 12px;
+    gap: var.$gap-sm;
+    
+    &::before {
+      width: var.$icon-size-md;
+      height: var.$icon-size-md;
+      border-radius: 50%;
+      margin-right: auto;
+    }
+    
+    $index: 1;
+    @each $state, $value in var.$connection {
+      &:nth-of-type(#{$index}) {
+        @include mixin.status($state, $bg_color: null, $border_opacity: 0.3, $icoBg: true);
+      }
+      $index: $index + 1;
+    }
+  }
+  
+  span {
+    width: 30px;
+    text-align: right;
+  }
+}
+
+// Device Status Count
+.device_stt_count {
+  @include mixin.flex;
+  gap: var.$spacing-md;
+  
+  $index: 1;
+  li {
+    @each $state, $value in var.$connection {
+      &:nth-of-type(#{$index}) i {
+        @include mixin.status($state, $bg_color: null, $border_opacity: 0.3, $icoBg: true);
+      }
+      $index: $index + 1;
+    }
+  }
+  
+  i {
+    @include mixin.flex;
+    gap: var.$gap-sm;
+    border: 1px solid transparent;
+    padding: var.$spacing-xxs var.$icon-size-md var.$spacing-xxs var.$gap-sm;
+    border-radius: 12px;
+    
+    &::before {
+      width: var.$icon-size-md;
+      height: var.$icon-size-md;
+      border-radius: 50%;
+    }
+  }
+  
+  span {
+    margin-left: var.$gap-sm;
+    font-weight: 600;
+  }
+}
+
+// Device Result
+.device_result {
+  @include mixin.flex;
+  gap: var.$spacing-2xl;
+  
+  button {
+    @include mixin.flex($align: center);
+    gap: var.$spacing-md;
+    color: var.$black-600;
+    
+    &::before {
+      @include mixin.shape(6px, 6px);
+      outline: 3px solid transparent;
+      border-radius: 50%;
+    }
+  }
+  
+  strong {
+    margin-left: 2px;
+  }
+  
+  @each $state, $color in var.$result {
+    .stt_#{$state} {
+      &::before {
+        outline-color: rgba($color, 0.5);
+        background-color: $color;
+      }
+      
+      strong {
+        color: $color;
+      }
+    }
+  }
+}
+
+// ============================================
+// Disaster List
+// ============================================
+
+.right_section:has(.disaster_lst) .tit {
+  @include mixin.stickyTit($sticky: false);
+}
+
+.disaster_lst {
+  gap: 17px;
+  height: calc(100vh - 270px);
+  overflow-y: auto;
+  
+  & > li {
+    &:hover a {
+      box-shadow: 0 3px 13px 0 rgba(0, 0, 0, 0.19);
+    }
+    
+    & > a {
+      @include mixin.box;
+      display: block;
+      padding: var.$spacing-2xl 35px;
+    }
+  }
+}
+
+.disaster_info {
+  @include mixin.flex($align: flex-start);
+  gap: var.$spacing-3xl;
+  
+  dt {
+    font-size: 16px;
+    margin-bottom: var.$spacing-sm;
+    
+    & > b {
+      display: block;
+      color: var.$gray-700;
+      font-size: 12px;
+      font-weight: normal;
+    }
+  }
+  
+  dd > strong {
+    font-weight: normal;
+    margin-right: var.$spacing-lg;
+    
+    &::before {
+      content: "·";
+      margin-right: var.$spacing-sm;
+    }
+  }
+  
+  .disaster_symbol {
+    align-self: center;
+  }
+  
+  .type {
+    margin-left: auto;
+  }
+}
+
+.group_result {
+  margin-top: var.$spacing-lg;
+  
+  & > li {
+    @include mixin.flex;
+    background-color: #eff1f4;
+    border-radius: 6px;
+    padding: var.$spacing-sm var.$spacing-2xl;
+    font-size: var.$input-font-size;
+    margin-top: var.$spacing-sm;
+  }
+}
+
+// ============================================
+// Other Components
+// ============================================
+
+.alert_history {
+  height: 173.5px;
+}
+
+.admin_set {
+  gap: var.$spacing-6xl;
+  padding-top: var.$spacing-2xl;
+  
+  .ipt_lst {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

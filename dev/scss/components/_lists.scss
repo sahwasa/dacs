@@ -1,0 +1,51 @@
+@use "./var";
+@use "./mixin";
+
+// ============================================
+// Lists
+// ============================================
+
+.dot_lst {
+  li {
+    @include mixin.flex($align: flex-start) {
+      gap: var.$spacing-sm;
+    }
+    
+    em {
+      font-weight: normal;
+    }
+    
+    &::before {
+      @include mixin.shape(2px, 2px);
+      position: relative;
+      top: var.$spacing-md;
+      background-color: #222;
+      border-radius: 50%;
+    }
+  }
+}
+
+// Tag List
+.tag_lst {
+  @include mixin.flex;
+  gap: var.$spacing-md;
+  flex-wrap: wrap;
+  color: #777;
+  padding: var.$spacing-md;
+  border: 1px solid var.$border-ipt;
+  
+  li {
+    @include mixin.flex($align: center);
+    gap: var.$spacing-md;
+    border: 1px solid var.$blue-150;
+    border-radius: 11px;
+    line-height: 1;
+    padding: var.$spacing-xs 7px var.$spacing-xs 9px;
+    font-size: 12px;
+  }
+  
+  .btn_cross::before {
+    font-size: 12px;
+    color: var.$gray-500;
+  }
+}

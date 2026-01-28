@@ -1,0 +1,138 @@
+@use "./var";
+@use "./mixin";
+
+// ============================================
+// Table Components
+// ============================================
+
+// Table Top Section
+.tbl_top {
+  @include mixin.flex;
+  gap: var.$gap-sm;
+  margin-bottom: var.$spacing-lg;
+  font-size: var.$input-font-size;
+  
+  .info {
+    @include mixin.explanation;
+  }
+}
+
+// Table Wrapper
+.tbl_wrap {
+  background-color: var.$bg-default;
+  border-top: 2px solid var.$primary;
+  overflow-y: auto;
+  
+  tr:is(td:first-of-type:has(:checked), .on) {
+    background-color: var.$bg-soft;
+  }
+  
+  .tbl_hover tr:hover {
+    cursor: pointer;
+    background-color: var.$bg-light;
+  }
+}
+
+// Table Row Wrapper
+.tbl_row_wrap {
+  border: 1px solid var.$gray-300;
+  border-width: 1px 0;
+  
+  .tbl_default {
+    text-align: left;
+    
+    th {
+      padding: var.$spacing-xxs 25px;
+      width: 220px;
+    }
+    
+    td {
+      padding: var.$spacing-xxs var.$spacing-xl;
+    }
+  }
+  
+  tr:last-child {
+    border-bottom-width: 0;
+  }
+}
+
+// Default Table
+.tbl_default {
+  width: 100%;
+  text-align: center;
+  background-color: #fff;
+  
+  thead {
+    position: sticky;
+    left: 0;
+    top: 0;
+    
+    &::after {
+      @include mixin.shape(100%, 0);
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      border-bottom: 1px solid var.$gray-300;
+    }
+  }
+  
+  tbody tr {
+    border-bottom: 1px solid var.$border-default;
+  }
+  
+  th,
+  td {
+    padding: var.$table-padding;
+  }
+  
+  th {
+    color: var.$black-800;
+    font-size: var.$table-th-font-size;
+    background-color: var.$bg-default;
+    font-weight: normal;
+  }
+  
+  td {
+    &:has(button:only-child) {
+      padding: var.$spacing-xxs 2px;
+    }
+    
+    &:has(.switch_pw) {
+      position: relative;
+    }
+  }
+}
+
+// Table Bottom Section
+.tbl_bot {
+  @include mixin.flex;
+  border-bottom: 1px solid var.$border-ipt;
+  padding: var.$spacing-xl var.$spacing-4xl;
+  background-color: #fff;
+  
+  .device_result {
+    margin-left: auto;
+    gap: 60px;
+  }
+}
+
+// Input Table
+.tbl_ipt {
+  width: 100%;
+  border: 1px solid var.$gray-300;
+  border-width: 1px 0;
+  text-align: left;
+  
+  tr:not(:first-of-type) :is(th, td) {
+    border-top: 1px solid var.$border-default;
+  }
+  
+  th {
+    background-color: var.$bg-light;
+  }
+  
+  th,
+  td {
+    padding: var.$spacing-md;
+  }
+}

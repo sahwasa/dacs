@@ -1,0 +1,185 @@
+@use "./var";
+@use "./mixin";
+
+// ============================================
+// Header
+// ============================================
+
+.header {
+  position: relative;
+  flex-shrink: 0;
+  border-bottom: 1px solid #e1e3e6;
+  z-index: var.$z-header;
+  
+  .top_wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: var.$mainwidth;
+    height: var.$header-height;
+    margin: 0 auto;
+    padding: 0 var.$maingap;
+  }
+  
+  .main_logo {
+    line-height: 1;
+    
+    a {
+      @include mixin.shape(261px, 31px);
+      background: url(../images/logo.png) 0 0 no-repeat;
+    }
+  }
+}
+
+// Utility Menu
+.util {
+  @include mixin.flex;
+  gap: var.$icon-size-xl;
+}
+
+.top_stat {
+  @include mixin.flex;
+  gap: var.$spacing-lg;
+  
+  b {
+    font-size: var.$input-font-size;
+    font-weight: normal;
+    letter-spacing: -0.7px;
+  }
+}
+
+.account {
+  @include mixin.flex;
+  gap: var.$icon-size-xl;
+  color: #464c53;
+  
+  .btn_account {
+    @include mixin.ico_only($w: var.$icon-size-2xl, $h: var.$icon-size-2xl, $imgurl: 'btn.png');
+  }
+  
+  .btn_logout {
+    @include mixin.ico_only($y: -42px, $w: var.$icon-size-2xl, $h: var.$icon-size-2xl, $imgurl: 'btn.png');
+  }
+}
+
+// ============================================
+// Navigation
+// ============================================
+
+.nav {
+  position: relative;
+  flex-shrink: 0;
+  height: var.$nav-height;
+  border-bottom: 1px solid var.$gray-200;
+  background-color: #fff;
+}
+
+.nav_lst {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  width: var.$mainwidth;
+  margin: 0 auto;
+  
+  & > li {
+    flex: 1;
+    position: relative;
+    height: 100%;
+    z-index: var.$z-nav-item;
+    text-align: center;
+    
+    & > a {
+      position: relative;
+      top: 1px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      font-weight: 700;
+      font-size: 18px;
+      padding: 0 var.$spacing-lg;
+      border-bottom: 3px solid transparent;
+      color: var.$black-900;
+      
+      &.on {
+        color: var.$primary;
+        border-color: var.$primary;
+      }
+      
+      &:hover {
+        color: var.$primary;
+      }
+    }
+  }
+}
+
+// ============================================
+// LNB (Left Navigation Bar)
+// ============================================
+
+.lnb {
+  flex-shrink: 0;
+  width: var.$lnb-width;
+  padding-top: 7px;
+  
+  h1 {
+    font-size: 22px;
+    line-height: 1;
+    margin-bottom: var.$spacing-xl;
+    color: var.$black-900;
+  }
+}
+
+.lnb_lst {
+  border-top: 1px solid #909090;
+  
+  li {
+    border-bottom: 1px solid var.$gray-200;
+  }
+  
+  a {
+    display: block;
+    padding: var.$spacing-xl var.$spacing-lg;
+    font-size: 16px;
+  }
+  
+  .on {
+    font-weight: 700;
+    background-color: #eef2f7;
+  }
+}
+
+// ============================================
+// Breadcrumb
+// ============================================
+
+.bredcrumb {
+  margin-left: auto;
+  
+  ul {
+    @include mixin.flex;
+  }
+  
+  li {
+    color: #888;
+    letter-spacing: -0.65px;
+    
+    &:first-child {
+      @include mixin.ico_only($y: -84px);
+      
+      a {
+        @include mixin.f_blind;
+      }
+    }
+    
+    &:last-child {
+      color: #000;
+    }
+    
+    &::before {
+      @include mixin.fontello('\f105');
+      margin: 0 var.$spacing-md;
+      color: #888;
+    }
+  }
+}
