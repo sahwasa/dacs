@@ -61,7 +61,7 @@ border:1px solid transparent;}
    &:hover{filter:contrast(130%);}
 }
 @mixin btn($color:#fff,$border:transparent,$bg:#fff,$addTxt:false,$target:'before',$hover:true){  
-  display:inline-block;font-size:13px;line-height:1;border:1px solid $border;border-radius:3px;padding:7px 10px;cursor:pointer;color:$color;background-color:$bg;flex-shrink:0;white-space:nowrap;font-weight:500;
+  display:inline-block;font-size:13px;line-height:1;border:1px solid $border;border-radius:3px;padding:7px 10px 8px;cursor:pointer;color:$color;background-color:$bg;flex-shrink:0;white-space:nowrap;font-weight:500;
   &[disabled]{cursor:default;}
   @if($hover){
     &:not(:disabled):is(:hover,:hover::before){box-shadow:2px 2px 3px rgba(0,0,0,.25) inset;}

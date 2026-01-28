@@ -1609,7 +1609,7 @@ textarea,
   line-height: 1;
   border: 1px solid transparent;
   border-radius: 3px;
-  padding: 7px 10px;
+  padding: 7px 10px 8px;
   cursor: pointer;
   color: #fff;
   background-color: #8b95a3;
@@ -1632,7 +1632,7 @@ textarea,
   line-height: 1;
   border: 1px solid #8b95a3;
   border-radius: 3px;
-  padding: 7px 10px;
+  padding: 7px 10px 8px;
   cursor: pointer;
   color: #555;
   background-color: #fff;
@@ -1656,7 +1656,7 @@ textarea,
   line-height: 1;
   border: 1px solid transparent;
   border-radius: 3px;
-  padding: 7px 10px;
+  padding: 7px 10px 8px;
   cursor: pointer;
   color: #fff;
   background-color: #1465c0;
@@ -1679,7 +1679,7 @@ textarea,
   line-height: 1;
   border: 1px solid #1465c0;
   border-radius: 3px;
-  padding: 7px 10px;
+  padding: 7px 10px 8px;
   cursor: pointer;
   color: #1465c0;
   background-color: #fff;
@@ -1703,7 +1703,7 @@ textarea,
   line-height: 1;
   border: 1px solid transparent;
   border-radius: 3px;
-  padding: 7px 10px;
+  padding: 7px 10px 8px;
   cursor: pointer;
   color: #fff;
   background-color: #b8c4d2;
@@ -1726,7 +1726,7 @@ textarea,
   line-height: 1;
   border: 1px solid transparent;
   border-radius: 3px;
-  padding: 7px 10px;
+  padding: 7px 10px 8px;
   cursor: pointer;
   color: #b8c4d2;
   background-color: #fff;
@@ -1752,7 +1752,7 @@ textarea,
   line-height: 1;
   border: 1px solid #1465c0;
   border-radius: 3px;
-  padding: 7px 10px;
+  padding: 7px 10px 8px;
   cursor: pointer;
   color: #1465c0;
   background-color: #fff;
@@ -1795,7 +1795,7 @@ textarea,
   line-height: 1;
   border: 1px solid #adadad;
   border-radius: 3px;
-  padding: 7px 10px;
+  padding: 7px 10px 8px;
   cursor: pointer;
   color: #999;
   background-color: #fff;
@@ -1830,7 +1830,7 @@ textarea,
   line-height: 1;
   border: 1px solid transparent;
   border-radius: 3px;
-  padding: 7px 10px;
+  padding: 7px 10px 8px;
   cursor: pointer;
   color: #e0e0e0;
   background-color: #fff;
@@ -1858,7 +1858,7 @@ textarea,
   line-height: 1;
   border: 1px solid #098703;
   border-radius: 3px;
-  padding: 7px 10px;
+  padding: 7px 10px 8px;
   cursor: pointer;
   color: #098703;
   background-color: #fff;
