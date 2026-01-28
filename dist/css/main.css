@@ -1606,10 +1606,10 @@ textarea,
 .btn_gray {
   display: inline-block;
   font-size: 13px;
-  line-height: 1;
+  line-height: 14px;
   border: 1px solid transparent;
   border-radius: 3px;
-  padding: 7px 10px 8px;
+  padding: 7px 10px;
   cursor: pointer;
   color: #fff;
   background-color: #8b95a3;
@@ -1629,10 +1629,10 @@ textarea,
 .btn_gray_line {
   display: inline-block;
   font-size: 13px;
-  line-height: 1;
+  line-height: 14px;
   border: 1px solid #8b95a3;
   border-radius: 3px;
-  padding: 7px 10px 8px;
+  padding: 7px 10px;
   cursor: pointer;
   color: #555;
   background-color: #fff;
@@ -1653,10 +1653,10 @@ textarea,
 .btn_default {
   display: inline-block;
   font-size: 13px;
-  line-height: 1;
+  line-height: 14px;
   border: 1px solid transparent;
   border-radius: 3px;
-  padding: 7px 10px 8px;
+  padding: 7px 10px;
   cursor: pointer;
   color: #fff;
   background-color: #1465c0;
@@ -1676,10 +1676,10 @@ textarea,
 .btn_default_line {
   display: inline-block;
   font-size: 13px;
-  line-height: 1;
+  line-height: 14px;
   border: 1px solid #1465c0;
   border-radius: 3px;
-  padding: 7px 10px 8px;
+  padding: 7px 10px;
   cursor: pointer;
   color: #1465c0;
   background-color: #fff;
@@ -1700,10 +1700,10 @@ textarea,
 .btn_cancel {
   display: inline-block;
   font-size: 13px;
-  line-height: 1;
+  line-height: 14px;
   border: 1px solid transparent;
   border-radius: 3px;
-  padding: 7px 10px 8px;
+  padding: 7px 10px;
   cursor: pointer;
   color: #fff;
   background-color: #b8c4d2;
@@ -1723,10 +1723,10 @@ textarea,
 .btn_cancel_line {
   display: inline-block;
   font-size: 13px;
-  line-height: 1;
+  line-height: 14px;
   border: 1px solid transparent;
   border-radius: 3px;
-  padding: 7px 10px 8px;
+  padding: 7px 10px;
   cursor: pointer;
   color: #b8c4d2;
   background-color: #fff;
@@ -1749,10 +1749,10 @@ textarea,
 .btn_modify {
   display: inline-block;
   font-size: 13px;
-  line-height: 1;
+  line-height: 14px;
   border: 1px solid #1465c0;
   border-radius: 3px;
-  padding: 7px 10px 8px;
+  padding: 7px 10px;
   cursor: pointer;
   color: #1465c0;
   background-color: #fff;
@@ -1792,10 +1792,10 @@ textarea,
 .btn_del {
   display: inline-block;
   font-size: 13px;
-  line-height: 1;
+  line-height: 14px;
   border: 1px solid #adadad;
   border-radius: 3px;
-  padding: 7px 10px 8px;
+  padding: 7px 10px;
   cursor: pointer;
   color: #999;
   background-color: #fff;
@@ -1827,10 +1827,10 @@ textarea,
 .btn_confirm {
   display: inline-block;
   font-size: 13px;
-  line-height: 1;
+  line-height: 14px;
   border: 1px solid transparent;
   border-radius: 3px;
-  padding: 7px 10px 8px;
+  padding: 7px 10px;
   cursor: pointer;
   color: #e0e0e0;
   background-color: #fff;
@@ -1855,10 +1855,10 @@ textarea,
 .btn_excel {
   display: inline-block;
   font-size: 13px;
-  line-height: 1;
+  line-height: 14px;
   border: 1px solid #098703;
   border-radius: 3px;
-  padding: 7px 10px 8px;
+  padding: 7px 10px;
   cursor: pointer;
   color: #098703;
   background-color: #fff;
