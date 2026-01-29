@@ -25,6 +25,7 @@ const path = {
     dev + "/**/*.html",
     "!" + dev + "/**/inc/**/*.html"   // ⭐ inc 폴더 제외
   ],
+  htmlWatch: dev + "/**/*.html", 
   scss: dev + "/scss/**/*.scss",
   js: dev + "/js/*.js",
   images: dev + "/**/images/**/*"
@@ -110,7 +111,7 @@ function setBs(){
   });
 }
 function watchs(){  
-  watch(path.html, inc);
+  watch(path.htmlWatch, inc);
   watch(path.images, imgMin);
   watch(path.js, js);
   watch(path.scss, scss);  

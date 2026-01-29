@@ -22,11 +22,12 @@
   }
   
   .main_logo {
-    line-height: 1;
-    
-    a {
-      @include mixin.shape(261px, 31px);
-      background: url(../images/logo.png) 0 0 no-repeat;
+    line-height: 1;    
+    a {@include mixin.flex();gap:10px;
+      &::before{@include mixin.shape(31px, 31px);background: url(../images/favicon.png) 0 0 / contain no-repeat;}
+      font-size:23px;
+      color:#000;
+      letter-spacing:-.04em;
     }
   }
 }
