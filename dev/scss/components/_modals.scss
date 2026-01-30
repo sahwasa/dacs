@@ -7,7 +7,6 @@
 
 ::backdrop {
   position: fixed;
-  z-index: var.$z-toast;
   top: 0;
   left: 0;
   width: 100%;
@@ -81,12 +80,10 @@
 
 // Connection Test Section
 .connect_test {
-  margin-top: 12px;
-  
+  margin-top: 12px;  
   .success {
     color: var.$text-success;
-  }
-  
+  }  
   .error {
     color: var.$text-error;
   }
@@ -94,9 +91,10 @@
 
 // Specific Popup Styles
 .p_codeAdmin {
-  width: 500px;
-  
+  width: 500px;  
   .pop_foot {
     padding-top: 1px;
   }
 }
+
+.p_select_device{width:975px;}

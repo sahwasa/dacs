@@ -1027,6 +1027,60 @@ textarea,
   filter: contrast(130%);
 }
 
+.btn_tblAdd {
+  font-size: 0 !important;
+  vertical-align: middle;
+  line-height: 1;
+  color: inherit;
+}
+.btn_tblAdd::before {
+  display: inline-block;
+  content: "";
+  overflow: hidden;
+  font-size: 0;
+  width: 18px;
+  height: 18px;
+  background: url(../images/btn.png) 0 -140px no-repeat;
+  vertical-align: text-top;
+}
+.btn_tblAdd:hover {
+  filter: contrast(130%);
+}
+
+.transfer_toolbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.btn_add_selected {
+  font-size: 0 !important;
+  vertical-align: middle;
+  line-height: 1;
+  color: inherit;
+  width: 65px;
+  text-align: center;
+  border: 1px solid #c6d6e7;
+  border-radius: 8px;
+  padding: 5px 20px;
+}
+.btn_add_selected::before {
+  display: inline-block;
+  font-family: "fontello";
+  font-weight: normal;
+  content: "\e892";
+  line-height: 1;
+  font-size: 13px;
+}
+.btn_add_selected:hover {
+  filter: contrast(130%);
+}
+.btn_add_selected::before {
+  font-size: 24px;
+  color: #92a4b8;
+}
+
 .btn_cross {
   font-size: 0 !important;
   vertical-align: middle;
@@ -1840,6 +1894,9 @@ textarea,
 .gis_area .gis_wrap {
   height: 100%;
 }
+.gis_area .layer {
+  position: relative;
+}
 
 .flex_wrap > .gis_area {
   flex: 0.7;
@@ -2046,15 +2103,12 @@ textarea,
 
 .layer {
   position: absolute;
-  left: 100%;
-  top: 0;
   width: 290px;
   background-color: #fff;
   border-radius: 5px;
   padding: 15px;
   border: 1px solid #b4b4b4;
   box-shadow: 0 2px 9px rgba(0, 0, 0, 0.22);
-  margin: -8px 0 0 13px;
 }
 .layer > strong {
   display: block;
@@ -2081,22 +2135,6 @@ textarea,
 .layer .lst li {
   display: flex;
   align-items: flex-start;
-}
-.layer .lst::before {
-  position: absolute;
-  display: inline-block;
-  content: "";
-  overflow: hidden;
-  font-size: 0;
-  width: 10px;
-  height: 10px;
-  transform: scaleX(1.2) rotate(45deg);
-  background-color: #fff;
-  border: 1px solid #b4b4b4;
-  border-width: 0 0 1px 1px;
-  left: -6px;
-  top: 17px;
-  overflow: hidden;
 }
 .layer .lst em {
   flex-shrink: 0;
@@ -2188,7 +2226,6 @@ textarea,
 
 ::backdrop {
   position: fixed;
-  z-index: 9999;
   top: 0;
   left: 0;
   width: 100%;
@@ -2277,6 +2314,10 @@ textarea,
 }
 .p_codeAdmin .pop_foot {
   padding-top: 1px;
+}
+
+.p_select_device {
+  width: 975px;
 }
 
 .wrap:has(.login) {

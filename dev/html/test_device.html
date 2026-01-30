@@ -53,7 +53,8 @@
             </li>
             <li class="full">
               <span class="label">개별 단말장치</span>
-              <button type="button" class="btn_default_line" popovertarget="p_select_device">단말장치 선택</button>
+              <!-- <button type="button" class="btn_default_line" popovertarget="p_select_device">단말장치 선택</button> -->
+              <button type="button" class="btn_default_line" onclick="document.querySelector('#p_select_device').showModal();">단말장치 선택</button>
               <div class="selected tbl_wrap">
                 <table id="selected_lst" class="jq-grid"></table>
               </div>                       
@@ -120,7 +121,10 @@
         <table id="group1" class="jq-grid"></table>
       </div>      
     </section>
-    <section class="linked_top">
+    <div class="transfer_toolbar">
+      <button type="button" class="btn_add_selected" title="선택 항목 추가">선택 항목 추가</button>
+    </div>
+    <section>
       <div class="tbl_wrap">
         <table id="group2" class="jq-grid"></table>
       </div>
@@ -136,14 +140,8 @@
 @@include('inc/script.html')
 <script>
 var mydata = [
-    {'t1': '-'},
-    {'t1': '-'},
-    {'t1': '-'},
-    {'t1': '-'},
-    {'t1': '-'},
-    {'t1': '-'},
-    {'t1': '-'},
-    {'t1': '-'}
+    {'t1': '-','btn': 'Add'},
+    {'t1': '-','btn': 'Add'}  
 ] 
 var grid0 = $("#selected_lst").jqGrid({
     data: mydata,
@@ -177,7 +175,9 @@ var grid0 = $("#selected_lst").jqGrid({
       { label: '단말장치그룹', name: 't2', align:'center'},
       { label: '단말 장치명', name: 't3' },
       { label: '설치지역', name: 't4' },
-      { label: '설치주소', name: 't5' },
+      { label: '추가', name: 'btn',align:'center',
+        formatter:formatBtn //ui_temp.js 참고
+      },
     ],
     height:198,
     rowNum: mydata.length,
@@ -200,7 +200,6 @@ var grid0 = $("#selected_lst").jqGrid({
       { label: '단말장치그룹', name: 't2', align:'center'},
       { label: '단말 장치명', name: 't3' },
       { label: '설치지역', name: 't4' },
-      { label: '설치주소', name: 't5' },
       { label: '삭제', name: 'btn',align:'center',
         formatter:formatBtn //ui_temp.js 참고
       },

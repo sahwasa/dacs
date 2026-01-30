@@ -26,6 +26,7 @@ function formatBtn(cellValue, options, rowObject) {
   let txt='';
   if(cellValue == 'Del') txt = '삭제';
   if(cellValue == 'Modify') txt = '수정';
+  if(cellValue == 'Add') txt = '추가';
   let tmpl = `<button type="button" class="btn_tbl${cellValue}" data-action=${cellValue} data-rowid="${options.gid}-${options.rowId}">${txt}</button>`;    
   return tmpl;
 }
