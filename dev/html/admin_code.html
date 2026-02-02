@@ -34,8 +34,8 @@
           <div class="tit">
             <h2>상세코드</h2>
             <div class="tool">
-              <button type="button" class="btn_add" onclick="document.querySelector('#p_codeAdmin').showModal();">추가</button>
-              <button type="button" class="btn_modify" onclick="document.querySelector('#p_codeAdmin').showModal();">수정</button>
+              <button type="button" class="btn_add" onclick="document.querySelector('#p_codeAdmin2').showModal();">추가</button>
+              <button type="button" class="btn_modify" onclick="document.querySelector('#p_codeAdmin2').showModal();">수정</button>
               <button type="button" class="btn_del">삭제</button>
             </div>
           </div>
@@ -52,7 +52,7 @@
 <dialog id="p_codeAdmin" class="pop_wrap p_codeAdmin">
   <form method="dialog">
     <header class="pop_tit">
-      <h1>그룹 or 상세코드 추가 / 수정</h1>
+      <h1>그룹코드 추가 / 수정</h1>
       <div class="tool_wrap">
         <button type="button" class="btn_cross">닫기</button>
       </div>
@@ -90,7 +90,52 @@
       <button type="submit" class="btn_default">저장</button>
       <button type="submit" class="btn_gray">수정</button>
       <button type="button" class="btn_cancel">닫기</button>
-      <button type="button" class="btn">닫기</button>
+    </section>
+  </form>
+</dialog>
+<!-- 코드관리 팝업__e -->
+<!-- 코드관리 팝업 -->
+<dialog id="p_codeAdmin2" class="pop_wrap p_codeAdmin">
+  <form method="dialog">
+    <header class="pop_tit">
+      <h1>상세코드 추가 / 수정</h1>
+      <div class="tool_wrap">
+        <button type="button" class="btn_cross">닫기</button>
+      </div>
+    </header>
+    <section class="pop_body">  
+      <table class="tbl_ipt full_ipt">
+        <caption>예경보 종합 플랫폼 연결정보</caption>
+        <tbody>
+        <tr>
+          <th scope="row">그룹 코드</th>
+          <td>상세코드 일 때 그룹코드명</td>
+        </tr>      
+        <tr>
+          <th scope="row"><label for="" class="required">코드명</label></th>
+          <td><input type="text"></td>
+        </tr>      
+        <tr>
+          <th scope="row"><label for="" class="required">설명</label></th>
+          <td><input type="password"></td>
+        </tr>      
+        <tr>
+          <th scope="row">사용여부</th>
+          <td>
+            <div class="switch_toggle">
+              <label for="useYN_P">
+                <input type="checkbox" class="type_check" id="useYN_P" checked> 사용여부
+              </label>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="pop_foot">
+      <button type="submit" class="btn_default">저장</button>
+      <button type="submit" class="btn_gray">수정</button>
+      <button type="button" class="btn_cancel">닫기</button>
     </section>
   </form>
 </dialog>
@@ -139,24 +184,22 @@ var grid2 = $("#group2").jqGrid({
     rowNum: mydata.length,
     autowidth:true,
 });
-
-
-Object.assign(PopupManager.config, {
-  closeBtnSelectors: '.btn',
-  enableEscKey: true,
-  onBeforeClose: function(dialog) {
-    console.log('닫기 시작:', dialog.id);
-    return true;
-  },
-  onAfterClose: function(dialog) {
-    console.log('닫기 완료:', dialog.id);
-    // 백드롭 제거 등 추가 작업
-    document.body.classList.remove('popup-open');
-  }
+$('#p_codeAdmin').on('click','button[type="submit"]',function(e){
+  PopupManager.close('p_codeAdmin',{
+    beforeClose: function(dialog){
+      console.log(dialog.id + ' : before 서브밋버튼 눌렀어요!!');
+      e.preventDefault();
+      return false //false를 반환하면 팝업이 안닫혀요
+    },
+    afterClose: function(dialog){
+      console.log(dialog.id+ ' : after 서브밋버튼 눌렀어요!!');
+    }
+  });
+})
+PopupManager.setCallback('p_codeAdmin2', { 
+  ...commonCallbacks.confirmClose,//ui_temp.js 참고
+  ...commonCallbacks.formReset//ui_temp.js 참고
 });
-// PopupManager.refresh();
-
-
 
 </script>
 </body>
