@@ -2317,7 +2317,7 @@ textarea,
 }
 
 .p_select_device {
-  width: 975px;
+  min-width: 975px;
 }
 
 .wrap:has(.login) {

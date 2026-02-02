@@ -26,7 +26,7 @@
         <i class="ico_disconnection">연결안됨</i>
       </div>
       <div class="account">
-        <button type="button" class="btn_account" popovertarget="p_userInfo">홍길동</button>
+        <button type="button" class="btn_account" onclick="document.querySelector('#p_userInfo').showModal();">홍길동</button>
         <button type="button" class="btn_logout" onclick="location.href='login.html'">로그아웃</button>
       </div>
     </div>
@@ -42,12 +42,12 @@
   </ul>
 </nav>
 <!-- 내정보 팝업 -->
-<dialog id="p_userInfo" class="pop_wrap" popover="manual">
-  <form action="">
+<dialog id="p_userInfo" class="pop_wrap">
+  <form method="dialog">
     <header class="pop_tit">
       <h1>내정보</h1>
       <div class="tool_wrap">
-        <button type="button" class="btn_cross" popovertarget="p_userInfo" popvertargetaction="hide">닫기</button>
+        <button type="button" class="btn_cross">닫기</button>
       </div>
     </header>
     <section class="pop_body">
@@ -100,8 +100,8 @@
       </table>
     </section>
     <section class="pop_foot">
-      <button type="submit" class="btn_default hidetest" onclick="hide();">저장</button>    
-      <button type="button" class="btn_cancel" popovertarget="p_userInfo" popvertargetaction="hide">닫기</button>
+      <button type="submit" class="btn_default hidetest">저장</button>    
+      <button type="button" class="btn_cancel">닫기</button>
     </section>
   </form>
 </dialog>
@@ -226,6 +226,7 @@ Copyright © KITValley. All Rights RESERVED
 <script src="plugins/jquery.min.js"></script>
 <script src="plugins/jqGrid/js/jquery.jqGrid.min.js"></script>
 <script src="plugins/jqGrid/js/i18n/grid.locale-kr.js"></script>
+<script src="js/ui_common.js"></script>
 <script src="js/jqgrid-ui.ext.js"></script>
 <script src="js/ui_temp.js"></script>
 

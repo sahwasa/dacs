@@ -30,7 +30,7 @@
         </div> -->
         <div class="tbl_top">
           <div class="tool">
-            <button type="button" class="btn_add"  popovertarget="p_userAdmin">추가</button>
+            <button type="button" class="btn_add"  onclick="document.querySelector('#p_userAdmin').showModal();">추가</button>
             <button type="button" class="btn_del">삭제</button>
           </div>
         </div>
@@ -43,12 +43,12 @@
   @@include('inc/footer.html')
 </div>
 <!-- 사용자관리 팝업 -->
-<dialog id="p_userAdmin" class="pop_wrap" popover="manual">
-  <form action="">
+<dialog id="p_userAdmin" class="pop_wrap">
+  <form method="dialog">
     <header class="pop_tit">
       <h1>사용자 추가 or 수정</h1>
       <div class="tool_wrap">
-        <button type="button" class="btn_cross" popovertarget="p_userAdmin" popvertargetaction="hide">닫기</button>
+        <button type="button" class="btn_cross">닫기</button>
       </div>
     </header>
     <section class="pop_body">
@@ -105,7 +105,7 @@
     <section class="pop_foot">
       <button type="submit" class="btn_default">저장</button>
       <button type="submit" class="btn_gray">수정</button>
-      <button type="button" class="btn_cancel" popovertarget="p_userAdmin" popvertargetaction="hide">닫기</button>
+      <button type="button" class="btn_cancel">닫기</button>
     </section>
   </form>
 </dialog>

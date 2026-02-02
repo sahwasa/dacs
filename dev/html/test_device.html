@@ -52,8 +52,7 @@
               </ul>
             </li>
             <li class="full">
-              <span class="label">개별 단말장치</span>
-              <!-- <button type="button" class="btn_default_line" popovertarget="p_select_device">단말장치 선택</button> -->
+              <span class="label">개별 단말장치</span>              
               <button type="button" class="btn_default_line" onclick="document.querySelector('#p_select_device').showModal();">단말장치 선택</button>
               <div class="selected tbl_wrap">
                 <table id="selected_lst" class="jq-grid"></table>
@@ -87,54 +86,54 @@
   @@include('inc/footer.html')
 </div>
 <!-- 단말장치 선택 팝업 -->
-<dialog id="p_select_device" class="pop_wrap p_select_device" popover="manual">
-  <header class="pop_tit">
-    <h1>단말장치 선택</h1>
-    <div class="tool">
-      <button type="button" class="btn_cross" popovertarget="p_select_device" popvertargetaction="hide">닫기</button>
-    </div>
-  </header>
-  <section class="pop_body flex_vertical_wrap">
-    <section>
-      <div class="search">
-        <form action="" class="search_form">
-          <ul class="search_lst">              
-            <li>
-              <select name="" id="" title="단말기 그룹">
-                <option value="">단말기 그룹(공통코드)</option>
-              </select>
-            </li>
-            <li>
-              <select name="" id="" title="지역 대분류">
-                <option value="">시군구</option>
-              </select>
-              <select name="" id="" title="지역 중분류">
-                <option value="">읍면동</option>
-              </select>                
-            </li>
-            <li><input type="text" placeholder="발령지역" title="발령지역"></li>
-          </ul>
-          <button type="submit" class="btn_default">검색</button>
-        </form>          
+<dialog id="p_select_device" class="pop_wrap p_select_device">
+  <form method="dialog">
+    <header class="pop_tit">
+      <h1>단말장치 선택</h1>
+      <div class="tool">
+        <button type="button" class="btn_cross">닫기</button>
       </div>
-      <div class="tbl_wrap">
-        <table id="group1" class="jq-grid"></table>
-      </div>      
-    </section>
-    <div class="transfer_toolbar">
-      <button type="button" class="btn_add_selected" title="선택 항목 추가">선택 항목 추가</button>
-    </div>
-    <section>
-      <div class="tbl_wrap">
-        <table id="group2" class="jq-grid"></table>
+    </header>
+    <section class="pop_body flex_vertical_wrap">
+      <section>
+        <div class="search">          
+            <ul class="search_lst">              
+              <li>
+                <select name="" id="" title="단말기 그룹">
+                  <option value="">단말기 그룹(공통코드)</option>
+                </select>
+              </li>
+              <li>
+                <select name="" id="" title="지역 대분류">
+                  <option value="">시군구</option>
+                </select>
+                <select name="" id="" title="지역 중분류">
+                  <option value="">읍면동</option>
+                </select>                
+              </li>
+              <li><input type="text" placeholder="발령지역" title="발령지역"></li>
+            </ul>
+            <button type="button" class="btn_default">검색</button>
+        </div>
+        <div class="tbl_wrap">
+          <table id="group1" class="jq-grid"></table>
+        </div>      
+      </section>
+      <div class="transfer_toolbar">
+        <button type="button" class="btn_add_selected" title="선택 항목 추가">선택 항목 추가</button>
       </div>
+      <section>
+        <div class="tbl_wrap">
+          <table id="group2" class="jq-grid"></table>
+        </div>
+      </section>
     </section>
-  </section>
-  <section class="pop_foot">
-    <button type="button" class="btn_gray_line">초기화</button>
-    <button type="submit" class="btn_default">적용</button>
-    <button type="button" class="btn_cancel" popovertarget="p_select_device" popvertargetaction="hide">취소</button>
-  </section>
+    <section class="pop_foot">
+      <button type="button" class="btn_gray_line">초기화</button>
+      <button type="submit" class="btn_default">적용</button>
+      <button type="button" class="btn_cancel">취소</button>
+    </section>
+  </form>
 </dialog>
 <!-- 단말장치 선택 팝업__e -->
 @@include('inc/script.html')
@@ -175,7 +174,7 @@ var grid0 = $("#selected_lst").jqGrid({
       { label: '단말장치그룹', name: 't2', align:'center'},
       { label: '단말 장치명', name: 't3' },
       { label: '설치지역', name: 't4' },
-      { label: '추가', name: 'btn',align:'center',
+      { label: '추가', name: 'btn',align:'center', width:50,
         formatter:formatBtn //ui_temp.js 참고
       },
     ],
@@ -200,7 +199,7 @@ var grid0 = $("#selected_lst").jqGrid({
       { label: '단말장치그룹', name: 't2', align:'center'},
       { label: '단말 장치명', name: 't3' },
       { label: '설치지역', name: 't4' },
-      { label: '삭제', name: 'btn',align:'center',
+      { label: '삭제', name: 'btn',align:'center', width:50,
         formatter:formatBtn //ui_temp.js 참고
       },
     ],

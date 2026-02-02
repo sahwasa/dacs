@@ -21,8 +21,8 @@
           <div class="tit">
             <h2>그룹코드</h2>
             <div class="tool">
-              <button type="button" class="btn_add" popovertarget="p_codeAdmin">추가</button>
-              <button type="button" class="btn_modify" popovertarget="p_codeAdmin">수정</button>
+              <button type="button" class="btn_add" onclick="document.querySelector('#p_codeAdmin').showModal();">추가</button>
+              <button type="button" class="btn_modify" onclick="document.querySelector('#p_codeAdmin').showModal();">수정</button>
               <button type="button" class="btn_del">삭제</button>
             </div>
           </div>
@@ -34,8 +34,8 @@
           <div class="tit">
             <h2>상세코드</h2>
             <div class="tool">
-              <button type="button" class="btn_add" popovertarget="p_codeAdmin">추가</button>
-              <button type="button" class="btn_modify" popovertarget="p_codeAdmin">수정</button>
+              <button type="button" class="btn_add" onclick="document.querySelector('#p_codeAdmin').showModal();">추가</button>
+              <button type="button" class="btn_modify" onclick="document.querySelector('#p_codeAdmin').showModal();">수정</button>
               <button type="button" class="btn_del">삭제</button>
             </div>
           </div>
@@ -49,12 +49,12 @@
   @@include('inc/footer.html')
 </div>
 <!-- 코드관리 팝업 -->
-<dialog id="p_codeAdmin" class="pop_wrap p_codeAdmin" popover="manual">
-  <form id="">
+<dialog id="p_codeAdmin" class="pop_wrap p_codeAdmin">
+  <form method="dialog">
     <header class="pop_tit">
       <h1>그룹 or 상세코드 추가 / 수정</h1>
       <div class="tool_wrap">
-        <button type="button" class="btn_cross" popovertarget="p_codeAdmin" popvertargetaction="hide">닫기</button>
+        <button type="button" class="btn_cross">닫기</button>
       </div>
     </header>
     <section class="pop_body">  
@@ -89,7 +89,7 @@
     <section class="pop_foot">
       <button type="submit" class="btn_default">저장</button>
       <button type="submit" class="btn_gray">수정</button>
-      <button type="button" class="btn_cancel" popovertarget="p_codeAdmin" popovertargetaction="hide">닫기</button>
+      <button type="button" class="btn_cancel">닫기</button>
     </section>
   </form>
 </dialog>
