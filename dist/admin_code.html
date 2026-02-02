@@ -220,6 +220,7 @@ Copyright © KITValley. All Rights RESERVED
       <button type="submit" class="btn_default">저장</button>
       <button type="submit" class="btn_gray">수정</button>
       <button type="button" class="btn_cancel">닫기</button>
+      <button type="button" class="btn">닫기</button>
     </section>
   </form>
 </dialog>
@@ -273,6 +274,25 @@ var grid2 = $("#group2").jqGrid({
     rowNum: mydata.length,
     autowidth:true,
 });
+
+
+Object.assign(PopupManager.config, {
+  closeBtnSelectors: '.btn',
+  enableEscKey: true,
+  onBeforeClose: function(dialog) {
+    console.log('닫기 시작:', dialog.id);
+    return true;
+  },
+  onAfterClose: function(dialog) {
+    console.log('닫기 완료:', dialog.id);
+    // 백드롭 제거 등 추가 작업
+    document.body.classList.remove('popup-open');
+  }
+});
+// PopupManager.refresh();
+
+
+
 </script>
 </body>
 </html>
