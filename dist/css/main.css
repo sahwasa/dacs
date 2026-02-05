@@ -2409,13 +2409,19 @@ textarea,
 .type .manual {
   background-color: #B5A983;
 }
-.type .real {
+.type .Actual {
   background-color: #d17887;
 }
-.type .test {
+.type .Test {
   background-color: #7AA19D;
 }
-.type .training {
+.type .Exercise {
+  background-color: #8f99a3;
+}
+.type .System {
+  background-color: #8f99a3;
+}
+.type .Draft {
   background-color: #8f99a3;
 }
 

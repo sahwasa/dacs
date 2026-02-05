@@ -39,25 +39,3 @@ function formatSwitch(cellValue, options, rowObject){
               </div>`
   return tmpl;            
 }
-
-// 팝업 공통 콜백 함수들
-const commonCallbacks = {
-  formReset: {
-    afterClose: function(dialog) {
-      const form = dialog.querySelector('form');
-      if (form) form.reset();
-    }
-  },
-  
-  confirmClose: {
-    beforeClose: function(dialog) {
-      return confirm('닫으시겠습니까?');
-    }
-  },
-  
-  reloadAfterClose: {
-    afterClose: function(dialog) {
-      location.reload();
-    }
-  }
-};

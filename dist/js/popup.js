@@ -10,7 +10,7 @@
  * 
  * @author [AI님]
  * @since 2024-02-02
- * @version 1.0.0
+ * @version 1.1.0 (Refactored)
  * 
  * ============================================================================
  * 필수 HTML 구조
@@ -34,7 +34,7 @@
  * ============================================================================
  * 
  * 1. 팝업 열기
- *    document.getElementById('myDialog').showModal();
+ *    PopupManager.showModal('myDialog');
  * 
  * 2. 팝업 닫기 (프로그래밍 방식)
  *    PopupManager.close('myDialog');
@@ -67,7 +67,7 @@
  * 
  * 방법 2: close 호출 시 직접 전달 (특정 상황에서만 사용)
  * -------
- * document.getElementById('saveBtn').addEventListener('click', function() {
+ * document.getElementById('closeBtn').addEventListener('click', function() {
  *   PopupManager.close('myDialog', {
  *     beforeClose: function(dialog) {
  *       console.log('저장 버튼으로 닫기');
@@ -79,30 +79,23 @@
  *   });
  * });
  * 
- * 방법 3: 공통 콜백 재사용 (ui_temp.js 참고)
- * -------
- * PopupManager.setCallback('editDialog', {
- *   ...commonCallbacks.confirmClose,  // 닫기 확인
- *   ...commonCallbacks.formReset      // 폼 초기화
- * });
- * 
  * ============================================================================
  * 설정 변경
  * ============================================================================
  * 
  * 1. 닫기 버튼 선택자 변경
- *    PopupManager.config.closeBtnSelectors = '.close-btn, .btn-close';
- *    PopupManager.refresh(); // 변경 후 반드시 호출!
+ *    PopupManager.closeBtnSelectors = '.close-btn, .btn-close';
  * 
  * 2. ESC 키 비활성화
- *    PopupManager.config.enableEscKey = false;
- * 
- * 3. 동적으로 추가된 팝업에 이벤트 재바인딩
- *    PopupManager.refresh();
+ *    PopupManager.enableEscKey = false;
  * 
  * ============================================================================
  * API 메서드
  * ============================================================================
+ * 
+ * PopupManager.showModal(dialogId)
+ *   - 팝업을 엽니다 (Modal 모드)
+ *   - @param {string|HTMLElement} dialogId - 팝업 ID 또는 dialog 요소
  * 
  * PopupManager.close(dialogId, options)
  *   - 팝업을 닫습니다
@@ -119,13 +112,11 @@
  *   - 설정된 콜백을 제거합니다
  *   - @param {string} dialogId - 팝업 ID
  * 
- * PopupManager.refresh()
- *   - 닫기 버튼에 이벤트를 재바인딩합니다
- *   - config.closeBtnSelectors 변경 후 또는 동적 팝업 추가 시 호출
+ * PopupManager.closeBtnSelectors
+ *   - 닫기 버튼 CSS 선택자 (기본값: '.pop_tit .btn_cross, .pop_foot .btn_cancel')
  * 
- * PopupManager.config
- *   - closeBtnSelectors: 닫기 버튼 CSS 선택자
- *   - enableEscKey: ESC 키 활성화 여부
+ * PopupManager.enableEscKey
+ *   - ESC 키 활성화 여부 (기본값: true)
  * 
  * ============================================================================
  * 실전 예시
@@ -181,154 +172,166 @@
  * ============================================================================
  */
 
-(function() {
-  'use strict';
-  
-  // 설정 옵션
-  const config = {
-    closeBtnSelectors: '.pop_tit .btn_cross, .pop_foot .btn_cancel',
-    enableEscKey: true
-  };
-  
-  // 팝업별 콜백 저장소
-  const popupCallbacks = new Map();
+/* ========================================================================
+ * 0. 초기화 및 실행 (Initialization & Execution)
+ * ======================================================================== */
 
-  // 이벤트 핸들러 저장용
-  const eventHandlers = new Map();
+// 초기화
+$(function() {
+  PopupManager.init();
+})
+
+class PopupManager {
+  /* ========================================================================
+   * 1. 1. 상수 및 상태 선언 (Declarations)
+   * ======================================================================== */
   
+  // Public Config (직접 접근 가능)
+  static closeBtnSelectors = '.pop_tit .btn_cross, .pop_foot .btn_cancel';
+  static enableEscKey = true;
+
+  // Private State
+  static #callbacks = new Map(); // 팝업 ID별 콜백 저장소
+
+  /* ========================================================================
+   * 2. 내부 헬퍼 메서드 (Private Helper Methods)
+   * ======================================================================== */
+
   /**
-   * 팝업 닫기 함수
+   * 실제 팝업 닫기 로직을 처리하는 내부 메서드
    * @param {HTMLElement} dialogElement - dialog 요소
-   * @param {Object} options - beforeClose, afterClose 콜백 객체
-   * @return {boolean} 닫기 성공 여부
+   * @param {Object} options - 일회성 옵션 (beforeClose, afterClose)
+   * @return {boolean} - 닫기 성공 여부
    */
-  function closePopup(dialogElement, options) {
+  static #closePopup(dialogElement, options) {
     if (!dialogElement || dialogElement.tagName !== 'DIALOG') {
+      console.warn('[PopupManager] 유효하지 않은 dialog 요소입니다.');
       return false;
-    }   
+    }
 
-    options = options || {};
+    // 1. 옵션 병합 (저장된 콜백 + 호출 시 전달된 일회성 콜백)
+    const savedCallbacks = this.#callbacks.get(dialogElement.id);
+    const mergedOptions = { ...savedCallbacks, ...(options || {}) };
 
-    // beforeClose 콜백 실행
-    if (options.beforeClose && typeof options.beforeClose === 'function') {
-      const shouldClose = options.beforeClose(dialogElement);
+    // 2. beforeClose 콜백 실행
+    if (typeof mergedOptions.beforeClose === 'function') {
+      const shouldClose = mergedOptions.beforeClose(dialogElement);
       if (shouldClose === false) return false;
     }
-    
+
+    // 3. 네이티브 close 메서드 호출
     dialogElement.close();
-    
-    // afterClose 콜백 실행
-    if (options.afterClose && typeof options.afterClose === 'function') {
-      options.afterClose(dialogElement);
+
+    // 4. afterClose 콜백 실행
+    if (typeof mergedOptions.afterClose === 'function') {
+      mergedOptions.afterClose(dialogElement);
     }
-    
+
     return true;
   }
-  
+
   /**
-   * 클릭 이벤트 핸들러
+   * 닫기 버튼 클릭 핸들러 (Event Delegation)
+   * 문서 전체의 클릭 이벤트를 감지하여 닫기 버튼인 경우 처리
    */
-  function handleCloseClick(e) {
-    const dialog = e.currentTarget.closest('dialog');
+  static #handleCloseClick = (e) => {
+    // 1. 닫기 버튼인지 확인
+    const closeBtn = e.target.closest(this.closeBtnSelectors);
+    if (!closeBtn) return;
+
+    // 2. 닫기 버튼이 속한 dialog 찾기
+    const dialog = closeBtn.closest('dialog');
     
+    // 3. 열려있는 dialog인 경우에만 처리
     if (dialog && dialog.hasAttribute('open')) {
       e.preventDefault();
-      
-      const callbacks = popupCallbacks.get(dialog.id);
-      closePopup(dialog, callbacks);
+      this.#closePopup(dialog, null);
     }
   }
-  
-  /**
-   * 클릭 이벤트 바인딩 해제
-   */
-  function unbindCloseButtons() {
-    eventHandlers.forEach(function(handler, btn) {
-      btn.removeEventListener('click', handler);
-    });
-    eventHandlers.clear();
-  }
-  
-  /**
-   * 클릭 이벤트 바인딩
-   */
-  function bindCloseButtons() {
-    unbindCloseButtons();
 
-    const closeButtons = document.querySelectorAll(config.closeBtnSelectors);
-    
-    closeButtons.forEach(function(btn) {
-      btn.addEventListener('click', handleCloseClick);
-      eventHandlers.set(btn, handleCloseClick);
-    });
-  }
-  
-  // 초기 바인딩
-  bindCloseButtons();
-  
-  // ESC 키 처리
-  if (config.enableEscKey) {
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        const openDialogs = document.querySelectorAll('dialog[open]');
-        
-        if (openDialogs.length > 0) {
-          openDialogs.forEach(function(dialog) {
-            const callbacks = popupCallbacks.get(dialog.id);
-            closePopup(dialog, callbacks);
-          });
-        }
-      }
-    });
-  }
-  
   /**
-   * PopupManager 전역 객체
+   * ESC 키 핸들러
    */
-  window.PopupManager = {
-    config: config,
-    
-    /**
-     * 팝업 닫기
-     * @param {string|HTMLElement} dialogId - 팝업 ID 또는 dialog 요소
-     * @param {Object} options - beforeClose, afterClose 콜백
-     * @return {boolean} 닫기 성공 여부
-     */
-    close: function(dialogId, options) {
-      const dialog = typeof dialogId === 'string' 
-        ? document.getElementById(dialogId) 
-        : dialogId;
-      
-      const savedCallbacks = popupCallbacks.get(dialog?.id);
-      const mergedOptions = savedCallbacks 
-        ? Object.assign({}, savedCallbacks, options)
-        : options || {};
-      
-      return closePopup(dialog, mergedOptions);
-    },
-    
-    /**
-     * 닫기 버튼 이벤트 재바인딩
-     * config 변경 후 또는 동적 팝업 추가 시 호출
-     */
-    refresh: bindCloseButtons,
-    
-    /**
-     * 팝업별 콜백 설정
-     * @param {string} dialogId - 팝업 ID
-     * @param {Object} options - beforeClose, afterClose 콜백
-     */
-    setCallback: function(dialogId, options) {
-      popupCallbacks.set(dialogId, options);
-    },
-    
-    /**
-     * 팝업별 콜백 제거
-     * @param {string} dialogId - 팝업 ID
-     */
-    removeCallback: function(dialogId) {
-      popupCallbacks.delete(dialogId);
+  static #handleEscKey = (e) => {
+    if (e.key !== 'Escape') return;
+
+    // 현재 열려있는 모든 dialog 탐색
+    const openDialogs = document.querySelectorAll('dialog[open]');
+    if (openDialogs.length === 0) return;
+
+    // 최상위(가장 마지막에 열린) 팝업부터 닫거나, 모두 닫기
+    openDialogs.forEach(dialog => {
+      this.#closePopup(dialog, null);
+    });
+  }
+
+  /* ========================================================================
+   * 3. 공개 API (Public API)
+   * ======================================================================== */
+
+  /**
+   * 팝업 열기 (외부 호출용)
+   * @param {string|HTMLElement} dialogId - 팝업 ID 또는 DOM 요소
+   */
+  static showModal(dialogId) {
+    const dialog = typeof dialogId === 'string'
+      ? document.getElementById(dialogId)
+      : dialogId;
+
+    if (!dialog || dialog.tagName !== 'DIALOG') {
+      console.warn('[PopupManager] 유효하지 않은 dialog 요소입니다.');
+      return;
     }
-  };
-  
-})();
+
+    dialog.showModal();
+  }
+
+  /**
+   * 팝업 닫기 (외부 호출용)
+   * @param {string|HTMLElement} dialogId - 팝업 ID 또는 DOM 요소
+   * @param {Object} [options] - 일회성 콜백 옵션 { beforeClose, afterClose }
+   */
+  static close(dialogId, options) {
+    const dialog = typeof dialogId === 'string' 
+      ? document.getElementById(dialogId) 
+      : dialogId;
+    
+    return this.#closePopup(dialog, options);
+  }
+
+  /**
+   * 팝업별 콜백 설정 (영구적)
+   * @param {string} dialogId - 팝업 ID
+   * @param {Object} options - 콜백 객체 { beforeClose, afterClose }
+   */
+  static setCallback(dialogId, options) {
+    if (!dialogId) return;
+    this.#callbacks.set(dialogId, options);
+  }
+
+  /**
+   * 설정된 콜백 제거
+   * @param {string} dialogId - 팝업 ID
+   */
+  static removeCallback(dialogId) {
+    this.#callbacks.delete(dialogId);
+  }
+
+  /**
+   * 초기화 실행
+   */
+  static init() {
+    // 1. 전역 객체 노출
+    window.PopupManager = PopupManager;
+
+    // 2. 이벤트 바인딩 (Event Delegation)
+    document.addEventListener('click', this.#handleCloseClick);
+
+    if (this.enableEscKey) {
+      document.addEventListener('keydown', this.#handleEscKey);
+    }
+
+    console.log('[PopupManager] Initialized (Event Delegation Mode)');
+  }
+}
+

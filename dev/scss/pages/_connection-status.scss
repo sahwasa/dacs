@@ -11,9 +11,11 @@
 $_types: (
   auto: var.$mute-purple,
   manual: var.$mute-olive,
-  real: var.$mute-red,
-  test: var.$mute-green,
-  training: var.$mute-blue
+  Actual: var.$mute-red, //실제 경보
+  Test: var.$mute-green, // 테스트
+  Exercise: var.$mute-blue, //훈련
+  System: var.$mute-blue, // 시스템 점검이나 테스트
+  Draft: var.$mute-blue // 경보 ??
 );
 
 .type {
