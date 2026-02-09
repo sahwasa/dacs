@@ -19,7 +19,7 @@
       <form action="">
         <div>
           <ul class="ipt_lst">
-            <li class="full inline">
+            <li class="">
               <span class="label">재난상황</span>
               <ul class="ipt_groupCheck">
                 <li><label for="status_Exercise"><input type="radio" id="status_Exercise" name="status" checked>시험</label></li>
@@ -31,7 +31,7 @@
               <label for="">발령기관(source):</label>
               <input type="text" value="ㅇㅇ시청 (아마도 고정값)" readonly />
             </li>
-            <li class="span2">
+            <li>
               <span class="label">재난유형(event / eventCode):</span>
               <ul class="ipt_group">
                 <li><select name="" id="" title="재난유형 대분류" style="--select-width:90px"><option value="">자연재난</option></select></li>
@@ -43,13 +43,21 @@
             <li>
               <label for="">제목(headline.ko-KR):</label>
               <input type="text">
-            </li>   
+            </li>               
             <li>
               <span class="label">수신유형(다중선택):</span>
               <ul class="device_type">
                 <li><label for=""><input type="checkbox">자동음성통보</label></li>
                 <li><label for=""><input type="checkbox">재해문자전광판</label></li>
               </ul>
+            </li>
+            <li class="ipt_group">
+              <div class="flex1">
+                <label for="">발생시각</label><input type="datetime-local">
+              </div>
+              <div class="flex1">
+                <label for="">종료시각</label><input type="datetime-local">
+              </div>
             </li>
             <li class="full">
               <span class="label">개별 단말장치</span>              

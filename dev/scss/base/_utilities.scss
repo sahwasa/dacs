@@ -1,0 +1,57 @@
+@use "./abstracts/var";
+@use "./abstracts/mixin";
+@use 'sass:map';
+
+// keyframes
+@keyframes spin {
+  0% { -moz-transform: rotate(0deg); -o-transform: rotate(0deg); -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+  100% { -moz-transform: rotate(359deg); -o-transform: rotate(359deg); -webkit-transform: rotate(359deg); transform: rotate(359deg);}
+}
+
+// Text Utilities
+.txt_success {
+  color: map.get(var.$result, success);
+}
+
+.txt_fail {
+  color: map.get(var.$result, fail);
+}
+
+.txt_notuse {
+  color: map.get(var.$result, notuse);
+}
+
+.txt_normal {
+  color: map.get(map.get(var.$connection, connection), color);
+}
+
+.txt_error {
+  color: map.get(map.get(var.$connection, disconnection), color);
+}
+
+.t{
+  &_red{color:var.$red-300!important;}
+  // &_yellow{color:var.$yellow!important;}
+  // &_skyblue{color:var.$skyblue;}
+  // &_blue{color:var.$blue;}
+}
+// align
+.align{
+  &_l{text-align:left;}
+  &_r{text-align:right;}
+  &_c{text-align:center;}
+}
+
+// Ellipsis Text
+.ext {
+  @include mixin.text_ellipsis();
+  display: inline-block;
+  font-weight: normal;
+  color: var.$text-primary;
+  text-align: left;
+  max-width: 200px;
+  vertical-align: middle;
+}
+
+//func
+.blind{@include mixin.blind;}

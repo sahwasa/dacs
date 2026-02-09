@@ -1,6 +1,4 @@
-@use "./var";
-@use "./reset";
-@use "./mixin";
+@use "./abstracts/var";
 
 /* jqgrid custom */
 .ui-jqgrid{background-color:#fff;
