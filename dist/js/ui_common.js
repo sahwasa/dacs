@@ -22,6 +22,13 @@
  * ============================================================================
  */
 
+// 페이지 로드 시 오버레이 초기화
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => LoadingOverlay.init());
+} else {
+  LoadingOverlay.init();
+}
+
 // 글로벌 로딩 오버레이 관리 객체
 const LoadingOverlay = {
   element: null,          // 오버레이 DOM 요소
@@ -75,9 +82,6 @@ const LoadingOverlay = {
     }
   }
 };
-
-// 페이지 로드 시 오버레이 초기화
-LoadingOverlay.init();
 
 // ============================================================================
 // jQuery AJAX 글로벌 이벤트 연동 (jQuery 사용 시)
