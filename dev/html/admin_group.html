@@ -1,0 +1,143 @@
+@@include('inc/top.html')
+<div id="wrap" class="wrap">
+  @@include('inc/header.html')    
+  <main id="content" class="main_container">
+    @@include('inc/lnb_admin.html')
+    <div class="cont_body">
+      <header class="tit">
+        <h1>단말기 그룹관리</h1>        
+        <section class="bredcrumb">
+          <ul>
+            <li>
+              <a href="#">Home</a>
+            </li>
+            <li>시스템 관리</li>
+            <li>단말기 그룹관리</li>
+          </ul>
+        </section>
+      </header>      
+      <div>        
+        <!-- <div class="search">
+          <ul class="search_lst">            
+            <li>
+              <select name="" id="" title="전체">
+                <option value="">전체</option>
+              </select>
+            </li>          
+            <li><input type="text" placeholder="사용자명" title="검색어"></li>
+          </ul>
+          <button type="button" class="btn_default">검색</button>
+        </div> -->
+        <div class="tbl_top">
+          <div class="tool">
+            <button type="button" class="btn_add"  onclick="document.querySelector('#p_userAdmin').showModal();">추가</button>
+            <button type="button" class="btn_del">삭제</button>
+          </div>
+        </div>
+        <div class="tbl_wrap">
+          <table id="user_lst" class="jq-grid"></table>            
+        </div>
+      </div>
+    </div>  
+  </main>
+  @@include('inc/footer.html')
+</div>
+<!-- 사용자관리 팝업 -->
+<dialog id="p_userAdmin" class="pop_wrap">
+  <form method="dialog">
+    <header class="pop_tit">
+      <h1>사용자 추가 or 수정</h1>
+      <div class="tool_wrap">
+        <button type="button" class="btn_cross">닫기</button>
+      </div>
+    </header>
+    <section class="pop_body">
+      <table class="tbl_ipt full_ipt">
+        <caption>예경보 종합 플랫폼 연결정보</caption>
+        <tbody>
+        <tr>
+          <th scope="row"><label for="" class="required">사용자ID</label></th>
+          <td>Admin</td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="" class="required">사용자명</label></th>
+          <td><input type="text"></td>
+        </tr>      
+        <tr>
+          <th scope="row"><label for="" class="required">비밀번호</label></th>
+          <td><input type="password"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="" class="required">비밀번호 확인</label></th>
+          <td><input type="password">
+            <p class="is-invalid">비밀번호가 일치하지 않습니다.</p>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">소속기관</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">부서</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">직급</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="" class="required">핸드폰</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">이메일</label></th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="">권한</label></th>
+          <td>
+            <select name="" id=""><option value="">관리자</option></select>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="pop_foot">
+      <button type="submit" class="btn_default">저장</button>
+      <button type="submit" class="btn_gray">수정</button>
+      <button type="button" class="btn_cancel">닫기</button>
+    </section>
+  </form>
+</dialog>
+<!-- 사용자관리 팝업__e -->
+@@include('inc/script.html')
+<script>
+var mydata = [
+    {'status': 'normal','btn':'Modify'},
+    {'status': 'error','btn':'Modify'}
+  ] 
+var grid = $("#user_lst").jqGrid({
+    data: mydata,
+    datatype: "local",      
+    colModel: [
+      { label: '단말기 그룹명', name: 't1', align:'center'},
+      { label: '단말기 그룹코드', name: 't2' },
+      { label: '우선순위', name: 't3' },
+      { label: '수정', name: 'btn', align:'center',
+        formatter:formatBtn //ui_temp.js 참고
+      },
+    ],
+    height: 'calc(100vh - 313px)',
+    rowNum: mydata.length,
+    multiselect:true,
+    gridComplete:function(){
+      $(this).gridResize();
+    }
+} );
+$(grid).on('click','[data-action="Modify"]', function(){
+  const popoverId = 'p_userAdmin';
+  $(this).attr('popovertarget', popoverId);
+})
+</script>
+</body>
+</html>

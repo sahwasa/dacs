@@ -136,3 +136,7 @@ border:1px solid transparent;}
   @if($sticky){position:sticky;left:0;top:0;}@else{}
   background-color:#fff;box-shadow:0 4px 6px -4px rgba(0,0,0,0.16);padding-bottom:5px;margin-bottom:0;z-index:100;
 }
+@mixin divide($h:10px,$gap:5px){
+  position:relative;display:inline-flex;align-items:center;
+  &::before{@include shape(1px,$h);background-color:var.$gray-300;margin:0 $gap;}
+}

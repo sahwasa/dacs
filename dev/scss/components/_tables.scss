@@ -10,11 +10,11 @@
   @include mixin.flex;
   gap: var.$gap-sm;
   margin-bottom: var.$spacing-lg;
-  font-size: var.$input-font-size;
-  
+  font-size: var.$input-font-size;  
   .info {
     @include mixin.explanation;
   }
+  button{padding:5px 8px;}
 }
 
 // Table Wrapper

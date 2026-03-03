@@ -159,8 +159,11 @@
           </div>
           <div class="tbl_top">
             <div class="tool">
-              <button type="button" class="btn_add" onclick="document.querySelector('#p_deviceAdmin').showModal();">추가</button>
-              <button type="button" class="btn_del">삭제</button>
+                <button type="button" class="btn_default_line" onclick="document.querySelector('#p_device_group').show();">단말장치 그룹관리</button>
+              <span class="divide">
+                <button type="button" class="btn_add" onclick="document.querySelector('#p_deviceAdmin').showModal();">추가</button>
+                <button type="button" class="btn_del">삭제</button>
+              </span>
             </div>
           </div>
           <div class="tbl_wrap">
@@ -359,6 +362,99 @@ Copyright © KITValley. All Rights RESERVED
   </form>
 </dialog>
 <!-- 단말 장치관리 팝업__e -->
+
+<!-- 단말장치 그룹관리 팝업 -->
+<dialog id="p_device_group" class="pop_wrap p_device_group">
+  <form method="dialog">
+    <header class="pop_tit">
+      <h1>단말장치 그룹관리</h1>
+      <div class="tool">
+        <button type="button" class="btn_cross">닫기</button>
+      </div>
+    </header>
+    <section class="pop_body flex_vertical_wrap">
+      <section>
+        <div class="tbl_top">          
+          <div class="tool">
+            <button type="button" id="btnAddRow" class="btn_add" onclick="document.querySelector('#p_admin_device_group').showModal();">그룹추가</button>
+            <button type="button" id="btnAddRow" class="btn_del">선택삭제</button>
+          </div>
+        </div>
+        <div class="tbl_wrap">
+          <table id="device_group" class="jq-grid"></table>
+        </div>      
+      </section>      
+    </section>
+    <section class="pop_foot">
+      <button type="submit" class="btn_default">적용</button>
+      <button type="button" class="btn_cancel">취소</button>
+    </section>
+  </form>
+</dialog>
+<!-- 단말장치 그룹관리 팝업__e -->
+
+<!-- 단말장치 그룹 추가수정 팝업 -->
+<dialog id="p_admin_device_group" class="pop_wrap p_admin_device_group">
+  <form method="dialog">
+    <header class="pop_tit">
+      <h1>단말장치 그룹 추가 수정</h1>
+      <div class="tool">
+        <button type="button" class="btn_cross">닫기</button>
+      </div>
+    </header>
+    <section class="pop_body">
+      <table class="tbl_ipt full_ipt">
+        <caption>단말장치 그룹정보</caption>
+        <tbody>
+          <tr>
+            <th scope="row"><label for="" class="required">단말장치 그룹</label></th>
+            <td>
+              <input type="text">
+            </td>
+          </tr>
+          <tr>
+            <th scope="row"><label for="" class="required">단말장치 그룹코드</label></th>
+            <td>
+              <input type="text">
+            </td>
+          </tr>
+          <tr>
+            <th scope="row"><label for="">발령 우선순위</label></th>
+            <td>
+              <select name="" id="">
+                <option value="">1순위</option>
+                <option value="">2순위</option>
+                <option value="">3순위</option>
+              </select>
+            </td>
+          </tr>          
+          <tr>
+            <th scope="row"><span class="label">사용여부</span></th>
+            <td>
+              <div class="switch_toggle">
+                <label for="useYN1">
+                  <input type="checkbox" class="type_check" id="useYN1" checked> 사용여부
+                </label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row"><label for="">비고</label></th>
+            <td>
+              <input type="text">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="pop_foot">
+      <button type="submit" class="btn_default">저장</button>
+      <button type="button" class="btn_cancel">취소</button>
+    </section>
+  </form>
+</dialog>
+<!-- 단말장치 그룹 추가수정 팝업__e -->
+
 <script src="plugins/jquery.min.js"></script>
 <script src="plugins/jqGrid/js/jquery.jqGrid.min.js"></script>
 <script src="plugins/jqGrid/js/i18n/grid.locale-kr.js"></script>
@@ -368,27 +464,7 @@ Copyright © KITValley. All Rights RESERVED
 <script>
 var mydata = [
     {'status': 'normal','btn':'Modify'},
-    {'status': 'error','btn':'Modify'},
-    {'status': 'error','btn':'Modify'},
-    {'status': 'error','btn':'Modify'},
-    {'status': 'error','btn':'Modify'},
-    {'status': 'error','btn':'Modify'},
-    {'status': 'error','btn':'Modify'},
-    {'status': 'error','btn':'Modify'},
-    {'status': 'error','btn':'Modify'},
-    {'status': 'error','btn':'Modify'},
-    {'status': 'error','btn':'Modify'},
-    {'status': 'error','btn':'Modify'},
-    {'status': 'error','btn':'Modify'},
-    {'status': 'error','btn':'Modify'},
-    {'status': 'error','btn':'Modify'},
-    {'status': 'error','btn':'Modify'},
-    {'status': 'error','btn':'Modify'},
-    {'status': 'error','btn':'Modify'},
-    {'status': 'error','btn':'Modify'},
-    {'status': 'error','btn':'Modify'},
-    {'status': 'error','btn':'Modify'},
-    {'status': 'error','btn':'Modify'},
+    {'status': 'error','btn':'Modify'}
   ] 
 var grid = $("#device_lst").jqGrid({
     data: mydata,
@@ -413,10 +489,35 @@ var grid = $("#device_lst").jqGrid({
       $(this).gridResize();
     }
 } );
-$(grid).on('click','[data-action="Modify"]', function(){
-  const popoverId = 'p_deviceAdmin';
-  $(this).attr('popovertarget', popoverId);
-})
+
+var mydata2 = [
+  { grpName: '그룹A', grpCode: 'GRP001', priority: '1', useYn: 'Y', remark: '' },
+  { grpName: '그룹B', grpCode: 'GRP002', priority: '2', useYn: 'N', remark: '' }
+];
+
+var grid2= $('#device_group').jqGrid({
+    data:       mydata2,
+    datatype:   'local',
+    colModel: [
+      { label: '단말장치그룹명',   name: 'grpName',   align: 'left', width: 180},
+      { label: '단말장치그룹코드', name: 'grpCode',   align: 'center', width: 80},
+      { label: '발령 우선순위',    name: 'priority',  align: 'center', width: 80 },
+      { label: '사용여부', name: 'useYn', align: 'center',width: 80 },
+      { label: '비고',name: 'remark', width: 180 },
+      { label: '수정',name: 'actions',   align: 'center', width: 60, sortable: false,
+        formatter: function (v, opts, row) {
+          return `<button type="button" title="수정" class="btn_tblModify" onclick=" document.querySelector('#p_admin_device_group').showModal();">수정</button>`;
+        }
+      }
+    ],
+    height:392,
+    _resizeInPopover: true,
+    autowidth:true,
+    gridComplete:     function () { $(this).gridResize(); }
+  });
+
+
+
 </script>
 </body>
 </html>

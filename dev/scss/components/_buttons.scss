@@ -90,6 +90,14 @@
   @include mixin.ico_only($y: -140px, $w: 18px, $h: 18px, $imgurl: 'btn.png');
 }
 
+.btn_tblApply {
+  @include mixin.ico_only($y: -196px, $w: 18px, $h: 18px, $imgurl: 'btn.png');
+}
+
+.btn_tblCancel {
+  @include mixin.ico_only($y: -168px, $w: 18px, $h: 18px, $imgurl: 'btn.png');
+}
+
 .transfer_toolbar{
   @include mixin.flex($justify:center);
 }

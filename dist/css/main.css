@@ -171,6 +171,22 @@ i, em {
   overflow: hidden;
 }
 
+.divide {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+.divide::before {
+  display: inline-block;
+  content: "";
+  overflow: hidden;
+  font-size: 0;
+  width: 1px;
+  height: 10px;
+  background-color: #adadad;
+  margin: 0 5px;
+}
+
 .wrap {
   display: flex;
   flex-direction: column;
@@ -343,13 +359,30 @@ i, em {
   letter-spacing: -0.45px;
 }
 
-.tool {
+.tool,
+.divide {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: row;
   gap: 6px;
   margin-left: auto;
+}
+
+.divide {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+.divide::before {
+  display: inline-block;
+  content: "";
+  overflow: hidden;
+  font-size: 0;
+  width: 1px;
+  height: 10px;
+  background-color: #adadad;
+  margin: 0 5px;
 }
 
 .section_bot {
@@ -964,6 +997,46 @@ i, em {
   vertical-align: text-top;
 }
 .btn_tblAdd:hover {
+  filter: contrast(130%);
+}
+
+.btn_tblApply {
+  font-size: 0 !important;
+  vertical-align: middle;
+  line-height: 1;
+  color: inherit;
+}
+.btn_tblApply::before {
+  display: inline-block;
+  content: "";
+  overflow: hidden;
+  font-size: 0;
+  width: 18px;
+  height: 18px;
+  background: url(../images/btn.png) 0 -196px no-repeat;
+  vertical-align: text-top;
+}
+.btn_tblApply:hover {
+  filter: contrast(130%);
+}
+
+.btn_tblCancel {
+  font-size: 0 !important;
+  vertical-align: middle;
+  line-height: 1;
+  color: inherit;
+}
+.btn_tblCancel::before {
+  display: inline-block;
+  content: "";
+  overflow: hidden;
+  font-size: 0;
+  width: 18px;
+  height: 18px;
+  background: url(../images/btn.png) 0 -168px no-repeat;
+  vertical-align: text-top;
+}
+.btn_tblCancel:hover {
   filter: contrast(130%);
 }
 
@@ -1623,6 +1696,9 @@ textarea,
   color: #1465c0;
   line-height: 1;
 }
+.tbl_top button {
+  padding: 5px 8px;
+}
 
 .tbl_wrap {
   background-color: #F1F3F5;
@@ -2158,7 +2234,8 @@ textarea,
   padding-top: 1px;
 }
 
-.p_select_device {
+.p_select_device,
+.p_device_group {
   min-width: 975px;
 }
 
@@ -2316,6 +2393,9 @@ textarea,
 }
 .ui-jqgrid .ui-pg-button.ui-state-disabled span::before {
   color: #ccc;
+}
+.ui-jqgrid .ui-jqgrid-view input, .ui-jqgrid .ui-jqgrid-view select, .ui-jqgrid .ui-jqgrid-view textarea {
+  width: 100%;
 }
 
 .ui-jqgrid-pager .tbl_bot {

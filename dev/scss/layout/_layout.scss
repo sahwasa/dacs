@@ -162,11 +162,14 @@
   }
 }
 
-.tool {
+.tool,
+.divide {
   @include mixin.flex;
   gap: var.$gap-sm;
   margin-left: auto;
 }
+
+.divide{@include mixin.divide;}
 
 .section_bot {
   @include mixin.flex;
