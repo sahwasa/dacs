@@ -164,6 +164,13 @@ textarea,
           content: attr(data-labelon);
         }
       }
+      &:has(:disabled) {
+        cursor:not-allowed;
+        background-color:var.$gray-050;
+        border-color:var.$gray-200;
+        &::after{background-color:var.$gray-200;}
+        &:hover{box-shadow:none;}
+      }
     }
     
     input {

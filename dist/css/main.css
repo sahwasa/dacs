@@ -171,22 +171,6 @@ i, em {
   overflow: hidden;
 }
 
-.divide {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-}
-.divide::before {
-  display: inline-block;
-  content: "";
-  overflow: hidden;
-  font-size: 0;
-  width: 1px;
-  height: 10px;
-  background-color: #adadad;
-  margin: 0 5px;
-}
-
 .wrap {
   display: flex;
   flex-direction: column;
@@ -1506,6 +1490,17 @@ textarea,
 }
 .switch_toggle label:has(:checked)[data-labelon]::before {
   content: attr(data-labelon);
+}
+.switch_toggle label:has(:disabled) {
+  cursor: not-allowed;
+  background-color: #F1F3F5;
+  border-color: #cdd1d5;
+}
+.switch_toggle label:has(:disabled)::after {
+  background-color: #cdd1d5;
+}
+.switch_toggle label:has(:disabled):hover {
+  box-shadow: none;
 }
 .switch_toggle input {
   position: absolute;
