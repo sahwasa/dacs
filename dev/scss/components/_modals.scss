@@ -1,5 +1,5 @@
-@use "./abstracts/var";
-@use "./abstracts/mixin";
+@use "./abstracts/var" as v;
+@use "./abstracts/mixin" as m;
 
 // ============================================
 // Modal/Popup Components
@@ -20,11 +20,11 @@
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
-  padding: var.$spacing-3xl 35px;
+  padding: v.$spacing-3xl 35px;
   border: 1px solid #2a3652;
   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.49);
   background-color: #fff;
-  z-index: var.$z-modal;
+  z-index: v.$z-modal;
 }
 
 .pop_body {
@@ -35,8 +35,8 @@
   
   .tit:has(h2) {
     border-bottom: 1px solid #005aab;
-    margin-bottom: var.$spacing-lg;
-    padding-bottom: var.$spacing-sm;
+    margin-bottom: v.$spacing-lg;
+    padding-bottom: v.$spacing-sm;
     
     h2 {
       font-size: 16px;
@@ -47,15 +47,15 @@
 
 .pop_tit {
   display: flex;
-  gap: var.$spacing-lg;
-  border-bottom: 1px solid var.$primary;
-  margin-bottom: var.$spacing-xl;
-  padding-bottom: var.$spacing-lg;
+  gap: v.$spacing-lg;
+  border-bottom: 1px solid v.$primary;
+  margin-bottom: v.$spacing-xl;
+  padding-bottom: v.$spacing-lg;
   
   h1 {
-    font-size: var.$spacing-2xl;
+    font-size: v.$spacing-2xl;
     letter-spacing: -0.9px;
-    color: var.$primary;
+    color: v.$primary;
     font-weight: 700;
   }
   
@@ -66,26 +66,26 @@
     
     &::before {
       font-size: 19px;
-      @include mixin.fontello("\eb6e");
+      @include m.fontello("\eb6e");
       -webkit-text-stroke: 4px #fff;
     }
   }
 }
 
 .pop_foot {
-  @include mixin.flex($justify: flex-end);
-  gap: var.$gap-xs;
-  margin-top: var.$maingap;
+  @include m.flex($justify: flex-end);
+  gap: v.$gap-xs;
+  margin-top: v.$maingap;
 }
 
 // Connection Test Section
 .connect_test {
   margin-top: 12px;  
   .success {
-    color: var.$text-success;
+    color: v.$text-success;
   }  
   .error {
-    color: var.$text-error;
+    color: v.$text-error;
   }
 }
 
@@ -99,3 +99,13 @@
 
 .p_select_device,
 .p_device_group{min-width:975px;}
+.p_admin_device_group{min-width:1200px;
+  .box_grey{padding:10px 15px;border-color:transparent;
+    label{width:100px;}
+  }
+  .disaster_selectarea{gap:20px;margin-top:20px;}
+  .flex_wrap{gap:20px;margin-top:25px;
+    .tit{margin-bottom:10px;}
+    .transfer_toolbar{flex-direction:column;flex:0;gap:15px;}
+  }
+}

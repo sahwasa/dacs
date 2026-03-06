@@ -1,5 +1,5 @@
-@use "./abstracts/var";
-@use "./abstracts/mixin";
+@use "./abstracts/var" as v;
+@use "./abstracts/mixin" as m;
 
 // ============================================
 // Button Base Styles
@@ -7,43 +7,43 @@
 
 // Gray Buttons
 .btn_gray {
-  @include mixin.btn($bg: var.$gray-650);
+  @include m.btn($bg: v.$gray-650);
   
   &_line {
-    @include mixin.btn($border: var.$gray-650, $color: #555);
+    @include m.btn($border: v.$gray-650, $color: #555);
   }
 }
 
 // Primary/Default Buttons
 .btn_default {
-  @include mixin.btn($bg: var.$primary);
+  @include m.btn($bg: v.$primary);
   
   &_line {
-    @include mixin.btn(var.$primary, var.$primary, #fff);
+    @include m.btn(v.$primary, v.$primary, #fff);
   }
 }
 
 // Cancel Buttons
 .btn_cancel {
-  @include mixin.btn($bg: var.$gray-400);
+  @include m.btn($bg: v.$gray-400);
   
   &_line {
-    @include mixin.btn(var.$gray-400);
-    color: var.$gray-400;
+    @include m.btn(v.$gray-400);
+    color: v.$gray-400;
   }
 }
 
 // Action Buttons
 .btn_add,
 .btn_modify {
-  @include mixin.btn(
-    $border: var.$primary,
-    $color: var.$primary,
+  @include m.btn(
+    $border: v.$primary,
+    $color: v.$primary,
     $addTxt: '\ea47',
     $hover: false
   );
   font-weight: 600;
-  padding: var.$spacing-sm var.$spacing-md;
+  padding: v.$spacing-sm v.$spacing-md;
 }
 
 .btn_modify::before {
@@ -52,73 +52,88 @@
 }
 
 .btn_del {
-  @include mixin.btn(
-    $border: var.$gray-300,
+  @include m.btn(
+    $border: v.$gray-300,
     $color: #999,
     $addTxt: '\ea49',
     $hover: false
   );
   font-weight: 600;
-  padding: var.$spacing-sm var.$spacing-md;
+  padding: v.$spacing-sm v.$spacing-md;
 }
 
 // Utility Buttons
 .btn_confirm {
-  @include mixin.btn(var.$gray-100);
+  @include m.btn(v.$gray-100);
   background-color: #f9fafb;
   color: #717171;
-  padding: 0 var.$spacing-lg;
+  padding: 0 v.$spacing-lg;
   font-weight: normal;
 }
 
 .btn_excel {
-  @include mixin.btn(var.$green-600, var.$green-600);
-  color: var.$green-600;
+  @include m.btn(v.$green-600, v.$green-600);
+  color: v.$green-600;
   font-weight: normal;
 }
 
 // Table Action Buttons
 .btn_tblModify {
-  @include mixin.ico_only($y: -84px, $w: 18px, $h: 18px, $imgurl: 'btn.png');
+  @include m.ico_only($y: -84px, $w: 18px, $h: 18px, $imgurl: 'btn.png');
 }
 
 .btn_tblDel {
-  @include mixin.ico_only($y: -112px, $w: 18px, $h: 18px, $imgurl: 'btn.png');
+  @include m.ico_only($y: -112px, $w: 18px, $h: 18px, $imgurl: 'btn.png');
 }
 
 .btn_tblAdd {
-  @include mixin.ico_only($y: -140px, $w: 18px, $h: 18px, $imgurl: 'btn.png');
+  @include m.ico_only($y: -140px, $w: 18px, $h: 18px, $imgurl: 'btn.png');
 }
 
 .btn_tblApply {
-  @include mixin.ico_only($y: -196px, $w: 18px, $h: 18px, $imgurl: 'btn.png');
+  @include m.ico_only($y: -196px, $w: 18px, $h: 18px, $imgurl: 'btn.png');
 }
 
 .btn_tblCancel {
-  @include mixin.ico_only($y: -168px, $w: 18px, $h: 18px, $imgurl: 'btn.png');
+  @include m.ico_only($y: -168px, $w: 18px, $h: 18px, $imgurl: 'btn.png');
 }
 
 .transfer_toolbar{
-  @include mixin.flex($justify:center);
+  @include m.flex($justify:center);
 }
 
 .btn_add_selected{
-  @include mixin.ico_only($font:'\e892');
+  @include m.ico_only($font:'\e892');
   width: 65px;
   text-align: center;
   border: 1px solid #c6d6e7;
-  border-radius: var.$spacing-md;
-  padding: var.$spacing-sm var.$spacing-2xl;
+  border-radius: v.$spacing-md;
+  padding: v.$spacing-sm v.$spacing-2xl;
   &::before {
-    font-size: var.$icon-size-xl;
+    font-size: v.$icon-size-xl;
     color: #92a4b8;
   }
 }
 
+.btn_add_selected {
+  @include m.ico_only($font: '\e892');
+  @include m.btn_transfer_base;
+  width:65px;
+}
+
+.btn_add_right {
+  @include m.ico_only($font: '\e894');
+  @include m.btn_transfer_base;
+}
+
+.btn_del_left {
+  @include m.ico_only($font: '\e893');
+  @include m.btn_transfer_base;
+}
 
 // Icon Buttons
 .btn_cross {
-  @include mixin.ico_only('\eb2e');
+  @include m.ico_only('\eb2e');
 }
 
 // Login Button
@@ -126,7 +141,7 @@
   width: 100%;
   line-height: 76px;
   border-radius: 37px;
-  background-image: linear-gradient(25deg, var.$blue-600, var.$blue-500);
+  background-image: linear-gradient(25deg, v.$blue-600, v.$blue-500);
   font-size: 20px;
   color: #fff;
   font-weight: 700;
@@ -136,11 +151,11 @@
 
 // Test Button
 .btn_test {
-  color: var.$primary;
-  border: 1px solid var.$primary;
-  border-radius: var.$spacing-sm;
-  background-color: rgba(var.$primary, 0.1);
-  padding: var.$spacing-xs var.$spacing-xl;
+  color: v.$primary;
+  border: 1px solid v.$primary;
+  border-radius: v.$spacing-sm;
+  background-color: rgba(v.$primary, 0.1);
+  padding: v.$spacing-xs v.$spacing-xl;
   font-weight: 700;
   margin-right: 7px;
 }

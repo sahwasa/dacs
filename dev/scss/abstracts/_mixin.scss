@@ -71,7 +71,17 @@ border:1px solid transparent;}
   }
   &.disabled{background:var.$bg-light!important;}
 }
-
+@mixin btn_transfer_base {
+  width: 40px;
+  text-align: center;
+  border: 1px solid #c6d6e7;
+  border-radius: var.$spacing-md;
+  padding: var.$spacing-sm 0;
+  &::before {
+    font-size: var.$icon-size-xl;
+    color: #92a4b8;
+  }
+}
 /* ico_fileName Extention */
 @mixin ico_ext($x, $y){
   $x: ($x * -20) - 3;

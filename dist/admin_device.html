@@ -394,7 +394,7 @@ Copyright © KITValley. All Rights RESERVED
 <!-- 단말장치 그룹관리 팝업__e -->
 
 <!-- 단말장치 그룹 추가수정 팝업 -->
-<dialog id="p_admin_device_group" class="pop_wrap p_admin_device_group" open>
+<dialog id="p_admin_device_group" class="pop_wrap p_admin_device_group">
   <form method="dialog">
     <header class="pop_tit">
       <h1>단말장치 그룹 추가 수정</h1>
@@ -411,24 +411,14 @@ Copyright © KITValley. All Rights RESERVED
             <td>
               <input type="text">
             </td>
-          </tr>
-          <tr>
             <th scope="row"><label for="" class="required">단말장치 그룹코드</label></th>
+            <td>
+              <input type="text" size="4">
+            </td>          
+            <th scope="row"><label for="">비고</label></th>
             <td>
               <input type="text">
             </td>
-          </tr>
-          <tr>
-            <th scope="row"><label for="">발령 우선순위</label></th>
-            <td>
-              <select name="" id="">
-                <option value="">1순위</option>
-                <option value="">2순위</option>
-                <option value="">3순위</option>
-              </select>
-            </td>
-          </tr>          
-          <tr>
             <th scope="row"><span class="label">사용여부</span></th>
             <td>
               <div class="switch_toggle">
@@ -438,17 +428,84 @@ Copyright © KITValley. All Rights RESERVED
               </div>
             </td>
           </tr>
-          <tr>
-            <th scope="row"><label for="">비고</label></th>
-            <td>
-              <input type="text">
-            </td>
-          </tr>
         </tbody>
       </table>
+      <section class="disaster_selectarea">
+        <header class="tit">
+          <h2>발령기준</h2>
+        </header>
+        <div class="box_grey">
+          <label for="" class="t_em">위험단계</label>
+          <select name="" id="">
+            <option value="0">시험</option>
+            <option value="1">주의</option>
+            <option value="2">경계</option>
+            <option value="3">위험</option>
+            <option value="4">심각</option>
+          </select>
+          이상
+        </div>
+        <div class="flex_wrap">
+          <div>
+            <header class="tit">
+              <h3>재난 선택</h3>
+            </header>
+            <div class="search tbl_top">
+              <form action="" class="search_form">
+                <ul class="search_lst">              
+                  <li>
+                    <select name="" id="" title="재난 대분류">
+                      <option value="">전체</option>
+                      <option value="">자연재난</option>
+                      <option value="">사회재난</option>
+                      <option value="">기타재난</option>
+                    </select>
+                    <select name="" id="" title="재난 중분류">
+                      <option value="">전체</option>
+                    </select>
+                  </li>
+                </ul>
+                <button type="submit" class="btn_default">검색</button>           
+              </form>
+            </div>
+            <div class="tbl_wrap">
+              <table id="disaster_lst" class="jq-grid"></table>
+            </div>
+          </div>
+          <div class="transfer_toolbar">
+            <button type="button" class="btn_add_right" title="선택 항목 추가">선택 항목 추가</button>
+            <button type="button" class="btn_del_left" title="선택 항목 제거">선택 항목 제거</button>
+          </div>
+          <div>
+            <header class="tit"><h3>선택된 재난</h3></header>
+            <div class="search tbl_top">
+              <form action="" class="search_form">
+                <ul class="search_lst">              
+                  <li>
+                    <select name="" id="" title="재난 대분류">
+                      <option value="">전체</option>
+                      <option value="">자연재난</option>
+                      <option value="">사회재난</option>
+                      <option value="">기타재난</option>
+                    </select>
+                    <select name="" id="" title="재난 중분류">
+                      <option value="">전체</option>
+                    </select>
+                  </li>
+                </ul>
+                <button type="submit" class="btn_default">검색</button>           
+              </form>
+            </div>
+            <div class="tbl_wrap">
+              <table id="selected_disaster" class="jq-grid"></table>
+            </div>
+          </div>
+        </div>
+      </section>
     </section>
     <section class="pop_foot">
       <button type="submit" class="btn_default">저장</button>
+      <button type="submit" class="btn_gray">삭제</button>
       <button type="button" class="btn_cancel">취소</button>
     </section>
   </form>
@@ -513,6 +570,40 @@ var grid2= $('#device_group').jqGrid({
     height:392,
     _resizeInPopover: true,
     autowidth:true,
+    gridComplete:     function () { $(this).gridResize(); }
+  }
+  );
+var mydata3 = [
+  { g1: '자연재난', g2: '태풍', g3: '태풍주의보', useYn: 'Y'},
+  { g1: '사회재난', g2: '민방위', g3: '민방위훈련', useYn: 'N'}
+];
+
+var grid3= $('#disaster_lst').jqGrid({
+    data:       mydata3,
+    datatype:   'local',
+    colModel: [
+      { label: '대분류',   name: 'g1',   align: 'center', width: 90},
+      { label: '중분류', name: 'g2',   align: 'center', width: 80},
+      { label: '소분류',    name: 'g3',  align: 'left', width: 180 }
+    ],
+    height:300,
+    _resizeInPopover: true,
+    autowidth:true,
+    multiselect:true,
+    gridComplete:     function () { $(this).gridResize(); }
+  });
+var grid4= $('#selected_disaster').jqGrid({
+    data:       mydata3,
+    datatype:   'local',
+    colModel: [
+      { label: '대분류',   name: 'g1',   align: 'center', width: 90},
+      { label: '중분류', name: 'g2',   align: 'center', width: 80},
+      { label: '소분류',    name: 'g3',  align: 'left', width: 180 }
+    ],
+    height:300,
+    _resizeInPopover: true,
+    autowidth:true,
+    multiselect:true,
     gridComplete:     function () { $(this).gridResize(); }
   });
 
