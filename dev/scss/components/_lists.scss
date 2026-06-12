@@ -49,3 +49,9 @@
     color: var.$gray-500;
   }
 }
+
+.info_lst{display:flex;align-items:center;gap:60px;width:100%;
+  dt{color:#000;font-size:16px;font-weight:600;border-right:2px solid #99a2aa;line-height:20px;padding:0 34px;}
+  dd{flex:1;}
+  strong{width:55px;text-align:center;border:1px solid #99a2aa;border-radius:10px;background-color:#dce0e4;margin-right:6px;font-weight:normal;color:#222;}
+}

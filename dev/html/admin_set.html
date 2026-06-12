@@ -18,18 +18,26 @@
       </header>
       <form action="">
         <div class="flex_vertical_wrap admin_set">
+          <section class="box_staticInfo">
+            <dl class="info_lst">
+              <dt>예경보 통합플랫폼<br/>접속정보</dt>
+              <dd><strong>서버 IP</strong>123.123.12.12</dd>
+              <dd><strong>Port</strong>9200</dd>
+              <dd><strong>ID</strong>Kitvalley</dd>
+            </dl>           
+          </section>
           <section class="section">
             <header class="tit">
-              <h2>사업자 정보</h2>
+              <h2>시스템 정보</h2>
             </header>
             <ul class="ipt_lst">
               <li>
-                <label for="">사업자 IP :</label>
+                <label for="">IP :</label>
                 <input type="text" class="is-invalid"> 
                 <!-- invalid class에 대해 의논 필요 -->
               </li>
               <li>
-                <label for="">이메일 :</label>
+                <label for="">Sender정보(이메일) :</label>
                 <input type="text">
               </li>
               <li>
@@ -47,7 +55,7 @@
               <h2>설치 정보</h2>
             </header>
             <ul class="ipt_lst">
-              <li>
+              <li>              
                 <label for="">로컬 IP :</label>
                 <input type="text">
               </li>            
@@ -56,30 +64,7 @@
                 <input type="text" disabled>
               </li>            
             </ul>
-          </section>
-          <section class="section">
-            <header class="tit">
-              <h2>접속정보</h2>
-            </header>
-            <ul class="ipt_lst">
-              <li>
-                <label for="">서버 IP :</label>
-                <input type="text">
-              </li> 
-              <li>
-                <label for="">Port :</label>
-                <input type="text">
-              </li> 
-              <li>
-                <label for="">ID :</label>
-                <input type="text">
-              </li> 
-              <li>
-                <label for="">비밀번호 :</label>
-                <input type="text">
-              </li>            
-            </ul>
-          </section>
+          </section>          
           <div class="section_bot">
             <div class="tool">
               <button type="button" class="btn_gray_line">초기화</button>
