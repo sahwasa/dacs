@@ -1245,7 +1245,7 @@ i, em {
   display: flex;
   align-items: center;
   min-height: 112px;
-  background: url(../../images/bg_boxInfo.png) 0 50% no-repeat #edeff2;
+  background: url(../images/bg_boxInfo.png) 0 50% no-repeat #edeff2;
   padding-left: 154px;
 }
 

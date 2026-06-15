@@ -24,5 +24,5 @@
 .box_grey {
   @include mixin.box($bgColor: var.$bg-default);
 }
-.box_staticInfo{display:flex;align-items:center;min-height:112px;background:url(../../images/bg_boxInfo.png) 0 50% no-repeat #edeff2;padding-left:154px;
+.box_staticInfo{display:flex;align-items:center;min-height:112px;background:url(../images/bg_boxInfo.png) 0 50% no-repeat #edeff2;padding-left:154px;
 }
