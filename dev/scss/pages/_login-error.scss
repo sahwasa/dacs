@@ -1,0 +1,85 @@
+@use "./abstracts/var" as v;
+@use "./abstracts/mixin" as m;
+
+// ============================================
+// Login Page Layout
+// ============================================
+
+.wrap:has(.login) {
+  @include m.flex($justify: center, $align: center, $direction: column);
+  width: 100vw;
+  height: 100vh;
+  gap: 34px;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #fff 58%, v.$bg-default 58%);
+  
+  .footer {
+    height: fit-content;
+    color: v.$gray-400;
+    font-size: v.$input-font-size;
+    background-color: transparent;
+  }
+}
+
+.login {
+  width: 800px;
+  gap: v.$spacing-5xl;
+  background-color: #fff;
+  border-radius: v.$box-border-radius;
+  box-shadow: 0 0 6px 0 rgba(3, 3, 3, 0.14);
+  text-align: center;
+  
+  header {
+    @include m.flex($align: center, $justify: center);
+    height: 160px;
+    background-color: v.$primary;
+    border-radius: v.$box-border-radius v.$box-border-radius 0 0;
+    
+    h1 {
+      display: inline-block;
+      color: #fff;
+      font-weight: normal;
+      font-size: 36px;
+    }
+    
+    strong {
+      color: #fff;
+      margin-right: 35px;
+    }
+  }
+}
+
+.login_ipt {
+  @include m.flex($align: flex-start, $direction: column);
+  gap: v.$spacing-xl;
+  margin-top: auto;
+  padding: 60px 140px;
+  border: 1px solid v.$gray-400;
+  border-top-width: 0;
+  border-radius: 0 0 v.$box-border-radius v.$box-border-radius;
+  
+  input:not([type="checkbox"]) {
+    width: 100%;
+    border-width: 0 0 1px;
+    border-radius: 0;
+    color: #000;
+    line-height: v.$spacing-4xl;
+  }
+}
+
+// ============================================
+// Error Page Layout
+// ============================================
+.wrap:has(.error) {
+  @include m.flex($justify: center, $align: center, $direction: column);
+  width: 100vw;
+  height: 100vh; 
+  overflow: hidden;
+  .error{@include m.flex($align:stretch);gap:138px;
+    strong{font-size:55px;font-weight:700;color:v.$primary;letter-spacing:-4.13px;line-height:1.18;margin-top:30px;}
+    p{font-size:20px;color:#484848;line-height:1.5;letter-spacing:-.5px;word-break: keep-all;}
+    &::before{@include m.shape(541px,435px);background:url(../../images/img_error.png) 0 0 no-repeat;}
+  }
+  .flex_vertical_wrap{gap:40px;} 
+  .btn_backhome{width:294px;font-size:24px;border:2px solid v.$primary;color:v.$primary;border-radius:36px;line-height:72px;text-align:center;margin-top:auto;}
+}

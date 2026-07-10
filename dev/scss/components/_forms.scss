@@ -15,7 +15,7 @@ input[list]::-webkit-calendar-picker-indicator{-webkit-appearance:none;-moz-appe
 }
 input:is([type="radio"],[type="checkbox"]).is-invalid,
 input.is-invalid{position:relative;box-shadow: 0 0 0 2px var.$error;background-color:#faebe9;color:var.$error;}
-.is-invalid{color:var.$error;}
+p.is-invalid{color:var.$error;}
 input:read-only{background-color:#eeeff1;}
 label:has(input){display:inline-flex;justify-content:flex-start;align-items:center;gap:5px;white-space:nowrap;}
 .required{

@@ -228,6 +228,7 @@
   padding: var.$spacing-xl;
   border: 1px solid #b4b4b4;
   box-shadow: var.$shadow-box;
+  pointer-events: none;
   
   & > strong {
     display: block;

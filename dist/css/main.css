@@ -1387,7 +1387,7 @@ input.is-invalid {
   color: #ec5a5a;
 }
 
-.is-invalid {
+p.is-invalid {
   color: #ec5a5a;
 }
 
@@ -2148,6 +2148,7 @@ textarea,
   padding: 15px;
   border: 1px solid #b4b4b4;
   box-shadow: 0 2px 9px rgba(0, 0, 0, 0.22);
+  pointer-events: none;
 }
 .layer > strong {
   display: block;
@@ -2620,6 +2621,60 @@ textarea,
   border-radius: 0;
   color: #000;
   line-height: 40px;
+}
+
+.wrap:has(.error) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.wrap:has(.error) .error {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-direction: row;
+  gap: 138px;
+}
+.wrap:has(.error) .error strong {
+  font-size: 55px;
+  font-weight: 700;
+  color: #1465c0;
+  letter-spacing: -4.13px;
+  line-height: 1.18;
+  margin-top: 30px;
+}
+.wrap:has(.error) .error p {
+  font-size: 20px;
+  color: #484848;
+  line-height: 1.5;
+  letter-spacing: -0.5px;
+  word-break: keep-all;
+}
+.wrap:has(.error) .error::before {
+  display: inline-block;
+  content: "";
+  overflow: hidden;
+  font-size: 0;
+  width: 541px;
+  height: 435px;
+  background: url(../../images/img_error.png) 0 0 no-repeat;
+}
+.wrap:has(.error) .flex_vertical_wrap {
+  gap: 40px;
+}
+.wrap:has(.error) .btn_backhome {
+  width: 294px;
+  font-size: 24px;
+  border: 2px solid #1465c0;
+  color: #1465c0;
+  border-radius: 36px;
+  line-height: 72px;
+  text-align: center;
+  margin-top: auto;
 }
 
 .type {
