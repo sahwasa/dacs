@@ -78,7 +78,7 @@
   .error{@include m.flex($align:stretch);gap:138px;
     strong{font-size:55px;font-weight:700;color:v.$primary;letter-spacing:-4.13px;line-height:1.18;margin-top:30px;}
     p{font-size:20px;color:#484848;line-height:1.5;letter-spacing:-.5px;word-break: keep-all;}
-    &::before{@include m.shape(541px,435px);background:url(../../images/img_error.png) 0 0 no-repeat;}
+    &::before{@include m.shape(541px,435px);background:url(../images/img_error.png) 0 0 no-repeat;margin-left:-100px;}
   }
   .flex_vertical_wrap{gap:40px;} 
   .btn_backhome{width:294px;font-size:24px;border:2px solid v.$primary;color:v.$primary;border-radius:36px;line-height:72px;text-align:center;margin-top:auto;}

@@ -2661,7 +2661,8 @@ textarea,
   font-size: 0;
   width: 541px;
   height: 435px;
-  background: url(../../images/img_error.png) 0 0 no-repeat;
+  background: url(../images/img_error.png) 0 0 no-repeat;
+  margin-left: -100px;
 }
 .wrap:has(.error) .flex_vertical_wrap {
   gap: 40px;
