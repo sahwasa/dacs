@@ -1389,6 +1389,38 @@ input.is-invalid {
 
 p.is-invalid {
   color: #ec5a5a;
+  position: absolute;
+  bottom: -19px;
+}
+
+td p.is-invalid {
+  border: 1px solid #ec5a5a;
+  background-color: #fff;
+  padding: 1px 6px 2px;
+  z-index: 1000;
+  border-radius: 3px;
+  bottom: -13px;
+  line-height: 1;
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.25);
+}
+td p.is-invalid::before {
+  display: inline-block;
+  content: "";
+  overflow: hidden;
+  font-size: 0;
+  width: 6px;
+  height: 6px;
+  position: absolute;
+  top: -4px;
+  left: 8px;
+  background: linear-gradient(133deg, #fff 65%, transparent 65%);
+  border: 1px solid #ec5a5a;
+  border-width: 1px 0 0 1px;
+  transform: rotate(37deg) skewY(15deg);
+}
+
+*:has(.is-invalid) {
+  position: relative;
 }
 
 input:read-only {

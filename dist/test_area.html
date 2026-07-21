@@ -176,6 +176,7 @@
               </div>
               <div class="flex1">
                 <label for="">종료시각</label><input type="datetime-local">
+                <p id="endDt-error" class="is-invalid">종료시각은 시작시각보다 이전일 수 없습니다.</p>
               </div>
             </li>
             <li>
@@ -200,7 +201,8 @@
                   <li>안양시 만안구<button type="button" class="btn_cross">삭제</button></li>
                 </ul>
                 <ul class="tag_lst" data-empty="지역을 추가해주세요."></ul>
-              </div>            
+              </div>
+              <p id="areaCount-error" class="is-invalid">지역을 하나 이상 선택해 주세요.</p>            
             </li>
           </ul>
           <ul class="ipt_lst">

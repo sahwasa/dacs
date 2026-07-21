@@ -15,7 +15,11 @@ input[list]::-webkit-calendar-picker-indicator{-webkit-appearance:none;-moz-appe
 }
 input:is([type="radio"],[type="checkbox"]).is-invalid,
 input.is-invalid{position:relative;box-shadow: 0 0 0 2px var.$error;background-color:#faebe9;color:var.$error;}
-p.is-invalid{color:var.$error;}
+p.is-invalid{color:var.$error;position:absolute;bottom:-19px;}
+td p.is-invalid{border:1px solid var.$error;background-color:#fff;padding:1px 6px 2px;z-index:1000;border-radius:3px;bottom:-13px;line-height:1;box-shadow:1px 1px 2px 1px rgba(0,0,0,.25);
+  &::before{@include mixin.shape(6px,6px);position: absolute;top:-4px;left:8px; background:linear-gradient(133deg, #fff 65%, transparent 65%);border:1px solid var.$error;border-width:1px 0 0 1px;transform:rotate(37deg) skewY(15deg);}
+}
+*:has(.is-invalid){position:relative;}
 input:read-only{background-color:#eeeff1;}
 label:has(input){display:inline-flex;justify-content:flex-start;align-items:center;gap:5px;white-space:nowrap;}
 .required{
